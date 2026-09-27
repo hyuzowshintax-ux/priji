@@ -1,0 +1,23 @@
+{
+  "name": "FREEZE29 — Official Orca Community",
+  "short_name": "FREEZE29",
+  "description": "Komunitas anak muda Indonesia: 6 divisi, kelas mingguan, mentor, dan FreezeFest. Sedingin es, sekuat orca.",
+  "lang": "id",
+  "dir": "ltr",
+  "start_url": "freeze-v2.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b0e13",
+  "theme_color": "#0b0e13",
+  "categories": ["social", "education", "community"],
+  "icons": [
+    { "src": "freeze-logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "freeze-logo.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Landing", "url": "freeze-v2.html" },
+    { "name": "Komunitas", "url": "freeze-community.html" },
+    { "name": "FreezePay Dashboard", "url": "freeze-dashboard.html" }
+  ]
+}

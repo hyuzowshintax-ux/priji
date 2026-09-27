@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /*.log$
+
+# Sitemap
+Sitemap: https://hyuzowshintax-ux.github.io/priji/sitemap.xml

@@ -1,0 +1,15 @@
+{
+  "name": "freeze29-official-site",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Website resmi FREEZE29 (Official Orca Community) — landing, komunitas, dan dashboard FreezePay.",
+  "scripts": {
+    "start": "node serve-freeze.cjs",
+    "dev": "node serve-freeze.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["freeze29", "komunitas", "orca", "landing-page", "tailwind"],
+  "license": "MIT"
+}

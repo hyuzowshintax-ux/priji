@@ -1,0 +1,27 @@
+# dependencies & logs
+node_modules/
+npm-debug.log*
+*.log
+push.out.log
+push.err.log
+push.pid
+
+# editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+desktop.ini
+
+# local env
+.env
+.env.local
+
+# patch helper scripts (dipakai saat maintenance)
+up-*.cjs
+lib-patch.cjs
+swap-logo-*.cjs
+patch-*.cjs
+verify.cjs
+jscheck.cjs
+domcheck.cjs

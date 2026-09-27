@@ -6,6 +6,19 @@
 <title>FreezePay — Event Wallet | FREEZE29 Official</title>
 <meta name="description" content="Dashboard keuangan FREEZE29 Official: kelola wallet divisi, kartu virtual, approvals dan ledger transparan.">
 <link rel="icon" type="image/png" href="freeze-logo.png">
+<meta name="theme-color" content="#0b0e13">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="freeze-logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FREEZE29">
+<meta property="og:title" content="FreezePay — Event Wallet | FREEZE29 Official">
+<meta property="og:description" content="Kelola wallet divisi, kartu virtual, approval, dan ledger transparan FREEZE29 dalam satu dashboard.">
+<meta property="og:image" content="freeze-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FreezePay — Event Wallet | FREEZE29">
+<meta name="twitter:description" content="Dashboard keuangan komunitas: wallet, kartu virtual, ledger, dan approval berjenjang.">
+<meta name="twitter:image" content="freeze-logo.png">
+<link rel="canonical" href="https://hyuzowshintax-ux.github.io/priji/freeze-dashboard.html">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -39,9 +52,18 @@ body{background:radial-gradient(800px 400px at 15% 0%,rgba(124,196,245,.35),tran
 .orca-sil{position:fixed;z-index:-1;pointer-events:none;filter:drop-shadow(0 24px 40px rgba(5,8,13,.35));}
 .orca-bubble{position:fixed;z-index:-1;border-radius:9999px;pointer-events:none;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.95),rgba(124,196,245,.25) 55%,transparent 70%);border:1px solid rgba(255,255,255,.5);}
 
+.ledger-search input::placeholder{color:#71717a}
+.suggest{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#141a24;border:1px solid rgba(124,196,245,.28);border-radius:14px;box-shadow:0 20px 44px -20px rgba(0,0,0,.85);overflow:hidden;z-index:70}
+.suggest button{display:flex;width:100%;gap:9px;align-items:center;padding:9px 12px;font-size:12.5px;font-weight:600;text-align:left;color:#d4d4d8}
+.suggest button:hover,.suggest button.sel{background:rgba(47,154,232,.22);color:#fff}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}}
+
+#fxprog{position:fixed;top:0;left:0;height:3px;width:0;z-index:120;background:linear-gradient(90deg,#0b0e13,#155e96,#2f9ae8,#7cc4f5);transition:width .12s linear;pointer-events:none}
 </style>
 </head>
 <body class="text-zinc-100 font-sans antialiased">
+<div id="fxprog" aria-hidden="true"></div>
+
 <div class="orca-ocean" aria-hidden="true"></div>
 <div class="orca-rays" aria-hidden="true"></div>
 <svg class="orca-crystals" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="iceG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".9"/><stop offset=".5" stop-color="#7cc4f5" stop-opacity=".45"/><stop offset="1" stop-color="#0b0e13" stop-opacity=".55"/></linearGradient><linearGradient id="deepG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc4f5" stop-opacity="0"/><stop offset="1" stop-color="#05080d" stop-opacity=".8"/></linearGradient></defs><rect x="0" y="520" width="1440" height="380" fill="url(#deepG)"/><g fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1.6"><polygon points="120,640 180,560 240,640 180,720" fill="url(#iceG)"/><polygon points="200,690 240,630 280,690 240,750" fill="url(#iceG)"/><polygon points="1180,660 1250,560 1320,660 1250,760" fill="url(#iceG)"/><polygon points="1290,710 1330,655 1370,710 1330,765" fill="url(#iceG)"/><polygon points="640,700 690,630 740,700 690,770" fill="url(#iceG)"/></g><g fill="#ffffff"><circle cx="180" cy="180" r="2.2"/><circle cx="420" cy="120" r="1.6"/><circle cx="760" cy="90" r="2"/><circle cx="1050" cy="150" r="1.8"/><circle cx="1280" cy="220" r="2.2"/></g></svg>
@@ -160,7 +182,8 @@ body{background:radial-gradient(800px 400px at 15% 0%,rgba(124,196,245,.35),tran
 <div class="xl:col-span-2 card p-5 sm:p-6">
 <div class="flex items-center justify-between gap-3 flex-wrap">
 <div><b class="text-[15px]">Wallet ledger</b><div class="text-[12px] text-zinc-500">Every movement in and out of this wallet</div></div>
-<div class="flex gap-2">
+<div class="flex gap-2"><div class="relative w-[220px] ledger-search"><i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500"></i><input id="ledgerSearch" autocomplete="off" aria-label="Cari transaksi ledger" placeholder="Cari transaksi..." class="w-full text-[12px] bg-white/5 border border-white/10 rounded-xl pl-9 pr-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-blue-500"></div>
+
 <div class="relative">
 <button onclick="document.getElementById('typeMenu').classList.toggle('hidden')" class="flex items-center gap-2 text-[12px] font-semibold border border-white/10 bg-white/5 px-3.5 py-2 rounded-xl"><i data-lucide="filter" class="w-3.5 h-3.5"></i>Type: <span id="typeLabel">All</span><i data-lucide="chevron-down" class="w-3.5 h-3.5"></i></button>
 <div id="typeMenu" class="hidden absolute right-0 mt-2 w-40 card p-1.5 z-20 text-[13px]">
@@ -247,6 +270,47 @@ body{background:radial-gradient(800px 400px at 15% 0%,rgba(124,196,245,.35),tran
 lucide.createIcons();
 let frozen=false, balance=53700000;
 function toggleSide(open){document.getElementById('mobileSide').classList.toggle('hidden',!open);}
+
+/* ===== SARAN OTOMATIS UNTUK LEDGER ===== */
+const L_DATA=[
+ {t:'Meta Ads',i:'megaphone',kw:'payment iklan ads meta'},
+ {t:'Vendor Katering FreezeFest',i:'utensils',kw:'vendor katering event'},
+ {t:'Top up dari Operating account',i:'arrow-down-left',kw:'topup deposit dana masuk'},
+ {t:'Refund tiket peserta',i:'rotate-ccw',kw:'refund tiket peserta'},
+ {t:'Sewa venue JCC Senayan',i:'building-2',kw:'venue sewa gedung event'},
+ {t:'Transfer ke divisi FreezeDev',i:'code-2',kw:'transfer divisi dev'},
+ {t:'Transfer ke divisi FreezeCare',i:'heart-handshake',kw:'transfer divisi sosial'},
+ {t:'Pembayaran merchandise',i:'shopping-bag',kw:'merchandise kaos tote bag'}
+];
+const ls=document.getElementById('ledgerSearch');
+if(ls){
+ const wrap=ls.parentElement;wrap.style.position='relative';
+ const box=document.createElement('div');box.className='suggest hidden';wrap.appendChild(box);
+ let items=[],idx=-1;
+ const close=()=>{box.classList.add('hidden');idx=-1;};
+ function apply(v){v=v.toLowerCase();let vis=0;
+  document.querySelectorAll('#ledgerBody tr').forEach(r=>{const show=!v||r.textContent.toLowerCase().includes(v);r.style.display=show?'':'none';if(show)vis++;});
+  const el=document.getElementById('ledgerCount');if(el)el.textContent=(v?'Menampilkan '+vis+' hasil untuk "'+v+'"':'Showing 184 movements');}
+ function render(){const v=ls.value.trim().toLowerCase();
+  items=L_DATA.filter(s=>!v||s.t.toLowerCase().includes(v)||s.kw.includes(v)).slice(0,6);
+  if(!items.length){close();return;}
+  box.innerHTML=items.map(s=>'<button type="button"><i data-lucide="'+(s.i||'search')+'" class="w-4 h-4 text-sky-400"></i>'+s.t+'</button>').join('');
+  box.classList.remove('hidden');idx=-1;lucide.createIcons();
+  box.querySelectorAll('button').forEach((b,k)=>b.onmousedown=ev=>{ev.preventDefault();ls.value=items[k].t;apply(items[k].t);close();toast('Filter ledger: '+items[k].t);});}
+ ls.addEventListener('focus',render);
+ ls.addEventListener('input',()=>{render();apply(ls.value);});
+ ls.addEventListener('keydown',ev=>{
+  if(box.classList.contains('hidden'))return;
+  if(ev.key==='ArrowDown'){idx=Math.min(idx+1,items.length-1);ev.preventDefault();}
+  else if(ev.key==='ArrowUp'){idx=Math.max(idx-1,0);ev.preventDefault();}
+  else if(ev.key==='Enter'&&idx>-1){ls.value=items[idx].t;apply(ls.value);close();return;}
+  else if(ev.key==='Escape'){close();return;}
+  else return;
+  box.querySelectorAll('button').forEach((b,k)=>b.classList.toggle('sel',k===idx));
+ });
+ ls.addEventListener('blur',()=>setTimeout(close,120));
+}
+
 function fmt(n){return 'Rp'+n.toLocaleString('id-ID');}
 function toast(msg){const t=document.getElementById('toast');document.getElementById('toastMsg').textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2600);}
 </script>
@@ -261,6 +325,8 @@ function filterType(t){document.getElementById('typeLabel').textContent=t;docume
 function toggleCvv(btn){const b=btn.closest('b');const showing=b.dataset.show==='1';b.dataset.show=showing?'0':'1';b.childNodes[0].textContent=showing?'••• ':'847 ';toast(showing?'CVV disembunyikan':'CVV ditampilkan 30 detik');if(!showing)setTimeout(()=>{b.dataset.show='0';b.childNodes[0].textContent='••• ';},30000);}
 document.addEventListener('click',e=>{const m=document.getElementById('typeMenu');if(m&&!m.classList.contains('hidden')&&!e.target.closest('#typeMenu')&&!e.target.closest('[onclick*=\"typeMenu\"]'))m.classList.add('hidden');});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeTopup();toggleSide(false);}});
+const fxprog2=document.getElementById("fxprog");if(fxprog2)addEventListener("scroll",()=>{const h=document.documentElement;fxprog2.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight||1)*100)+"%";},{passive:true});
+
 </script>
 </body>
 </html>

@@ -6,6 +6,20 @@
 <title>FREEZE29 — Official Orca Community - Together We Chill, Together We Grow</title>
 <meta name="description" content="FREEZE29 (Official Orca Community): 12.000+ kreator, developer, designer dan entrepreneur muda di 120+ kota Indonesia.">
 <link rel="icon" type="image/png" href="freeze-logo.png">
+<meta name="theme-color" content="#0b0e13">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="freeze-logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FREEZE29">
+<meta property="og:title" content="FREEZE29 — Official Orca Community">
+<meta property="og:description" content="12.000+ kreator, developer, designer & entrepreneur muda di 120+ kota Indonesia. Together We Chill, Together We Grow.">
+<meta property="og:image" content="freeze-logo.png">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FREEZE29 — Official Orca Community">
+<meta name="twitter:description" content="6 divisi, kelas mingguan, mentor, FreezeFest 2026. Join pod Orca — gratis.">
+<meta name="twitter:image" content="freeze-logo.png">
+<link rel="canonical" href="https://hyuzowshintax-ux.github.io/priji/freeze-community.html">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -34,9 +48,19 @@
 .orca-sil{position:fixed;z-index:-1;pointer-events:none;filter:drop-shadow(0 24px 40px rgba(5,8,13,.35));}
 .orca-bubble{position:fixed;z-index:-1;border-radius:9999px;pointer-events:none;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.95),rgba(124,196,245,.25) 55%,transparent 70%);border:1px solid rgba(255,255,255,.5);}
 
+#fxprog{position:fixed;top:0;left:0;height:3px;width:0;z-index:120;background:linear-gradient(90deg,#0b0e13,#155e96,#2f9ae8,#7cc4f5);transition:width .12s linear;pointer-events:none}
+.suggest{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1px solid rgba(47,154,232,.3);border-radius:14px;box-shadow:0 18px 40px -18px rgba(11,22,38,.45);overflow:hidden;z-index:60}
+.dark .suggest{background:#0d1522;border-color:rgba(124,196,245,.25)}
+.suggest button{display:flex;width:100%;gap:8px;align-items:center;padding:9px 12px;font-size:13px;font-weight:600;text-align:left;color:#334155}
+.dark .suggest button{color:#cbd5e1}
+.suggest button:hover,.suggest button.sel{background:#eef6fe;color:#0b0e13}
+.dark .suggest button:hover,.dark .suggest button.sel{background:rgba(47,154,232,.18);color:#fff}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}html{scroll-behavior:auto!important}}
+
 </style>
 </head>
 <body class="text-slate-900 dark:text-slate-100 font-sans antialiased overflow-x-hidden" style="background:transparent">
+<div id="fxprog" aria-hidden="true"></div>
 <div class="orca-ocean" aria-hidden="true"></div>
 <div class="orca-rays" aria-hidden="true"></div>
 <svg class="orca-crystals" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="iceG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".9"/><stop offset=".5" stop-color="#7cc4f5" stop-opacity=".45"/><stop offset="1" stop-color="#0b0e13" stop-opacity=".55"/></linearGradient><linearGradient id="deepG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc4f5" stop-opacity="0"/><stop offset="1" stop-color="#05080d" stop-opacity=".8"/></linearGradient></defs><rect x="0" y="520" width="1440" height="380" fill="url(#deepG)"/><g fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1.6"><polygon points="120,640 180,560 240,640 180,720" fill="url(#iceG)"/><polygon points="200,690 240,630 280,690 240,750" fill="url(#iceG)"/><polygon points="1180,660 1250,560 1320,660 1250,760" fill="url(#iceG)"/><polygon points="1290,710 1330,655 1370,710 1330,765" fill="url(#iceG)"/><polygon points="640,700 690,630 740,700 690,770" fill="url(#iceG)"/></g><g fill="#ffffff"><circle cx="180" cy="180" r="2.2"/><circle cx="420" cy="120" r="1.6"/><circle cx="760" cy="90" r="2"/><circle cx="1050" cy="150" r="1.8"/><circle cx="1280" cy="220" r="2.2"/></g></svg>
@@ -48,7 +72,7 @@
 <span class="orca-bubble" style="right:26vw;bottom:24vh;width:12px;height:12px;opacity:.4"></span>
 
 <div id="snowBox" class="fixed inset-0 pointer-events-none z-[5] overflow-hidden"></div>
-<div class="relative z-50 bg-gradient-to-r from-[#0b0e13] via-sky-600 to-[#0b0e13] text-white text-[13px] font-medium"><div class="max-w-7xl mx-auto px-4 py-2.5 text-center">🐋 FreezeFest 2026 ❄️ - 15-16 Nov di JCC Senayan <a href="#events" class="underline font-bold">Amankan Tiket</a></div></div>
+<div class="relative z-50 bg-gradient-to-r from-[#0b0e13] via-sky-600 to-[#0b0e13] text-white text-[13px] font-medium"><div class="max-w-7xl mx-auto px-4 py-2.5 text-center">🐋 FreezeFest 2026 ❄️ - 15-16 Nov di JCC Senayan <a href="#events" class="underline font-bold">Amankan Tiket</a> <span id="cdown" class="ml-1 hidden sm:inline-flex items-center gap-1 bg-white/15 border border-white/25 rounded-full px-2.5 py-0.5 text-[11.5px] font-bold">⏳ —</span></div></div>
 
 <header class="sticky top-0 z-40 glass border-b border-slate-200/70 dark:border-white/10">
 <div class="max-w-7xl mx-auto px-5 h-[72px] flex items-center justify-between gap-4">
@@ -88,7 +112,7 @@
 <div class="relative max-w-7xl mx-auto px-5 pt-12 pb-8 lg:pt-20 grid lg:grid-cols-2 gap-12 items-center">
 <div>
 <div class="inline-flex flex-wrap items-center gap-2 bg-white dark:bg-white/10 border border-slate-200 dark:border-white/10 rounded-full pl-1.5 pr-4 py-1.5 text-[13px] font-semibold shadow-sm mb-6">
-<span class="flex -space-x-2"><img src="freeze-logo.png" class="w-6 h-6 rounded-full border-2 border-white bg-white" style="object-fit:contain" alt="m"><img src="https://i.pravatar.cc/64?img=32" class="w-6 h-6 rounded-full border-2 border-white" alt="m"><img src="https://i.pravatar.cc/64?img=47" class="w-6 h-6 rounded-full border-2 border-white" alt="m"></span>
+<span class="flex -space-x-2"><img src="freeze-logo.png" class="w-6 h-6 rounded-full border-2 border-white bg-white" style="object-fit:contain" alt="m"><img src="<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='40' fill='%23155e96'/%3E%3Ctext x='40' y='52' font-family='system-ui,sans-serif' font-size='30' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EAR%3C/text%3E%3C/svg%3E" class="w-6 h-6 rounded-full border-2 border-white" alt="Avatar AR" loading="lazy" decoding="async">" class="w-6 h-6 rounded-full border-2 border-white" alt="m"><img src="<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='40' fill='%234aabf0'/%3E%3Ctext x='40' y='52' font-family='system-ui,sans-serif' font-size='30' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ESD%3C/text%3E%3C/svg%3E" class="w-6 h-6 rounded-full border-2 border-white" alt="Avatar SD" loading="lazy" decoding="async">" class="w-6 h-6 rounded-full border-2 border-white" alt="m"></span>
 <span><b class="text-sky-600">12.480+</b> member aktif</span><span class="text-amber-400">★★★★★ 4.9</span>
 </div>
 <h1 class="font-display font-bold text-[40px] sm:text-6xl leading-[1.03] tracking-tight">Together We Chill Like <span class="gradient-text">Ice,</span><br>Together We Grow.</h1>
@@ -111,8 +135,8 @@
 <div class="flex gap-1.5"><span class="w-3 h-3 bg-red-400 rounded-full"></span><span class="w-3 h-3 bg-amber-400 rounded-full"></span><span class="w-3 h-3 bg-emerald-400 rounded-full"></span></div>
 </div>
 <div class="space-y-3.5 text-[13.5px]">
-<div class="flex gap-2.5"><img src="https://i.pravatar.cc/64?img=5" class="w-8 h-8 rounded-full" alt="a"><div class="bg-slate-100 dark:bg-white/10 rounded-2xl rounded-tl-md px-3.5 py-2.5"><b class="text-sky-600">Sarah D.</b><p>Portfolio ku di-review mentor, langsung dapet referensi kerja!</p></div></div>
-<div class="flex gap-2.5"><img src="https://i.pravatar.cc/64?img=13" class="w-8 h-8 rounded-full" alt="b"><div class="bg-slate-100 dark:bg-white/10 rounded-2xl rounded-tl-md px-3.5 py-2.5"><b class="text-violet-500">Rizky P.</b><p>Hackathon Freeze juara 2! Hadiah 5jt + magang</p></div></div>
+<div class="flex gap-2.5"><img src="<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='40' fill='%232f9ae8'/%3E%3Ctext x='40' y='52' font-family='system-ui,sans-serif' font-size='30' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ESD%3C/text%3E%3C/svg%3E" class="w-8 h-8 rounded-full" alt="Avatar SD" loading="lazy" decoding="async">" class="w-8 h-8 rounded-full" alt="a"><div class="bg-slate-100 dark:bg-white/10 rounded-2xl rounded-tl-md px-3.5 py-2.5"><b class="text-sky-600">Sarah D.</b><p>Portfolio ku di-review mentor, langsung dapet referensi kerja!</p></div></div>
+<div class="flex gap-2.5"><img src="<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='40' fill='%230b0e13'/%3E%3Ctext x='40' y='52' font-family='system-ui,sans-serif' font-size='30' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ERP%3C/text%3E%3C/svg%3E" class="w-8 h-8 rounded-full" alt="Avatar RP" loading="lazy" decoding="async">" class="w-8 h-8 rounded-full" alt="b"><div class="bg-slate-100 dark:bg-white/10 rounded-2xl rounded-tl-md px-3.5 py-2.5"><b class="text-violet-500">Rizky P.</b><p>Hackathon Freeze juara 2! Hadiah 5jt + magang</p></div></div>
 <div class="flex justify-end"><div class="bg-sky-500 text-white rounded-2xl rounded-tr-md px-3.5 py-2.5 max-w-[80%]"><p>Malam ini sharing UI/UX jam 19.00, gas join</p></div></div>
 </div>
 </div>
@@ -155,10 +179,10 @@
 </div>
 </div>
 <div class="reveal grid grid-cols-2 gap-3.5">
-<img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80" class="rounded-2xl h-56 w-full object-cover" alt="team">
-<img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" class="rounded-2xl h-56 w-full object-cover mt-8" alt="event">
-<img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80" class="rounded-2xl h-56 w-full object-cover -mt-8" alt="workshop">
-<img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" class="rounded-2xl h-56 w-full object-cover" alt="meetup">
+<img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80" class="rounded-2xl h-56 w-full object-cover" alt="team">
+<img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" class="rounded-2xl h-56 w-full object-cover mt-8" alt="event">
+<img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&q=80" class="rounded-2xl h-56 w-full object-cover -mt-8" alt="workshop">
+<img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80" class="rounded-2xl h-56 w-full object-cover" alt="meetup">
 </div>
 </div>
 </section>
@@ -210,25 +234,25 @@
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-5 reveal">
 <div><span class="inline-flex items-center gap-1.5 text-emerald-600 bg-emerald-50 border border-emerald-200 font-bold text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider"><i data-lucide="calendar-days" class="w-3.5 h-3.5"></i> Event Mendatang</span>
 <h2 class="font-display font-bold text-3xl sm:text-5xl tracking-tight mt-4">Jangan sampai <span class="gradient-text">ketinggalan</span></h2></div>
-<div class="flex gap-2"><button class="tabBtn font-bold text-[13px] px-4 py-2.5 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-900 text-white" data-tab="all">Semua</button><button class="tabBtn font-bold text-[13px] px-4 py-2.5 rounded-xl border border-slate-200 dark:border-white/10" data-tab="offline">Offline</button><button class="tabBtn font-bold text-[13px] px-4 py-2.5 rounded-xl border border-slate-200 dark:border-white/10" data-tab="online">Online</button></div>
+<div class="flex flex-col sm:flex-row gap-2.5 sm:items-center w-full sm:w-auto"><div class="relative w-full sm:w-[280px]"><i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i><input id="eventSearch" autocomplete="off" aria-label="Cari event, divisi, atau prestasi" placeholder="Cari event / divisi..." class="w-full text-[13px] border border-slate-200 dark:border-white/10 dark:bg-white/5 rounded-xl pl-10 pr-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-sky-500"></div><div class="flex gap-2"><button class="tabBtn font-bold text-[13px] px-4 py-2.5 rounded-xl border border-slate-200 dark:border-white/10 bg-slate-900 text-white" data-tab="all">Semua</button><button class="tabBtn font-bold text-[13px] px-4 py-2.5 rounded-xl border border-slate-200 dark:border-white/10" data-tab="offline">Offline</button><button class="tabBtn font-bold text-[13px] px-4 py-2.5 rounded-xl border border-slate-200 dark:border-white/10" data-tab="online">Online</button></div></div>
 </div>
 <div class="mt-9 grid md:grid-cols-3 gap-5">
 <article data-cat="offline" class="eventCard reveal bg-white dark:bg-white/[.05] border border-slate-200 dark:border-white/10 rounded-3xl overflow-hidden hover:-translate-y-1.5 hover:shadow-2xl transition-all">
-<div class="relative h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80" class="w-full h-full object-cover" alt="FreezeFest"><span class="absolute top-3 left-3 bg-red-500 text-white text-[11px] font-bold px-2.5 py-1 rounded-full">FLAGSHIP</span></div>
+<div class="relative h-48 overflow-hidden"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&q=80" class="w-full h-full object-cover" alt="FreezeFest"><span class="absolute top-3 left-3 bg-red-500 text-white text-[11px] font-bold px-2.5 py-1 rounded-full">FLAGSHIP</span></div>
 <div class="p-6"><div class="text-xs font-bold text-sky-600">15-16 NOV 2026 • JCC Senayan</div>
 <h3 class="font-bold text-xl mt-2">FreezeFest 2026: Level Up</h3><p class="text-sm text-slate-500 mt-2">Festival 2 hari: 30+ speaker, job fair, expo karya, konser dan awarding.</p>
 <div class="mt-4 flex items-center justify-between"><span class="text-xs font-bold text-slate-400">2.000+ pendaftar</span><button onclick="openJoinModal()" class="bg-sky-500 hover:bg-sky-600 text-white text-[13px] font-bold px-5 py-2.5 rounded-xl">Daftar</button></div>
 </div>
 </article>
 <article data-cat="online" class="eventCard reveal bg-white dark:bg-white/[.05] border border-slate-200 dark:border-white/10 rounded-3xl overflow-hidden hover:-translate-y-1.5 hover:shadow-2xl transition-all">
-<div class="relative h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80" class="w-full h-full object-cover" alt="Bootcamp"><span class="absolute top-3 left-3 bg-emerald-500 text-white text-[11px] font-bold px-2.5 py-1 rounded-full">GRATIS</span></div>
+<div class="relative h-48 overflow-hidden"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80" class="w-full h-full object-cover" alt="Bootcamp"><span class="absolute top-3 left-3 bg-emerald-500 text-white text-[11px] font-bold px-2.5 py-1 rounded-full">GRATIS</span></div>
 <div class="p-6"><div class="text-xs font-bold text-emerald-600">05 OKT 2026 • Zoom Online</div>
 <h3 class="font-bold text-xl mt-2">Bootcamp Web Dev 4 Minggu</h3><p class="text-sm text-slate-500 mt-2">Dari nol sampai deploy. HTML, Tailwind, JS + 3 project portfolio.</p>
 <div class="mt-4 flex items-center justify-between"><span class="text-xs font-bold text-slate-400">850 peserta</span><button onclick="openJoinModal()" class="bg-slate-900 dark:bg-white dark:text-slate-900 text-white text-[13px] font-bold px-5 py-2.5 rounded-xl">Ikut</button></div>
 </div>
 </article>
 <article data-cat="offline" class="eventCard reveal bg-white dark:bg-white/[.05] border border-slate-200 dark:border-white/10 rounded-3xl overflow-hidden hover:-translate-y-1.5 hover:shadow-2xl transition-all">
-<div class="relative h-48 overflow-hidden"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80" class="w-full h-full object-cover" alt="Meetup"><span class="absolute top-3 left-3 bg-amber-500 text-white text-[11px] font-bold px-2.5 py-1 rounded-full">MEETUP</span></div>
+<div class="relative h-48 overflow-hidden"><img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80" class="w-full h-full object-cover" alt="Meetup"><span class="absolute top-3 left-3 bg-amber-500 text-white text-[11px] font-bold px-2.5 py-1 rounded-full">MEETUP</span></div>
 <div class="p-6"><div class="text-xs font-bold text-amber-600">12 OKT 2026 • 20 Kota</div>
 <h3 class="font-bold text-xl mt-2">Kopdar Chapter Serentak</h3><p class="text-sm text-slate-500 mt-2">Ngopi, networking dan games di 20 kota sekaligus. Bawa teman gratis!</p>
 <div class="mt-4 flex items-center justify-between"><span class="text-xs font-bold text-slate-400">1.000+ hadir</span><button onclick="openJoinModal()" class="bg-slate-900 dark:bg-white dark:text-slate-900 text-white text-[13px] font-bold px-5 py-2.5 rounded-xl">Ikut</button></div>
@@ -248,15 +272,15 @@
 </div>
 <div class="mt-10 flex gap-5 overflow-x-auto no-scrollbar pb-2">
 <div class="reveal shrink-0 w-[300px] sm:w-[340px] bg-white/5 border border-white/10 rounded-3xl overflow-hidden">
-<img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&q=80" class="h-44 w-full object-cover" alt="app">
+<img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&q=80" class="h-44 w-full object-cover" alt="app">
 <div class="p-6"><span class="text-[11px] font-bold bg-sky-500/20 text-sky-300 px-2.5 py-1 rounded-full">MOBILE APP</span><h3 class="font-bold text-lg mt-3">ChillPay — Split Bill</h3><p class="text-sm text-slate-400 mt-1.5">Oleh FreezeDev Bandung • 50k+ download</p></div>
 </div>
 <div class="reveal shrink-0 w-[300px] sm:w-[340px] bg-white/5 border border-white/10 rounded-3xl overflow-hidden">
-<img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80" class="h-44 w-full object-cover" alt="design">
+<img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80" class="h-44 w-full object-cover" alt="design">
 <div class="p-6"><span class="text-[11px] font-bold bg-violet-500/20 text-violet-300 px-2.5 py-1 rounded-full">BRANDING</span><h3 class="font-bold text-lg mt-3">Rebrand UMKM Naik Kelas</h3><p class="text-sm text-slate-400 mt-1.5">Oleh FreezeDesign • dipakai 200+ UMKM</p></div>
 </div>
 <div class="reveal shrink-0 w-[300px] sm:w-[340px] bg-white/5 border border-white/10 rounded-3xl overflow-hidden">
-<img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80" class="h-44 w-full object-cover" alt="game">
+<img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80" class="h-44 w-full object-cover" alt="game">
 <div class="p-6"><span class="text-[11px] font-bold bg-emerald-500/20 text-emerald-300 px-2.5 py-1 rounded-full">GAME</span><h3 class="font-bold text-lg mt-3">Es Batu Adventure</h3><p class="text-sm text-slate-400 mt-1.5">Oleh FreezePlay • juara Indie Game Fest</p></div>
 </div>
 </div>
@@ -273,17 +297,17 @@
 <div class="reveal bg-white dark:bg-white/[.05] border border-slate-200 dark:border-white/10 rounded-3xl p-7">
 <div class="text-amber-400 tracking-widest">★★★★★</div>
 <p class="mt-3 text-[15px] leading-relaxed">"Awalnya cuma iseng join. 8 bulan kemudian aku keterima kerja sebagai UI Designer berkat portfolio clinic di Freeze!"</p>
-<div class="mt-5 flex items-center gap-3"><img src="https://i.pravatar.cc/80?img=47" class="w-11 h-11 rounded-full" alt="t"><div><b class="text-sm">Sarah Dewi</b><div class="text-xs text-slate-500">UI Designer • Jakarta</div></div></div>
+<div class="mt-5 flex items-center gap-3"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='40' fill='%234aabf0'/%3E%3Ctext x='40' y='52' font-family='system-ui,sans-serif' font-size='30' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ESD%3C/text%3E%3C/svg%3E" class="w-11 h-11 rounded-full" alt="Avatar SD" loading="lazy" decoding="async"><div><b class="text-sm">Sarah Dewi</b><div class="text-xs text-slate-500">UI Designer • Jakarta</div></div></div>
 </div>
 <div class="reveal bg-slate-900 text-white rounded-3xl p-7 md:-translate-y-3 shadow-2xl">
 <div class="text-amber-400 tracking-widest">★★★★★</div>
 <p class="mt-3 text-[15px] leading-relaxed">"Komunitas paling sehat yang pernah aku ikuti. Nggak ada senioritas, semua saling bantu. Hackathon-nya nagih!"</p>
-<div class="mt-5 flex items-center gap-3"><img src="https://i.pravatar.cc/80?img=13" class="w-11 h-11 rounded-full" alt="t"><div><b class="text-sm">Rizky Pratama</b><div class="text-xs opacity-60">Backend Dev • Bandung</div></div></div>
+<div class="mt-5 flex items-center gap-3"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='40' fill='%230b0e13'/%3E%3Ctext x='40' y='52' font-family='system-ui,sans-serif' font-size='30' font-weight='700' fill='%23ffffff' text-anchor='middle'%3ERP%3C/text%3E%3C/svg%3E" class="w-11 h-11 rounded-full" alt="Avatar RP" loading="lazy" decoding="async"><div><b class="text-sm">Rizky Pratama</b><div class="text-xs opacity-60">Backend Dev • Bandung</div></div></div>
 </div>
 <div class="reveal bg-white dark:bg-white/[.05] border border-slate-200 dark:border-white/10 rounded-3xl p-7">
 <div class="text-amber-400 tracking-widest">★★★★★</div>
 <p class="mt-3 text-[15px] leading-relaxed">"Dari FreezeCare aku belajar leadership: mimpin 50 relawan bagi-bagi sembako. Nggak bakal didapat di kampus."</p>
-<div class="mt-5 flex items-center gap-3"><img src="https://i.pravatar.cc/80?img=32" class="w-11 h-11 rounded-full" alt="t"><div><b class="text-sm">Anisa Rahma</b><div class="text-xs text-slate-500">Mahasiswa • Surabaya</div></div></div>
+<div class="mt-5 flex items-center gap-3"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' rx='40' fill='%23155e96'/%3E%3Ctext x='40' y='52' font-family='system-ui,sans-serif' font-size='30' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EAR%3C/text%3E%3C/svg%3E" class="w-11 h-11 rounded-full" alt="Avatar AR" loading="lazy" decoding="async"><div><b class="text-sm">Anisa Rahma</b><div class="text-xs text-slate-500">Mahasiswa • Surabaya</div></div></div>
 </div>
 </div>
 </div>
@@ -423,6 +447,55 @@ function closeJoinModal(){const m=document.getElementById('joinModal');m.classLi
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeJoinModal();});
 function submitJoin(e){e.preventDefault();document.getElementById('ctaMsg').classList.remove('hidden');e.target.reset();}
 function submitModal(e){e.preventDefault();document.getElementById('modalMsg').classList.remove('hidden');setTimeout(closeJoinModal,1800);}
+
+/* ===== SARAN OTOMATIS + COUNTDOWN + PROGRESS ===== */
+const CS_DATA=[
+ {t:'FreezeFest 2026 — 15-16 Nov, JCC Senayan',i:'calendar-days',kw:'event tiket festival offline'},
+ {t:'Kopdar Jakarta — akhir bulan',i:'users',kw:'event offline kopdar jakarta'},
+ {t:'Webinar Online — Portfolio Review',i:'monitor-play',kw:'event online webinar portfolio'},
+ {t:'FreezeDev — divisi coding & open source',i:'code-2',kw:'divisi coding dev programmer'},
+ {t:'FreezeDesign — UI/UX & brand',i:'palette',kw:'divisi desain design'},
+ {t:'FreezePlay — gaming & esports',i:'gamepad-2',kw:'divisi gaming esports'},
+ {t:'FreezeBiz — career & bisnis',i:'briefcase',kw:'divisi bisnis karier'},
+ {t:'FreezeCare — volunteer & sosial',i:'heart-handshake',kw:'divisi volunteer sosial'},
+ {t:'FreezeContent — konten kreator',i:'clapperboard',kw:'divisi konten kreator'},
+ {t:'Prestasi: Valorant Juara 1 2025',i:'trophy',kw:'prestasi gaming trofi'}
+];
+const es=document.getElementById('eventSearch');
+if(es){
+ const wrap=es.parentElement;wrap.style.position='relative';
+ const box=document.createElement('div');box.className='suggest hidden';wrap.appendChild(box);
+ let items=[],idx=-1;
+ const close=()=>{box.classList.add('hidden');idx=-1;};
+ const filterCards=v=>{v=v.toLowerCase();document.querySelectorAll('.eventCard,.divisiCard,.prestasiCard').forEach(c=>{c.style.display=c.textContent.toLowerCase().includes(v)?'':'none';});};
+ function render(){const v=es.value.trim().toLowerCase();
+  items=CS_DATA.filter(s=>!v||s.t.toLowerCase().includes(v)||s.kw.includes(v)).slice(0,6);
+  if(!items.length){close();return;}
+  box.innerHTML=items.map(s=>'<button type="button"><i data-lucide="'+s.i+'" class="w-4 h-4 text-sky-500"></i>'+s.t+'</button>').join('');
+  box.classList.remove('hidden');idx=-1;lucide.createIcons();
+  box.querySelectorAll('button').forEach((b,k)=>b.onmousedown=ev=>{ev.preventDefault();es.value=items[k].t;filterCards(items[k].t);close();});}
+ es.addEventListener('focus',render);
+ es.addEventListener('input',()=>{render();filterCards(es.value);});
+ es.addEventListener('keydown',ev=>{
+  if(box.classList.contains('hidden'))return;
+  if(ev.key==='ArrowDown'){idx=Math.min(idx+1,items.length-1);ev.preventDefault();}
+  else if(ev.key==='ArrowUp'){idx=Math.max(idx-1,0);ev.preventDefault();}
+  else if(ev.key==='Enter'&&idx>-1){es.value=items[idx].t;filterCards(es.value);close();return;}
+  else if(ev.key==='Escape'){close();return;}
+  else return;
+  box.querySelectorAll('button').forEach((b,k)=>b.classList.toggle('sel',k===idx));
+ });
+ es.addEventListener('blur',()=>setTimeout(close,120));
+}
+(function(){const el=document.getElementById('cdown');if(!el)return;
+ const target=new Date('2026-11-15T09:00:00+07:00').getTime();
+ const tick=()=>{const d=target-Date.now();if(d<=0){el.textContent='Sedang berlangsung!';return;}
+  const dd=Math.floor(d/864e5),hh=Math.floor(d%864e5/36e5),mm=Math.floor(d%36e5/6e4);
+  el.textContent=dd+'h '+hh+'j '+mm+'m';};
+ tick();setInterval(tick,60000);})();
+const fxp=document.getElementById('fxprog');
+addEventListener('scroll',()=>{const h=document.documentElement;fxp.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight||1)*100)+'%';},{passive:true});
+
 const toTop=document.getElementById('toTop');
 addEventListener('scroll',()=>{toTop.classList.toggle('hidden',scrollY<=600);});
 toTop.onclick=()=>scrollTo({top:0,behavior:'smooth'});

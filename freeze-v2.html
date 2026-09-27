@@ -6,6 +6,21 @@
 <title>FREEZE29 — Official Orca Community — Semua Komunitasmu dalam Satu Platform</title>
 <meta name="description" content="FREEZE29 (Official Orca Community) menyatukan Discord, Instagram, TikTok dan kopdar offline dalam satu platform komunitas.">
 <link rel="icon" type="image/png" href="freeze-logo.png">
+<meta name="theme-color" content="#0b0e13">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="freeze-logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FREEZE29">
+<meta property="og:title" content="FREEZE29 — Official Orca Community">
+<meta property="og:description" content="12.480+ kreator, developer, designer & entrepreneur muda di 120+ kota. Sedingin es, sekuat orca.">
+<meta property="og:image" content="freeze-logo.png">
+<meta property="og:locale" content="id_ID">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FREEZE29 — Official Orca Community">
+<meta name="twitter:description" content="Komunitas anak muda Indonesia: 6 divisi, kelas mingguan, mentor, dan FreezeFest 2026.">
+<meta name="twitter:image" content="freeze-logo.png">
+<link rel="canonical" href="https://hyuzowshintax-ux.github.io/priji/freeze-v2.html">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"FREEZE29","alternateName":"Official Orca Community","url":"https://hyuzowshintax-ux.github.io/priji/","logo":"freeze-logo.png","foundingDate":"2020","foundingLocation":"Jakarta, Indonesia","areaServed":"Indonesia","sameAs":["https://github.com/hyuzowshintax-ux/priji"]},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Apa itu FREEZE29?","acceptedAnswer":{"@type":"Answer","text":"FREEZE29 adalah komunitas anak muda Indonesia dengan 12.480+ member di 120+ kota dan 6 divisi: FreezeDev, FreezeDesign, FreezePlay, FreezeBiz, FreezeCare, FreezeContent."}},{"@type":"Question","name":"Apakah gratis untuk bergabung?","acceptedAnswer":{"@type":"Answer","text":"Ya, gratis selamanya. Cukup punya akun Discord dan mengisi form join."}},{"@type":"Question","name":"Apa benefit menjadi member?","acceptedAnswer":{"@type":"Answer","text":"Akses 6 divisi, kelas mingguan, mentor 1-on-1, portfolio clinic, tiket FreezeFest, dan jaringan 120+ kota."}},{"@type":"Question","name":"Bagaimana cara ikut event offline?","acceptedAnswer":{"@type":"Answer","text":"Event diumumkan di Discord dan halaman Event. Ambil tiket lalu tunjukkan QR absensi saat datang."}},{"@type":"Question","name":"Apakah ada program untuk pelajar dan mahasiswa?","acceptedAnswer":{"@type":"Answer","text":"Ada. FreezeCare punya program volunteer dan info beasiswa, FreezeDev punya jalur belajar coding gratis."}},{"@type":"Question","name":"Bagaimana cara menjadi relawan atau pengurus?","acceptedAnswer":{"@type":"Answer","text":"Ikuti open recruitment tiap kuartal di Discord, atau mulai sebagai volunteer event terlebih dahulu."}}]}]}</script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
@@ -36,9 +51,22 @@
 .orca-sil{position:fixed;z-index:-1;pointer-events:none;filter:drop-shadow(0 24px 40px rgba(5,8,13,.35));}
 .orca-bubble{position:fixed;z-index:-1;border-radius:9999px;pointer-events:none;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.95),rgba(124,196,245,.25) 55%,transparent 70%);border:1px solid rgba(255,255,255,.5);}
 
+#fxprog{position:fixed;top:0;left:0;height:3px;width:0;z-index:120;background:linear-gradient(90deg,#0b0e13,#155e96,#2f9ae8,#7cc4f5);border-radius:0 3px 3px 0;transition:width .12s linear;pointer-events:none}
+.suggest{position:absolute;left:0;right:0;top:calc(100% + 6px);background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border:1px solid rgba(47,154,232,.28);border-radius:14px;box-shadow:0 18px 40px -18px rgba(11,22,38,.5);overflow:hidden;z-index:60}
+.suggest button{display:flex;width:100%;gap:8px;align-items:center;padding:8px 12px;font-size:12.5px;font-weight:600;text-align:left;color:#334155}
+.suggest button:hover,.suggest button.sel{background:#eef6fe;color:#0b0e13}
+details.faq{transition:box-shadow .25s,transform .25s}
+details.faq:hover{transform:translateY(-2px)}
+details.faq summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary i{transition:transform .28s cubic-bezier(.16,1,.3,1)}
+details.faq[open] summary i{transform:rotate(180deg)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}html{scroll-behavior:auto!important}}
+
 </style>
 </head>
 <body class="text-slate-900 font-sans antialiased" style="background:transparent">
+<div id="fxprog" aria-hidden="true"></div>
 <div class="orca-ocean" aria-hidden="true"></div>
 <div class="orca-rays" aria-hidden="true"></div>
 <svg class="orca-crystals" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="iceG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".9"/><stop offset=".5" stop-color="#7cc4f5" stop-opacity=".45"/><stop offset="1" stop-color="#0b0e13" stop-opacity=".55"/></linearGradient><linearGradient id="deepG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc4f5" stop-opacity="0"/><stop offset="1" stop-color="#05080d" stop-opacity=".8"/></linearGradient></defs><rect x="0" y="520" width="1440" height="380" fill="url(#deepG)"/><g fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1.6"><polygon points="120,640 180,560 240,640 180,720" fill="url(#iceG)"/><polygon points="200,690 240,630 280,690 240,750" fill="url(#iceG)"/><polygon points="1180,660 1250,560 1320,660 1250,760" fill="url(#iceG)"/><polygon points="1290,710 1330,655 1370,710 1330,765" fill="url(#iceG)"/><polygon points="640,700 690,630 740,700 690,770" fill="url(#iceG)"/></g><g fill="#ffffff"><circle cx="180" cy="180" r="2.2"/><circle cx="420" cy="120" r="1.6"/><circle cx="760" cy="90" r="2"/><circle cx="1050" cy="150" r="1.8"/><circle cx="1280" cy="220" r="2.2"/></g></svg>
@@ -63,12 +91,13 @@
 <a href="#featured" class="nav-link">Featured</a>
 <a href="#prestasi" class="nav-link">Prestasi</a>
 <a href="#pricing" class="nav-link">Pricing</a>
+<a href="#faq" class="nav-link">FAQ</a>
 <a href="#contact" class="nav-link">Contact</a>
 </nav>
 <div class="flex items-center gap-3">
 <a href="freeze-dashboard.html" class="hidden sm:inline-flex text-sm font-semibold border border-slate-200 px-5 py-2.5 rounded-full hover:border-slate-400 transition">Masuk Pod</a>
 <button onclick="openTrial()" class="text-sm font-semibold bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-full transition shadow-lg shadow-brand-600/25">Join Pod Orca</button>
-<button id="mobileBtn" class="lg:hidden w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center bg-white"><i data-lucide="menu" class="w-5 h-5"></i></button>
+<button id="mobileBtn" aria-label="Buka menu navigasi" class="lg:hidden w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center bg-white"><i data-lucide="menu" class="w-5 h-5"></i></button>
 </div>
 </header>
 <div id="mobileMenu" class="hidden lg:hidden relative z-20 mx-4 mb-2 bg-white border border-slate-200 rounded-2xl p-3 shadow-xl">
@@ -104,7 +133,7 @@
 <div class="flex items-center gap-2"><img src="freeze-logo.png" alt="FREEZE29" class="h-8 w-auto rounded-md logo-ice" style="background:#fff;padding:2px;"><div class="leading-tight"><div class="font-bold text-[14px]">Team Freeze</div><div class="text-[10px] text-brand-600 font-bold tracking-widest uppercase">Official • Orca Hub</div></div></div>
 <i data-lucide="panel-left" class="w-4 h-4 text-slate-300 hidden md:block"></i>
 </div>
-<div class="mt-4 relative hidden md:block"><i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i><input placeholder="Search" class="w-full text-[12px] border border-slate-200 rounded-lg pl-8 pr-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500"></div>
+<div class="mt-4 relative hidden md:block"><i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i><input id="sideSearch" autocomplete="off" aria-label="Cari menu atau fitur" placeholder="Search" class="w-full text-[12px] border border-slate-200 rounded-lg pl-8 pr-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500"></div>
 <nav class="mt-2 md:mt-4 flex md:flex-col gap-1 overflow-x-auto md:overflow-visible text-[13px] font-medium text-slate-600">
 <a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-slate-100 text-slate-900 font-semibold whitespace-nowrap"><i data-lucide="layout-dashboard" class="w-4 h-4 text-brand-600"></i>Dashboard</a>
 <a href="#featured" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-50 whitespace-nowrap"><i data-lucide="link" class="w-4 h-4"></i>Omnichannel</a>
@@ -117,9 +146,9 @@
 <!-- C5 -->
 <div class="flex-1 min-w-0 p-4 sm:p-6">
 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-<div><h3 class="font-bold text-[17px]">Welcome back, Orca Squad</h3><p class="text-[12px] text-slate-400">9 February 2024</p></div>
+<div><h3 class="font-bold text-[17px]">Welcome back, Orca Squad</h3><p class="text-[12px] text-slate-400" id="dashDate">—</p></div>
 <div class="flex items-center gap-2.5">
-<div class="relative flex-1 sm:w-[240px]"><i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i><input id="dashSearch" oninput="dashFilter(this.value)" placeholder="Search anything..." class="w-full text-[12px] border border-slate-200 rounded-full pl-8 pr-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500"></div>
+<div class="relative flex-1 sm:w-[240px]"><i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i><input id="dashSearch" autocomplete="off" aria-label="Cari data dashboard" oninput="dashFilter(this.value)" placeholder="Search anything..." class="w-full text-[12px] border border-slate-200 rounded-full pl-8 pr-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500"></div>
 <button onclick="toast('3 notifikasi baru: 2 tiket + 1 event')" class="relative w-9 h-9 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50"><i data-lucide="bell" class="w-4 h-4"></i><span class="absolute top-1.5 right-2 w-2 h-2 bg-red-500 rounded-full"></span></button>
 <div class="hidden sm:flex items-center gap-2"><span class="w-9 h-9 rounded-full bg-orca-900 text-sky-300 flex items-center justify-center"><i data-lucide="fish" class="w-4 h-4"></i></span><div class="leading-tight"><div class="text-[12px] font-bold">David Tandean</div><div class="text-[10px] text-slate-400">david@freeze.id</div></div></div>
 </div>
@@ -231,6 +260,22 @@
 </div>
 </div>
 </section>
+<!-- C8b FAQ -->
+<section id="faq" class="max-w-[1120px] mx-auto px-5 lg:px-8 pb-14 sm:pb-20">
+<div class="text-center max-w-2xl mx-auto reveal">
+<span class="text-[11px] font-bold tracking-[.2em] uppercase text-brand-600 bg-brand-50 border border-brand-100 px-4 py-1.5 rounded-full">FAQ</span>
+<h2 class="font-extrabold tracking-tight text-3xl sm:text-[42px] leading-tight mt-4">Pertanyaan yang sering muncul</h2>
+<p class="mt-3 text-slate-500 text-[15px]">Belum ketemu jawabannya? Tanya langsung di channel #tanya-jawab Discord kami.</p>
+</div>
+<div class="mt-8 grid md:grid-cols-2 gap-4">
+<details class="faq reveal frost-card rounded-2xl p-5" open><summary class="font-bold text-[15px]">Apa itu FREEZE29?<i data-lucide="chevron-down" class="w-4 h-4 text-brand-600 shrink-0"></i></summary><p class="text-[13.5px] text-slate-600 mt-3 leading-relaxed">FREEZE29 adalah komunitas anak muda Indonesia dengan <b>12.480+ member di 120+ kota</b> dan 6 divisi: FreezeDev, FreezeDesign, FreezePlay, FreezeBiz, FreezeCare, FreezeContent.</p></details>
+<details class="faq reveal frost-card rounded-2xl p-5"><summary class="font-bold text-[15px]">Apakah gratis untuk bergabung?<i data-lucide="chevron-down" class="w-4 h-4 text-brand-600 shrink-0"></i></summary><p class="text-[13.5px] text-slate-600 mt-3 leading-relaxed">Ya, <b>gratis selamanya</b>. Cukup punya akun Discord dan mengisi form join — tanpa biaya bulanan.</p></details>
+<details class="faq reveal frost-card rounded-2xl p-5"><summary class="font-bold text-[15px]">Apa benefit menjadi member?<i data-lucide="chevron-down" class="w-4 h-4 text-brand-600 shrink-0"></i></summary><p class="text-[13.5px] text-slate-600 mt-3 leading-relaxed">Akses 6 divisi, kelas mingguan, mentor 1-on-1, portfolio clinic, tiket prioritas FreezeFest, dan jaringan 120+ kota.</p></details>
+<details class="faq reveal frost-card rounded-2xl p-5"><summary class="font-bold text-[15px]">Bagaimana cara ikut event offline?<i data-lucide="chevron-down" class="w-4 h-4 text-brand-600 shrink-0"></i></summary><p class="text-[13.5px] text-slate-600 mt-3 leading-relaxed">Event diumumkan di Discord dan halaman Event. Ambil tiket, lalu tunjukkan <b>QR absensi</b> saat datang ke lokasi.</p></details>
+<details class="faq reveal frost-card rounded-2xl p-5"><summary class="font-bold text-[15px]">Ada program untuk pelajar &amp; mahasiswa?<i data-lucide="chevron-down" class="w-4 h-4 text-brand-600 shrink-0"></i></summary><p class="text-[13.5px] text-slate-600 mt-3 leading-relaxed">Ada. <b>FreezeCare</b> punya program volunteer &amp; info beasiswa, sementara <b>FreezeDev</b> membuka jalur belajar coding gratis.</p></details>
+<details class="faq reveal frost-card rounded-2xl p-5"><summary class="font-bold text-[15px]">Bagaimana cara jadi relawan/pengurus?<i data-lucide="chevron-down" class="w-4 h-4 text-brand-600 shrink-0"></i></summary><p class="text-[13.5px] text-slate-600 mt-3 leading-relaxed">Ikuti <b>open recruitment</b> setiap kuartal di Discord, atau mulai dulu sebagai volunteer event.</p></details>
+</div>
+</section>
 <!-- C9 -->
 <section id="contact" class="max-w-[1120px] mx-auto px-5 lg:px-8 pb-14 sm:pb-20">
 <div class="reveal relative overflow-hidden rounded-[28px] text-white p-10 md:p-16 text-center" style="background:linear-gradient(135deg,#05080d 0%,#0b0e13 35%,#155e96 75%,#2f9ae8 100%)">
@@ -249,7 +294,7 @@
 <footer class="pt-12 pb-4 flex flex-col md:flex-row items-center justify-between gap-5">
 <div class="flex items-center gap-2.5"><img src="freeze-logo.png" alt="FREEZE29" class="h-9 w-auto rounded-lg logo-ice" style="background:#fff;padding:2px;"><b class="text-[17px]">Team Freeze</b><span class="text-xs text-slate-400 ml-1">© 2026 • FREEZE29 Official</span></div>
 <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-[13px] font-medium text-slate-500">
-<a href="#home" class="hover:text-slate-900">Home</a><a href="#featured" class="hover:text-slate-900">Featured</a><a href="#prestasi" class="hover:text-slate-900">Prestasi</a><a href="#pricing" class="hover:text-slate-900">Pricing</a><a href="freeze-community.html" class="hover:text-slate-900">Versi Komunitas</a><a href="freeze-dashboard.html" class="hover:text-slate-900">Dashboard</a>
+<a href="#home" class="hover:text-slate-900">Home</a><a href="#featured" class="hover:text-slate-900">Featured</a><a href="#prestasi" class="hover:text-slate-900">Prestasi</a><a href="#pricing" class="hover:text-slate-900">Pricing</a><a href="#faq" class="hover:text-slate-900">FAQ</a><a href="freeze-community.html" class="hover:text-slate-900">Versi Komunitas</a><a href="freeze-dashboard.html" class="hover:text-slate-900">Dashboard</a>
 </div>
 </footer>
 </section>
@@ -260,7 +305,7 @@
 <button onclick="closeTrial()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
 <img src="freeze-logo.png" alt="FREEZE29 Official" class="h-14 w-auto rounded-xl logo-ice floaty" style="background:#fff;padding:2px;">
 <h3 class="font-extrabold text-2xl mt-4">Join FREEZE29 — free trial</h3>
-<p class="text-sm text-slate-500 mt-1">14 hari gratis. Sedigin es, tanpa kartu kredit.</p>
+<p class="text-sm text-slate-500 mt-1">14 hari gratis. Sedingin es, tanpa kartu kredit.</p>
 <form onsubmit="submitModal(event)" class="mt-5 space-y-3">
 <input required placeholder="Nama lengkap" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
 <input required type="email" placeholder="Email kerja" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
@@ -286,6 +331,54 @@ function closeTrial(){const m=document.getElementById('trialModal');m.classList.
 function submitTrial(e){e.preventDefault();document.getElementById('ctaMsg').classList.remove('hidden');e.target.reset();}
 function submitModal(e){e.preventDefault();document.getElementById('modalMsg').classList.remove('hidden');setTimeout(closeTrial,1700);}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeTrial();});
+/* ===== SARAN OTOMATIS (AUTO-SUGGEST) ===== */
+const SUGGEST_DATA=[
+ {t:'FreezeDev — divisi coding & open source',i:'code-2',kw:'coding dev programmer'},
+ {t:'FreezeDesign — UI/UX & brand design',i:'palette',kw:'desain design ui ux'},
+ {t:'FreezePlay — gaming & esports',i:'gamepad-2',kw:'gaming game esports valorant mlbb'},
+ {t:'FreezeBiz — career & entrepreneurship',i:'briefcase',kw:'bisnis karier kerja magang'},
+ {t:'FreezeCare — volunteer & sosial',i:'heart-handshake',kw:'volunteer sosial bakti'},
+ {t:'FreezeContent — konten kreator',i:'clapperboard',kw:'konten video reels tiktok'},
+ {t:'FreezeFest 2026 — 15-16 Nov, JCC Senayan',kw:'event tiket festival',i:'calendar-days'},
+ {t:'Kelas mingguan & mentor 1-on-1',kw:'kelas belajar mentor',i:'graduation-cap'},
+ {t:'Portfolio clinic untuk member',kw:'portfolio review',i:'folder-git-2'},
+ {t:'Total tickets / open tickets / response time',kw:'tiket statistik laporan',i:'bar-chart-3'},
+ {t:'Prestasi: Valorant Juara 1 2025',kw:'prestasi trofi gaming',i:'trophy'},
+ {t:'Prestasi: Hackathon ChillPay',kw:'prestasi coding hackathon',i:'medal'}
+];
+function attachSuggest(input){
+ if(!input) return;
+ const wrap=input.parentElement;wrap.style.position='relative';
+ const box=document.createElement('div');box.className='suggest hidden';wrap.appendChild(box);
+ let items=[],idx=-1;
+ function close(){box.classList.add('hidden');idx=-1;}
+ function render(q){
+  const v=q.trim().toLowerCase();
+  items=SUGGEST_DATA.filter(s=>!v||s.t.toLowerCase().includes(v)||s.kw.includes(v)).slice(0,6);
+  if(!items.length){close();return;}
+  box.innerHTML=items.map((s,n)=>'<button type="button" data-n="'+n+'" data-v="'+s.t.replace(/"/g,'')+'"><i data-lucide="'+(s.i||'search')+'" class="w-3.5 h-3.5"></i>'+s.t+'</button>').join('');
+  box.classList.remove('hidden');idx=-1;lucide.createIcons();
+  box.querySelectorAll('button').forEach((b,k)=>b.onmousedown=ev=>{ev.preventDefault();input.value=items[k].t;close();if(typeof dashFilter==='function')dashFilter(items[k].t);if(typeof toast==='function')toast('Saran dipilih: '+items[k].t);});
+ }
+ input.addEventListener('focus',()=>render(input.value));
+ input.addEventListener('input',()=>render(input.value));
+ input.addEventListener('keydown',ev=>{
+  if(box.classList.contains('hidden'))return;
+  if(ev.key==='ArrowDown'){idx=Math.min(idx+1,items.length-1);ev.preventDefault();}
+  else if(ev.key==='ArrowUp'){idx=Math.max(idx-1,0);ev.preventDefault();}
+  else if(ev.key==='Enter'&&idx>-1){input.value=items[idx].t;input.dispatchEvent(new Event('input'));close();return;}
+  else if(ev.key==='Escape'){close();return;}
+  else return;
+  box.querySelectorAll('button').forEach((b,k)=>b.classList.toggle('sel',k===idx));
+ });
+ input.addEventListener('blur',()=>setTimeout(close,120));
+}
+attachSuggest(document.getElementById('sideSearch'));
+attachSuggest(document.getElementById('dashSearch'));
+
+document.getElementById('dashDate').textContent=new Date().toLocaleDateString('id-ID',{day:'numeric',month:'long',year:'numeric'});
+const prog=document.getElementById('fxprog');addEventListener('scroll',()=>{const h=document.documentElement;const p=h.scrollTop/(h.scrollHeight-h.clientHeight||1)*100;prog.style.width=p+'%';},{passive:true});
+lucide.createIcons();
 </script>
 </body>
 </html>
