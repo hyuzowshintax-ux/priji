@@ -1,0 +1,892 @@
+﻿<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cendekia Harapan - Beasiswa Pendidikan Indonesia</title>
+<!-- Google Fonts: Plus Jakarta Sans & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#2d3133",
+            "on-background": "#191c1e",
+            "surface-container": "#eceef0",
+            "primary-fixed-dim": "#b3c7ed",
+            "surface-dim": "#d8dadc",
+            "on-secondary-fixed-variant": "#005137",
+            "error-container": "#ffdad6",
+            "tertiary": "#1c0a00",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-fixed": "#2f1500",
+            "outline": "#74777e",
+            "surface-tint": "#4b5f80",
+            "primary": "#000e25",
+            "secondary-container": "#82f5c1",
+            "tertiary-fixed": "#ffdcc3",
+            "on-tertiary-container": "#d27200",
+            "surface-container-low": "#f2f4f6",
+            "surface": "#f7f9fb",
+            "on-surface": "#191c1e",
+            "on-primary-fixed-variant": "#344767",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#68dba9",
+            "tertiary-container": "#3b1c00",
+            "primary-container": "#0e2442",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "on-primary-container": "#788caf",
+            "inverse-on-surface": "#eff1f3",
+            "secondary-fixed": "#85f8c4",
+            "primary-fixed": "#d6e3ff",
+            "on-primary-fixed": "#041b39",
+            "surface-variant": "#e0e3e5",
+            "on-surface-variant": "#44474e",
+            "on-secondary-container": "#00714e",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#93000a",
+            "background": "#f7f9fb",
+            "surface-bright": "#f7f9fb",
+            "on-tertiary-fixed-variant": "#6e3900",
+            "on-secondary-fixed": "#002114",
+            "on-tertiary": "#ffffff",
+            "surface-container-high": "#e6e8ea",
+            "secondary": "#006c4a",
+            "surface-container-highest": "#e0e3e5",
+            "tertiary-fixed-dim": "#ffb77d",
+            "outline-variant": "#c4c6ce",
+            "inverse-primary": "#b3c7ed"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "gutter": "1.5rem",
+            "gutter-mobile": "1rem",
+            "margin": "3rem",
+            "margin-mobile": "1.25rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Inter"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "title-md": ["Plus Jakarta Sans"],
+            "title-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"],
+            "body-lg": ["Inter"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Plus Jakarta Sans"],
+            "display-md": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "display-md-mobile": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "0em", "fontWeight": "700" }],
+            "title-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "title-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "26px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "600" }],
+            "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display-md": ["44px", { "lineHeight": "54px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg": ["56px", { "lineHeight": "68px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "display-md-mobile": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    /* Subtle custom batik motif abstraction watermark */
+    .batik-watermark {
+      background-image: radial-gradient(circle at 50% 50%, rgba(14, 36, 66, 0.04) 1px, transparent 1px),
+                        radial-gradient(circle at 0% 0%, rgba(14, 36, 66, 0.03) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .card-ambient-shadow {
+      box-shadow: 0 4px 20px -2px rgba(14, 36, 66, 0.06);
+    }
+    .floating-card-shadow {
+      box-shadow: 0 12px 32px -4px rgba(14, 36, 66, 0.10);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- ==================== TOP NAVIGATION BAR (SHARED COMPONENT) ==================== -->
+<header class="bg-surface/90 backdrop-blur-md dark:bg-inverse-surface/90 docked full-width top-0 sticky z-50 shadow-sm border-b border-outline-variant/30 dark:border-outline/20">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between w-full">
+<!-- Brand Logo -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center text-on-tertiary-container shadow-sm group-hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined text-2xl text-tertiary-fixed" data-icon="auto_stories" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+</div>
+<div>
+<span class="text-title-lg font-title-lg text-primary dark:text-inverse-primary font-bold tracking-tight block leading-tight">Cendekia Harapan</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant block tracking-wider uppercase">Beasiswa Pendidikan Indonesia</span>
+</div>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center space-x-8">
+<!-- Active Link: Beranda -->
+<a class="text-primary dark:text-primary-fixed font-title-md border-b-2 border-secondary pb-1 scale-98 active:scale-95 transition-transform duration-150" href="#beranda">Beranda</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-label-md hover:text-primary dark:hover:text-primary-fixed transition-colors hover:text-secondary duration-200" href="#kategori">Kategori Beasiswa</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-label-md hover:text-primary dark:hover:text-primary-fixed transition-colors hover:text-secondary duration-200" href="#alur-seleksi">Alur Seleksi</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-label-md hover:text-primary dark:hover:text-primary-fixed transition-colors hover:text-secondary duration-200" href="#cerita-alumni">Cerita Alumni</a>
+<a class="text-on-surface-variant dark:text-outline-variant font-label-md hover:text-primary dark:hover:text-primary-fixed transition-colors hover:text-secondary duration-200" href="#faq">FAQ</a>
+</nav>
+<!-- Trailing Action Controls -->
+<div class="flex items-center gap-3">
+<!-- Language Switcher -->
+<button class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-outline-variant/60 text-on-surface-variant hover:text-primary hover:bg-surface-container-low transition-colors duration-150 text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-base" data-icon="translate">translate</span>
+<span>ID | EN</span>
+</button>
+<!-- Secondary Action: Masuk Akun -->
+<a class="hidden lg:inline-flex items-center justify-center px-4 py-2 rounded-lg border border-outline-variant hover:border-primary text-primary font-label-md text-label-md transition-colors hover:bg-surface-container-low" href="#masuk">
+          Masuk Akun
+        </a>
+<!-- Primary CTA: Daftar Sekarang -->
+<a class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md shadow-sm hover:bg-on-secondary-container transition-all scale-98 active:scale-95 duration-150 gap-2" href="#daftar">
+<span>Daftar Sekarang</span>
+<span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<main class="flex-grow">
+<!-- ==================== HERO SECTION ==================== -->
+<section class="relative py-16 md:py-24 bg-surface-bright batik-watermark overflow-hidden border-b border-outline-variant/20" id="beranda">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Column Content -->
+<div class="lg:col-span-7 flex flex-col items-start space-y-6">
+<!-- Active Status Badge -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed border border-tertiary-fixed-dim font-label-sm text-label-sm">
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-on-tertiary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-on-tertiary-container"></span>
+</span>
+<span>âœ¨ Pendaftaran Gelombang I 2025/2026 Telah Dibuka</span>
+</div>
+<!-- Headline -->
+<h1 class="text-display-md lg:text-display-lg font-display-md lg:font-display-lg text-primary tracking-tight">
+              Buka Peluang Pendidikan Tanpa Batas
+            </h1>
+<!-- Subheadline -->
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl">
+              Program pendanaan penuh biaya kuliah (tuition fee), tunjangan hidup bulanan, dana riset, dan pelatihan kepemimpinan untuk putra-putri terbaik bangsa di universitas terkemuka dalam &amp; luar negeri.
+            </p>
+<!-- CTA Actions -->
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto pt-2">
+<a class="inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md hover:bg-primary transition-all duration-200 shadow-md" href="#kategori">
+<span>Cari Program Beasiswa</span>
+<span class="material-symbols-outlined text-lg" data-icon="explore">explore</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-primary hover:bg-surface-container-low font-label-md text-label-md transition-colors duration-150" href="#panduan">
+<span class="material-symbols-outlined text-xl text-secondary" data-icon="download">download</span>
+<span>Unduh Panduan PDF (Buku Panduan 2025)</span>
+</a>
+</div>
+<!-- Fast Highlight Micro-Metrics -->
+<div class="flex items-center gap-6 pt-4 border-t border-outline-variant/40 w-full">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-label-sm font-label-sm text-on-surface">Kementerian &amp; Lembaga Resmi</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="school" style="font-variation-settings: 'FILL' 1;">school</span>
+<span class="text-label-sm font-label-sm text-on-surface">Terakreditasi Unggul</span>
+</div>
+</div>
+</div>
+<!-- Right Column / Visual Hero Card -->
+<div class="lg:col-span-5 relative">
+<!-- Decorative Gradient Backdrop -->
+<div class="absolute -inset-2 bg-gradient-to-tr from-secondary/15 via-primary-fixed-dim/20 to-tertiary-fixed/30 rounded-2xl filter blur-xl opacity-70"></div>
+<div class="relative bg-surface-container-lowest rounded-2xl border border-outline-variant/50 p-6 floating-card-shadow">
+<div class="relative h-64 sm:h-72 w-full rounded-xl overflow-hidden mb-6">
+<img class="w-full h-full object-cover" data-alt="A portrait of proud diverse Indonesian university students wearing modern academic blazers and graduation sashes smiling in front of a grand library hall. The scene is bathed in warm natural lighting with crisp architectural lines in the background. The visual tone highlights institutional prestige, dignified dark navy blues, and subtle gold tones evoking intellectual leadership." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdIt2QkhX5DsGitsGO5RG15gyCwwtse4JS0aJ1txTMH6hNlXyXtOjwGJBufSVW5y1XO6x0lePaxJXOpwossDA2Z6gtq6H3fJybasV_LeuzdcCnTcRZrChrnlBt1pvUG_h5H4FHFupw66VhZjT7GQy5mt2DqYU-As5aeRuTqfUJVSiW4OnJo6oFdXOAR_gsgPwLidF5lH-hPh3LihWw1i2jscoO7tc72tPX_Z00hRa94d8UEhB4VF6-xCE10OqbaNebUpLliUrRNMYG"/>
+<div class="absolute bottom-3 left-3 right-3 p-3 rounded-lg bg-primary/80 backdrop-blur-md text-surface-container-lowest flex items-center justify-between">
+<div>
+<p class="text-label-sm font-label-sm text-secondary-fixed">Status Seleksi Nasional</p>
+<p class="text-title-md font-title-md font-bold">14 Hari Tersisa untuk Gelombang I</p>
+</div>
+<span class="material-symbols-outlined text-tertiary-fixed text-2xl" data-icon="hourglass_top">hourglass_top</span>
+</div>
+</div>
+<!-- Quick Eligibility Mini-Widget -->
+<div class="space-y-3">
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+                    Jenjang Didanai:
+                  </span>
+<span class="font-semibold text-primary">S1, S2, &amp; Riset Khusus</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+                    Cakupan Dana:
+                  </span>
+<span class="font-semibold text-primary">100% Penuh + Biaya Hidup</span>
+</div>
+<div class="flex items-center justify-between text-body-sm font-body-sm">
+<span class="text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check_circle">check_circle</span>
+                    Mitra Akademik:
+                  </span>
+<span class="font-semibold text-primary">100+ Perguruan Tinggi Terkemuka</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Trust Indicators Bar / Floating Stat Cards Bento -->
+<div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Stat 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/40 card-ambient-shadow flex items-start space-x-4">
+<div class="p-3 rounded-lg bg-secondary-container/40 text-on-secondary-container">
+<span class="material-symbols-outlined text-3xl" data-icon="groups">groups</span>
+</div>
+<div>
+<p class="text-headline-md font-headline-md text-primary font-bold">5.000+</p>
+<p class="text-title-md font-title-md text-on-surface font-semibold">Mahasiswa Terbantu</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Dari Sabang sampai Merauke</p>
+</div>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/40 card-ambient-shadow flex items-start space-x-4">
+<div class="p-3 rounded-lg bg-primary-fixed/50 text-on-primary-fixed-variant">
+<span class="material-symbols-outlined text-3xl" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<p class="text-headline-md font-headline-md text-primary font-bold">100+</p>
+<p class="text-title-md font-title-md text-on-surface font-semibold">Kampus Mitra</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">UI, ITB, UGM, NUS, Oxford, dll.</p>
+</div>
+</div>
+<!-- Stat 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/40 card-ambient-shadow flex items-start space-x-4">
+<div class="p-3 rounded-lg bg-tertiary-fixed text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-3xl" data-icon="payments">payments</span>
+</div>
+<div>
+<p class="text-headline-md font-headline-md text-primary font-bold">100%</p>
+<p class="text-title-md font-title-md text-on-surface font-semibold">Dana Pendidikan Penuh</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Termasuk uang saku &amp; asuransi</p>
+</div>
+</div>
+<!-- Stat 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/40 card-ambient-shadow flex items-start space-x-4">
+<div class="p-3 rounded-lg bg-secondary-fixed text-on-secondary-fixed">
+<span class="material-symbols-outlined text-3xl" data-icon="trending_up">trending_up</span>
+</div>
+<div>
+<p class="text-headline-md font-headline-md text-primary font-bold">Rp 45 M+</p>
+<p class="text-title-md font-title-md text-on-surface font-semibold">Dana Tersalurkan</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Investasi masa depan generasi bangsa</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== KATEGORI BEASISWA (PROGRAM UNGGULAN) ==================== -->
+<section class="py-20 bg-surface" id="kategori">
+<div class="max-w-7xl mx-auto px-6">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+<div>
+<span class="text-secondary font-label-md text-label-md uppercase tracking-wider font-semibold block mb-2">Pilar Pendanaan</span>
+<h2 class="text-headline-lg font-headline-lg text-primary">Program Beasiswa Unggulan</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2 max-w-2xl">
+              Pilihan skema beasiswa berorientasi prestasi dan kebermanfaatan sosial dengan fasilitas terlengkap sesuai fokus potensimu.
+            </p>
+</div>
+<a class="inline-flex items-center gap-2 text-primary font-title-md hover:text-secondary transition-colors" href="#semua-program">
+<span>Lihat Seluruh Skema (8 Skema)</span>
+<span class="material-symbols-outlined text-xl" data-icon="arrow_right_alt">arrow_right_alt</span>
+</a>
+</div>
+<!-- Scholarship Cards Grid (4 Program Cards) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Program 1: Beasiswa Prestasi S1/S2 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/60 p-6 card-ambient-shadow hover:border-primary/40 transition-all flex flex-col justify-between">
+<div>
+<!-- Top Row -->
+<div class="flex items-start justify-between gap-4 mb-4">
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-label-sm font-label-sm border border-outline-variant/30">
+                  Terbuka S1 &amp; S2
+                </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm border border-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_month">calendar_month</span>
+<span>Deadline: 30 April 2025</span>
+</span>
+</div>
+<!-- Title & Brief -->
+<h3 class="text-headline-sm font-headline-sm text-primary mb-2">Beasiswa Prestasi S1/S2</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-5">
+                Khusus mahasiswa berprestasi akademik tinggi, aktif berorganisasi kepemimpinan, dan memiliki visi riset/karier yang progresif untuk kemajuan Indonesia.
+              </p>
+<!-- Benefit Chips -->
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 rounded-full bg-secondary-container/50 text-on-secondary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span> Tunjangan Rp 4.500.000/bln
+                </span>
+<span class="px-3 py-1 rounded-full bg-secondary-container/50 text-on-secondary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span> UKT/Tuition Fee 100%
+                </span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="menu_book">menu_book</span> Dana Buku &amp; Laptop
+                </span>
+</div>
+</div>
+<!-- Bottom Divider & Action Button -->
+<div class="pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="text-body-sm font-body-sm text-on-surface-variant">
+                Kuota: <span class="font-semibold text-primary">1.200 Penerima</span>
+</div>
+<a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md transition-colors" href="#daftar">
+<span>Lihat Detail &amp; Daftar</span>
+<span class="material-symbols-outlined text-base" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Program 2: Beasiswa Afirmasi Daerah 3T -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/60 p-6 card-ambient-shadow hover:border-primary/40 transition-all flex flex-col justify-between">
+<div>
+<!-- Top Row -->
+<div class="flex items-start justify-between gap-4 mb-4">
+<span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm border border-secondary-container">
+                  Prioritas Wilayah 3T
+                </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm border border-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_month">calendar_month</span>
+<span>Deadline: 15 Mei 2025</span>
+</span>
+</div>
+<!-- Title & Brief -->
+<h3 class="text-headline-sm font-headline-sm text-primary mb-2">Beasiswa Afirmasi Daerah 3T</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-5">
+                Akses pendidikan tinggi yang setara bagi pemuda dari wilayah Terdepan, Terluar, dan Tertinggal untuk kembali membangun daerah asalnya.
+              </p>
+<!-- Benefit Chips -->
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 rounded-full bg-secondary-container/50 text-on-secondary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span> Tunjangan Hidup &amp; Tempat Tinggal
+                </span>
+<span class="px-3 py-1 rounded-full bg-secondary-container/50 text-on-secondary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="flight_takeoff">flight_takeoff</span> Transportasi Awal Penuh
+                </span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="school">school</span> Pembinaan Matrikulasi
+                </span>
+</div>
+</div>
+<!-- Bottom Divider & Action Button -->
+<div class="pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="text-body-sm font-body-sm text-on-surface-variant">
+                Kuota: <span class="font-semibold text-primary">850 Penerima</span>
+</div>
+<a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md transition-colors" href="#daftar">
+<span>Lihat Detail &amp; Daftar</span>
+<span class="material-symbols-outlined text-base" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Program 3: Beasiswa Riset & Teknologi -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/60 p-6 card-ambient-shadow hover:border-primary/40 transition-all flex flex-col justify-between">
+<div>
+<!-- Top Row -->
+<div class="flex items-start justify-between gap-4 mb-4">
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-label-sm font-label-sm border border-outline-variant/30">
+                  S2 &amp; Riset Terapan
+                </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm border border-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_month">calendar_month</span>
+<span>Deadline: 20 Mei 2025</span>
+</span>
+</div>
+<!-- Title & Brief -->
+<h3 class="text-headline-sm font-headline-sm text-primary mb-2">Beasiswa Riset &amp; Teknologi</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-5">
+                Program akselerasi sains terapan, energi baru terbarukan, rekayasa biomedis, dan kecerdasan buatan (AI) yang bekerja sama dengan laboratorium kelas dunia.
+              </p>
+<!-- Benefit Chips -->
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 rounded-full bg-secondary-container/50 text-on-secondary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span> Hibah Riset s.d. Rp 75 Juta
+                </span>
+<span class="px-3 py-1 rounded-full bg-secondary-container/50 text-on-secondary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="hub">hub</span> Akses Laboratorium Mitra
+                </span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="groups_2">groups_2</span> Mentoring Peneliti Senior
+                </span>
+</div>
+</div>
+<!-- Bottom Divider & Action Button -->
+<div class="pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="text-body-sm font-body-sm text-on-surface-variant">
+                Kuota: <span class="font-semibold text-primary">500 Peneliti</span>
+</div>
+<a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md transition-colors" href="#daftar">
+<span>Lihat Detail &amp; Daftar</span>
+<span class="material-symbols-outlined text-base" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Program 4: Beasiswa Talenta Seni & Olahraga -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/60 p-6 card-ambient-shadow hover:border-primary/40 transition-all flex flex-col justify-between">
+<div>
+<!-- Top Row -->
+<div class="flex items-start justify-between gap-4 mb-4">
+<span class="px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant text-label-sm font-label-sm border border-outline-variant/40">
+                  Semua Jenjang
+                </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm border border-tertiary-fixed-dim">
+<span class="material-symbols-outlined text-sm" data-icon="calendar_month">calendar_month</span>
+<span>Deadline: 28 Mei 2025</span>
+</span>
+</div>
+<!-- Title & Brief -->
+<h3 class="text-headline-sm font-headline-sm text-primary mb-2">Beasiswa Talenta Seni &amp; Olahraga</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-5">
+                Apresiasi kehormatan negara bagi pemuda-pemudi peraih prestasi medali nasional &amp; internasional di bidang seni budaya, atletik, dan inovasi kreatif.
+              </p>
+<!-- Benefit Chips -->
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 rounded-full bg-secondary-container/50 text-on-secondary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span> Biaya Kuliah Penuh 100%
+                </span>
+<span class="px-3 py-1 rounded-full bg-secondary-container/50 text-on-secondary-container font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span> Dana Pengembangan Diri
+                </span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="military_tech">military_tech</span> Dispensasi Kompetisi Resmi
+                </span>
+</div>
+</div>
+<!-- Bottom Divider & Action Button -->
+<div class="pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="text-body-sm font-body-sm text-on-surface-variant">
+                Kuota: <span class="font-semibold text-primary">350 Penerima</span>
+</div>
+<a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary-container text-on-primary hover:bg-primary font-label-md text-label-md transition-colors" href="#daftar">
+<span>Lihat Detail &amp; Daftar</span>
+<span class="material-symbols-outlined text-base" data-icon="chevron_right">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== ALUR PENDAFTARAN (ROADMAP SELEKSI) ==================== -->
+<section class="py-20 bg-surface-bright border-y border-outline-variant/30" id="alur-seleksi">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-secondary font-label-md text-label-md uppercase tracking-wider font-semibold block mb-2">Roadmap Transparan</span>
+<h2 class="text-headline-lg font-headline-lg text-primary">Alur Pendaftaran &amp; Seleksi</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">
+            Proses seleksi dirancang terstandar, akuntabel, dan bebas dari segala bentuk pungutan biaya.
+          </p>
+</div>
+<!-- Horizontal Steps Container -->
+<div class="relative">
+<!-- Desktop Connecting Line -->
+<div class="hidden lg:block absolute top-12 left-16 right-16 h-0.5 bg-outline-variant/50 -z-0"></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+<!-- Step 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/60 card-ambient-shadow flex flex-col">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-headline-md font-bold ring-4 ring-tertiary-fixed">
+                  1
+                </div>
+<span class="text-label-sm font-label-sm px-2.5 py-1 bg-surface-container text-on-surface-variant rounded-md">Tahap 1</span>
+</div>
+<h4 class="text-title-lg font-title-lg text-primary mb-2">Registrasi Akun</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex-grow">
+                Pembuatan akun portal resmi beasiswa dan verifikasi NIK KTP / data diri secara terpadu melalui verifikasi digital.
+              </p>
+<div class="mt-4 pt-3 border-t border-outline-variant/30 text-label-sm font-label-sm text-secondary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base" data-icon="schedule">schedule</span>
+<span>Estimasi: 15 Menit</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/60 card-ambient-shadow flex flex-col">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-headline-md font-bold ring-4 ring-surface-variant">
+                  2
+                </div>
+<span class="text-label-sm font-label-sm px-2.5 py-1 bg-surface-container text-on-surface-variant rounded-md">Tahap 2</span>
+</div>
+<h4 class="text-title-lg font-title-lg text-primary mb-2">Seleksi Administrasi</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex-grow">
+                Unggah berkas nilai rapor/transkrip, esai rencana kontribusi, portofolio prestasi, dan surat rekomendasi.
+              </p>
+<div class="mt-4 pt-3 border-t border-outline-variant/30 text-label-sm font-label-sm text-secondary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base" data-icon="schedule">schedule</span>
+<span>Proses Review: 7-10 Hari</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant/60 card-ambient-shadow flex flex-col">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center font-headline-md font-bold ring-4 ring-surface-variant">
+                  3
+                </div>
+<span class="text-label-sm font-label-sm px-2.5 py-1 bg-surface-container text-on-surface-variant rounded-md">Tahap 3</span>
+</div>
+<h4 class="text-title-lg font-title-lg text-primary mb-2">Wawancara &amp; Esai</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex-grow">
+                Uji komprehensif pendalaman komitmen kepemimpinan serta wawancara panelis akademisi &amp; praktisi independen.
+              </p>
+<div class="mt-4 pt-3 border-t border-outline-variant/30 text-label-sm font-label-sm text-secondary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base" data-icon="schedule">schedule</span>
+<span>Jadwal Terjadwal Daring</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-secondary/40 card-ambient-shadow flex flex-col relative overflow-hidden">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-headline-md font-bold ring-4 ring-secondary-container">
+                  4
+                </div>
+<span class="text-label-sm font-label-sm px-2.5 py-1 bg-secondary-container text-on-secondary-container font-semibold rounded-md">Final</span>
+</div>
+<h4 class="text-title-lg font-title-lg text-primary mb-2">Penetapan Penerima</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant flex-grow">
+                Pengumuman resmi Awardee, penandatanganan pakta integritas, serta onboarding program pembinaan nasional.
+              </p>
+<div class="mt-4 pt-3 border-t border-outline-variant/30 text-label-sm font-label-sm text-secondary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base" data-icon="workspace_premium">workspace_premium</span>
+<span>Penerbitan Surat Keputusan</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tips & Guidance Callout -->
+<div class="mt-12 bg-primary-container text-on-primary p-6 rounded-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-tertiary-fixed text-on-tertiary-fixed rounded-lg">
+<span class="material-symbols-outlined text-2xl" data-icon="lightbulb" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<div>
+<p class="text-title-md font-title-md font-bold">Tips Sukses Lolos Seleksi</p>
+<p class="text-body-sm font-body-sm text-on-primary-container">Pastikan penulisan esai mencerminkan rencana aksi nyata yang berdampak langsung untuk masyarakat Indonesia.</p>
+</div>
+</div>
+<a class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-container-lowest text-primary font-label-md text-label-md hover:bg-surface-container-low transition-colors whitespace-nowrap" href="#panduan">
+<span>Pelajari Rubrik Penilaian</span>
+<span class="material-symbols-outlined text-base" data-icon="arrow_outward">arrow_outward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- ==================== PERSYARATAN & DOKUMEN ==================== -->
+<section class="py-20 bg-surface">
+<div class="max-w-7xl mx-auto px-6">
+<div class="max-w-3xl mb-12">
+<span class="text-secondary font-label-md text-label-md uppercase tracking-wider font-semibold block mb-2">Kelayakan Pendaftar</span>
+<h2 class="text-headline-lg font-headline-lg text-primary">Persyaratan &amp; Dokumen Wajib</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">
+            Harap siapkan kelengkapan administrasi sebelum memulai pengisian formulir pendaftaran daring.
+          </p>
+</div>
+<!-- 2-Column Balanced Architecture -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Column 1: Kriteria Umum -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/60 p-8 card-ambient-shadow">
+<div class="flex items-center gap-3 mb-6 pb-4 border-b border-outline-variant/30">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center text-primary font-bold">
+<span class="material-symbols-outlined" data-icon="assignment_ind">assignment_ind</span>
+</div>
+<div>
+<h3 class="text-title-lg font-title-lg text-primary">Kriteria Umum Pelamar</h3>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Prasyarat administratif pendaftar beasiswa</span>
+</div>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md font-body-md text-on-surface"><strong>Warga Negara Indonesia (WNI)</strong> yang memiliki identitas kependudukan resmi.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md font-body-md text-on-surface">Merupakan <strong>mahasiswa aktif</strong> atau <strong>calon mahasiswa</strong> yang telah diterima di perguruan tinggi mitra terakreditasi.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md font-body-md text-on-surface">Memiliki <strong>IPK minimal 3.25</strong> pada skala 4.00 (khusus mahasiswa berjalan S1/S2) atau nilai rapor rata-rata 85.00 bagi lulusan SMA/sederajat.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md font-body-md text-on-surface">Tidak sedang menerima pembiayaan beasiswa penuh sejenis dari instansi/lembaga lain.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-body-md font-body-md text-on-surface">Bersedia menandatangani <strong>pakta integritas komitmen berkontribusi</strong> untuk pembangunan daerah/nasional pascastudi.</span>
+</li>
+</ul>
+</div>
+<!-- Column 2: Dokumen Penting -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/60 p-8 card-ambient-shadow">
+<div class="flex items-center gap-3 mb-6 pb-4 border-b border-outline-variant/30">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed font-bold">
+<span class="material-symbols-outlined" data-icon="folder_zip">folder_zip</span>
+</div>
+<div>
+<h3 class="text-title-lg font-title-lg text-primary">Dokumen Wajib Unggah</h3>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Format berkas PDF maksimal 2MB per file</span>
+</div>
+</div>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0" data-icon="description">description</span>
+<div>
+<span class="text-body-md font-body-md font-semibold text-primary block">Pindai KTP &amp; Kartu Keluarga</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Pastikan NIK terbaca dengan jelas dan valid di data kependudukan.</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0" data-icon="description">description</span>
+<div>
+<span class="text-body-md font-body-md font-semibold text-primary block">Transkrip Akademik Terlegalisir</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Memuat rincian Indeks Prestasi Kumulatif atau nilai rapor 3 semester terakhir.</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0" data-icon="description">description</span>
+<div>
+<span class="text-body-md font-body-md font-semibold text-primary block">Esai Rencana Studi &amp; Kontribusi Bangsa</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Esai 800 - 1.200 kata mengenai rencana studi, target riset, dan dampak nyata.</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0" data-icon="description">description</span>
+<div>
+<span class="text-body-md font-body-md font-semibold text-primary block">2 Surat Rekomendasi Akademik</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Diberikan oleh Dosen Pembimbing, Dekan, atau Tokoh Masyarakat terverifikasi.</span>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-xl mt-0.5 flex-shrink-0" data-icon="description">description</span>
+<div>
+<span class="text-body-md font-body-md font-semibold text-primary block">Sertifikat Bahasa Asing / Portofolio (Opsional)</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Skor TOEFL/IELTS resmi atau bukti prestasi kompetisi juara 1-3.</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== CERITA ALUMNI & TESTIMONI ==================== -->
+<section class="py-20 bg-surface-bright border-b border-outline-variant/30" id="cerita-alumni">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-secondary font-label-md text-label-md uppercase tracking-wider font-semibold block mb-2">Jejak Langkah Nyata</span>
+<h2 class="text-headline-lg font-headline-lg text-primary">Cerita Alumni &amp; Suara Awardee</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-2">
+            Menyimak pengalaman para generasi unggul yang kini berkiprah bagi kemajuan ilmu dan masyarakat Indonesia.
+          </p>
+</div>
+<!-- 3 Alumni Testimonial Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/50 p-6 card-ambient-shadow flex flex-col justify-between">
+<div>
+<div class="text-tertiary-fixed-dim mb-4">
+<span class="material-symbols-outlined text-4xl text-on-tertiary-container" data-icon="format_quote" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface mb-6 italic leading-relaxed">
+                "Berkat Cendekia Harapan, saya dapat meneliti teknologi energi terbarukan tanpa beban finansial keluarga. Jejaring mentor akademiknya membuka kolaborasi laboratorium di tingkat internasional."
+              </p>
+</div>
+<div class="flex items-center gap-4 pt-4 border-t border-outline-variant/30">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-primary/20">
+<img class="w-full h-full object-cover" data-alt="Close up professional portrait of Nadhira, a young confident Southeast Asian female scholar wearing an emerald green scarf and blazer, smiling warmly in a modern research laboratory." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAX7CXBTzTg20Tmb-rphdFDNXUI4SwdSSH3jpj-tl0L5B-jdJYACUiFuKLNX3FcQZx1jMTVw2vqR1AAus6GOAiWw9m-HR4wOph0re2j3nALufxKL374e-YQX7SDevRAEXhGwKHRe-TWUMnRQp6yM-yccIC12PLxm-I9nDZPHDtYAoaERiCFCJ5xppsKieYosO_sNSryYHCmHqdRHfakoDGGXZe7kSUQUWGxvsQqD9nxHBOYvX-uEv0mjRIVMOzOwWyS9jvboNDf2Ar4"/>
+</div>
+<div>
+<h4 class="text-title-md font-title-md text-primary font-bold">Nadhira P.</h4>
+<p class="text-label-sm font-label-sm text-secondary font-semibold">Awardee Prestasi S2 UGM &amp; NTU</p>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Peneliti Energi Bersih</span>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/50 p-6 card-ambient-shadow flex flex-col justify-between">
+<div>
+<div class="text-tertiary-fixed-dim mb-4">
+<span class="material-symbols-outlined text-4xl text-on-tertiary-container" data-icon="format_quote" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface mb-6 italic leading-relaxed">
+                "Program ini membuktikan bahwa anak daerah terpencil pun berhak meraih mimpi pendidikan tinggi. Kini saya pulang ke Maluku untuk memimpin proyek digitalisasi pendidikan anak-anak pesisir."
+              </p>
+</div>
+<div class="flex items-center gap-4 pt-4 border-t border-outline-variant/30">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-primary/20">
+<img class="w-full h-full object-cover" data-alt="Portrait of Farhan, an Indonesian young man in his mid twenties smiling outdoors near a university library, dressed in neat smart casual navy shirt with vibrant natural background lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzVJX8ecsDYU6O--Y_AUqxWkWEjgwnGzu09jCU-dnHHx7jWUkyWZ6XF0q2koH32PM1jc_3bOVPjzeUHD0AQq9XLRe7V96eCdZc_yr2epgd6HODRPoKXhzXnohUb99jwtHZnHLX2ugjhKtsVgdHvScNLS1t5h5lLqUdhSv3Y4gKO38GSO89jMFIE5SxKtykWxh1RerhzYAYH5ry_MBSz64vCnSYXqSFL0OtXMKOvhI9xGEbBTkGUxR1-_2yks6OLGkJu2_daYb02qcd"/>
+</div>
+<div>
+<h4 class="text-title-md font-title-md text-primary font-bold">Farhan Ramadhan</h4>
+<p class="text-label-sm font-label-sm text-secondary font-semibold">Awardee Afirmasi 3T, Universitas Indonesia</p>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Inisiator Edukasi Bahari</span>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/50 p-6 card-ambient-shadow flex flex-col justify-between">
+<div>
+<div class="text-tertiary-fixed-dim mb-4">
+<span class="material-symbols-outlined text-4xl text-on-tertiary-container" data-icon="format_quote" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface mb-6 italic leading-relaxed">
+                "Dukungan penuh tidak hanya dana, tapi jaringan mentor kepemimpinan yang luar biasa solid. Saya mampu merepresentasikan seni kriya Indonesia di berbagai forum seni desain dunia."
+              </p>
+</div>
+<div class="flex items-center gap-4 pt-4 border-t border-outline-variant/30">
+<div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 ring-2 ring-primary/20">
+<img class="w-full h-full object-cover" data-alt="Creative studio headshot portrait of Siti, a smiling Indonesian female artist wearing contemporary batik attire with soft ambient studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoC2hL1BDvLK6_FSYNilsGGG19Xg-4z03Y-B-2XMu1-OqH-Sq3PoT-ajtRFsxHWmEpNd-JiMqUIPtwfJ-MKQv5jWIJRtMEw7bR9Xj9M9klsTBsslNLRYwcbvxWMue5eXzRcPnWohxUxcZ330MgPjt-PL-y1PbJlxFTvq3SqqXr5CHVtC4_mwIAvTk5gVvrP2NwTfAgCcFwgljx0UE3wOO5hTUbdTHYPcMmjx0REsc5I8kdDPsXskZ-EAMGzrljUqOxUHMmpYlpCawX"/>
+</div>
+<div>
+<h4 class="text-title-md font-title-md text-primary font-bold">Siti Aliyah</h4>
+<p class="text-label-sm font-label-sm text-secondary font-semibold">Awardee Talenta Seni, ITB</p>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Perupa &amp; Desainer Tekstil</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== FAQ SECTION QUICK ACCORDION ==================== -->
+<section class="py-20 bg-surface" id="faq">
+<div class="max-w-4xl mx-auto px-6">
+<div class="text-center mb-12">
+<span class="text-secondary font-label-md text-label-md uppercase tracking-wider font-semibold block mb-2">Tanya Jawab</span>
+<h2 class="text-headline-lg font-headline-lg text-primary">Pertanyaan yang Sering Diajukan (FAQ)</h2>
+</div>
+<div class="space-y-4">
+<details class="group bg-surface-container-lowest rounded-xl border border-outline-variant/60 p-6 [&amp;_summary::-webkit-details-marker]:hidden" open="">
+<summary class="flex items-center justify-between cursor-pointer font-title-lg text-title-lg text-primary font-semibold">
+<span>Apakah beasiswa ini mendanai studi di luar negeri?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-secondary" data-icon="expand_more">expand_more</span>
+</summary>
+<p class="text-body-md font-body-md text-on-surface-variant mt-4 leading-relaxed">
+              Ya, skema Beasiswa Prestasi dan Beasiswa Riset &amp; Teknologi mendanai studi di 50 universitas luar negeri terbaik yang telah menjadi mitra resmi Cendekia Harapan (seperti di Singapura, Australia, Inggris, dan Jepang).
+            </p>
+</details>
+<details class="group bg-surface-container-lowest rounded-xl border border-outline-variant/60 p-6 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex items-center justify-between cursor-pointer font-title-lg text-title-lg text-primary font-semibold">
+<span>Berapa batas usia maksimal untuk mendaftar jenjang S1 dan S2?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-secondary" data-icon="expand_more">expand_more</span>
+</summary>
+<p class="text-body-md font-body-md text-on-surface-variant mt-4 leading-relaxed">
+              Batas usia maksimal untuk pendaftar jenjang S1 adalah 21 tahun saat mendaftar. Untuk jenjang S2, batas usia maksimal adalah 28 tahun (untuk jalur reguler) dan 32 tahun (khusus jalur afirmasi daerah 3T).
+            </p>
+</details>
+<details class="group bg-surface-container-lowest rounded-xl border border-outline-variant/60 p-6 [&amp;_summary::-webkit-details-marker]:hidden">
+<summary class="flex items-center justify-between cursor-pointer font-title-lg text-title-lg text-primary font-semibold">
+<span>Apakah ada ikatan dinas setelah menyelesaikan masa studi?</span>
+<span class="material-symbols-outlined transition-transform group-open:rotate-180 text-secondary" data-icon="expand_more">expand_more</span>
+</summary>
+<p class="text-body-md font-body-md text-on-surface-variant mt-4 leading-relaxed">
+              Penerima beasiswa diwajibkan untuk kembali dan berkontribusi di wilayah Negara Kesatuan Republik Indonesia minimal 2n+1 (2 kali masa studi ditambah 1 tahun) baik di sektor publik, privat, maupun wirausaha sosial.
+            </p>
+</details>
+</div>
+</div>
+</section>
+<!-- ==================== BANNER PENGINGAT DEADLINE & CTA BAWAH ==================== -->
+<section class="py-16 bg-surface-bright" id="daftar">
+<div class="max-w-7xl mx-auto px-6">
+<div class="relative rounded-2xl bg-primary-container text-on-primary overflow-hidden p-8 md:p-14 shadow-2xl border border-secondary/30">
+<!-- Abstract Golden/Emerald Glow Background -->
+<div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-secondary/20 filter blur-3xl pointer-events-none"></div>
+<div class="absolute -left-20 -top-20 w-80 h-80 rounded-full bg-tertiary-fixed/15 filter blur-3xl pointer-events-none"></div>
+<div class="relative z-10 max-w-3xl">
+<!-- Urgent Tag -->
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm font-semibold mb-6">
+<span class="material-symbols-outlined text-sm" data-icon="alarm">alarm</span>
+<span>Waktu Terbatas Gelombang I</span>
+</div>
+<!-- Title -->
+<h2 class="text-headline-lg md:text-display-md font-headline-lg md:font-display-md text-on-primary font-bold tracking-tight mb-4">
+              Jangan Lewatkan Kesempatan Emas Ini! Pendaftaran Gelombang I Ditutup Dalam 14 Hari.
+            </h2>
+<p class="text-body-lg font-body-lg text-on-primary-container mb-8">
+              Wujudkan lompatan karier dan impian menimba ilmu di kampus impian tanpa terkendala biaya. Buat akun sekarang dan lengkapi berkas sebelum batas waktu berakhir.
+            </p>
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+<a class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-secondary text-on-secondary font-title-md text-title-md font-bold hover:bg-on-secondary-container transition-all scale-98 active:scale-95 duration-150 shadow-lg" href="#">
+<span>Daftar Akun Sekarang</span>
+<span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg border border-outline-variant/60 text-surface-container-lowest hover:bg-primary/60 font-label-md text-label-md transition-colors" href="#">
+<span class="material-symbols-outlined text-xl text-tertiary-fixed" data-icon="file_download">file_download</span>
+<span>Unduh Template Surat Rekomendasi</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- ==================== FOOTER (SHARED COMPONENT) ==================== -->
+<footer class="bg-primary dark:bg-primary-container docked full-width bottom-0 border-t border-primary-container dark:border-outline/20">
+<div class="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6 w-full">
+<!-- Brand & Info Block -->
+<div class="flex flex-col items-center md:items-start text-center md:text-left">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-8 h-8 rounded bg-secondary flex items-center justify-center text-on-secondary">
+<span class="material-symbols-outlined text-lg" data-icon="auto_stories" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+</div>
+<span class="text-headline-sm font-headline-sm text-surface-container-lowest font-bold">Cendekia Harapan</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-primary-container max-w-md">
+          Portal beasiswa pendidikan tinggi terintegrasi mencetak generasi pemimpin masa depan berdaya saing global untuk Indonesia Emas.
+        </p>
+<p class="text-label-sm font-label-sm text-outline-variant mt-4">
+          Â© 2025 Cendekia Harapan - Beasiswa Pendidikan Indonesia. Hak Cipta Dilindungi Undang-Undang.
+        </p>
+</div>
+<!-- Footer Navigation Links -->
+<div class="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-3">
+<a class="text-on-primary-container dark:text-outline-variant text-body-sm font-body-sm hover:text-on-primary dark:hover:text-inverse-on-surface transition-colors hover:text-secondary-fixed duration-200 hover:underline" href="#tentang">Tentang Program</a>
+<a class="text-on-primary-container dark:text-outline-variant text-body-sm font-body-sm hover:text-on-primary dark:hover:text-inverse-on-surface transition-colors hover:text-secondary-fixed duration-200 hover:underline" href="#kampus-mitra">Kampus Mitra</a>
+<a class="text-on-primary-container dark:text-outline-variant text-body-sm font-body-sm hover:text-on-primary dark:hover:text-inverse-on-surface transition-colors hover:text-secondary-fixed duration-200 hover:underline" href="#panduan">Panduan Pendaftaran</a>
+<a class="text-on-primary-container dark:text-outline-variant text-body-sm font-body-sm hover:text-on-primary dark:hover:text-inverse-on-surface transition-colors hover:text-secondary-fixed duration-200 hover:underline" href="#pusat-bantuan">Pusat Bantuan</a>
+<a class="text-on-primary-container dark:text-outline-variant text-body-sm font-body-sm hover:text-on-primary dark:hover:text-inverse-on-surface transition-colors hover:text-secondary-fixed duration-200 hover:underline" href="#kebijakan">Kebijakan Privasi</a>
+<a class="text-on-primary-container dark:text-outline-variant text-body-sm font-body-sm hover:text-on-primary dark:hover:text-inverse-on-surface transition-colors hover:text-secondary-fixed duration-200 hover:underline" href="#syarat">Syarat &amp; Ketentuan</a>
+</div>
+</div>
+</footer>
+</body></html>
+

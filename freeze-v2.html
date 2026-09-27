@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FREEZE29 — Official Orca Community — Semua Komunitasmu dalam Satu Platform</title>
+<meta name="description" content="FREEZE29 (Official Orca Community) menyatukan Discord, Instagram, TikTok dan kopdar offline dalam satu platform komunitas.">
+<link rel="icon" type="image/png" href="freeze-logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>tailwind.config={theme:{extend:{fontFamily:{sans:['"Plus Jakarta Sans"','sans-serif']},colors:{brand:{50:'#eef6fe',100:'#d9ecfd',500:'#4aabf0',600:'#2f9ae8',700:'#1d7cc4'},orca:{900:'#0b0e13',800:'#141a22'}}}}}</script>
+<style>
+.hero-bgX{background:radial-gradient(520px 300px at 50% 8%,rgba(255,255,255,.9),transparent 60%),radial-gradient(620px 340px at 10% 62%,rgba(47,154,232,.28),transparent 65%),radial-gradient(680px 380px at 90% 62%,rgba(47,154,232,.32),transparent 65%),radial-gradient(500px 300px at 50% 110%,rgba(11,14,19,.10),transparent 70%),linear-gradient(180deg,#ffffff 25%,#eef4fa 70%,#e2edf7 100%)}
+.orca-wave{position:absolute;inset:auto 0 0 0;height:220px;pointer-events:none;opacity:.9}
+.orbit{position:absolute;border:1.5px solid rgba(47,154,232,.28);border-radius:9999px;pointer-events:none}
+.orca-chip{position:absolute;width:56px;height:56px;border-radius:9999px;background:#0b0e13;color:#7cc4f5;display:flex;align-items:center;justify-content:center;border:3px solid #fff;box-shadow:0 10px 25px -8px rgba(11,14,19,.4);z-index:2}
+.orca-chip.alt{background:#2f9ae8;color:#fff}
+.orca-glow{position:absolute;pointer-events:none;filter:blur(70px);opacity:.35}
+.frost-card{background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(232,244,255,.9));border:1px solid rgba(47,154,232,.22)}
+.logo-ice{background:#fff;border:1px solid rgba(47,154,232,.35);box-shadow:0 8px 24px -8px rgba(47,154,232,.55),inset 0 0 0 2px #fff}
+.hero-bg::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.5;background-image:radial-gradient(rgba(47,154,232,.20) 1.2px,transparent 1.2px);background-size:22px 22px;mask-image:radial-gradient(ellipse 90% 70% at 50% 20%,black 30%,transparent 75%)}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.floaty{animation:floaty 5s ease-in-out infinite}
+.reveal{opacity:0;transform:translateY(26px);transition:all .7s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.mockup-shadow{box-shadow:0 40px 90px -30px rgba(47,154,232,.4),0 12px 30px -12px rgba(11,14,19,.18)}
+.nav-link{font-size:14px;font-weight:500;color:#4b5563}
+.nav-link:hover{color:#111827}
+/* TEAM FREEZE ORCA + CRYSTAL ICE BACKGROUND */
+.orca-ocean{position:fixed;inset:0;z-index:-3;pointer-events:none;background:radial-gradient(900px 500px at 12% -5%,rgba(124,196,245,.55),transparent 60%),radial-gradient(1000px 560px at 88% 8%,rgba(47,154,232,.45),transparent 62%),radial-gradient(700px 500px at 50% 110%,rgba(11,14,19,.55),transparent 65%),linear-gradient(180deg,#f2f8ff 0%,#dbeafb 30%,#b9d9f5 55%,#0b1626 100%);}
+.orca-ocean::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.9) 1.1px,transparent 1.1px),radial-gradient(rgba(124,196,245,.5) 1.4px,transparent 1.4px);background-size:26px 26px,52px 52px;background-position:0 0,13px 13px;opacity:.5;mask-image:linear-gradient(180deg,black 0%,transparent 55%);}
+.orca-ocean::after{content:'';position:absolute;inset:auto 0 0 0;height:46vh;background:linear-gradient(180deg,transparent 0%,rgba(11,22,38,.25) 45%,rgba(5,8,13,.88) 100%);}
+.orca-rays{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.5;background:conic-gradient(from 180deg at 50% -10%,transparent 0deg,rgba(255,255,255,.35) 8deg,transparent 16deg,transparent 30deg,rgba(255,255,255,.28) 38deg,transparent 46deg,transparent 70deg,rgba(255,255,255,.3) 78deg,transparent 86deg);filter:blur(6px);}
+.orca-crystals{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.9;}
+.orca-sil{position:fixed;z-index:-1;pointer-events:none;filter:drop-shadow(0 24px 40px rgba(5,8,13,.35));}
+.orca-bubble{position:fixed;z-index:-1;border-radius:9999px;pointer-events:none;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.95),rgba(124,196,245,.25) 55%,transparent 70%);border:1px solid rgba(255,255,255,.5);}
+
+</style>
+</head>
+<body class="text-slate-900 font-sans antialiased" style="background:transparent">
+<div class="orca-ocean" aria-hidden="true"></div>
+<div class="orca-rays" aria-hidden="true"></div>
+<svg class="orca-crystals" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="iceG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".9"/><stop offset=".5" stop-color="#7cc4f5" stop-opacity=".45"/><stop offset="1" stop-color="#0b0e13" stop-opacity=".55"/></linearGradient><linearGradient id="deepG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc4f5" stop-opacity="0"/><stop offset="1" stop-color="#05080d" stop-opacity=".8"/></linearGradient></defs><rect x="0" y="520" width="1440" height="380" fill="url(#deepG)"/><g fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1.6"><polygon points="120,640 180,560 240,640 180,720" fill="url(#iceG)"/><polygon points="200,690 240,630 280,690 240,750" fill="url(#iceG)"/><polygon points="1180,660 1250,560 1320,660 1250,760" fill="url(#iceG)"/><polygon points="1290,710 1330,655 1370,710 1330,765" fill="url(#iceG)"/><polygon points="640,700 690,630 740,700 690,770" fill="url(#iceG)"/></g><g fill="#ffffff"><circle cx="180" cy="180" r="2.2"/><circle cx="420" cy="120" r="1.6"/><circle cx="760" cy="90" r="2"/><circle cx="1050" cy="150" r="1.8"/><circle cx="1280" cy="220" r="2.2"/></g></svg>
+<svg class="orca-sil" style="left:-70px;bottom:6vh;width:min(420px,52vw);opacity:.5" viewBox="0 0 400 220" aria-hidden="true"><path d="M20 150 Q90 60 200 70 Q300 78 360 130 Q310 140 290 165 Q220 200 130 185 Q60 175 20 150Z" fill="#0b0e13" opacity=".92"/><path d="M150 72 Q170 30 210 22 Q205 45 215 68Z" fill="#0b0e13"/><path d="M40 145 Q120 120 200 125 Q280 130 340 132 Q260 155 200 165 Q120 175 40 145Z" fill="#2f9ae8" opacity=".5"/><ellipse cx="305" cy="118" rx="20" ry="9" fill="#ffffff" opacity=".95"/><circle cx="322" cy="112" r="3.4" fill="#7cc4f5"/></svg>
+<svg class="orca-sil" style="right:-60px;top:10vh;width:min(300px,40vw);opacity:.35" viewBox="0 0 400 220" aria-hidden="true"><path d="M20 150 Q90 60 200 70 Q300 78 360 130 Q310 140 290 165 Q220 200 130 185 Q60 175 20 150Z" fill="#0b0e13" opacity=".9"/><path d="M150 72 Q170 30 210 22 Q205 45 215 68Z" fill="#0b0e13"/><ellipse cx="305" cy="118" rx="20" ry="9" fill="#ffffff" opacity=".9"/></svg>
+<span class="orca-bubble" style="left:12vw;top:22vh;width:26px;height:26px;opacity:.5"></span>
+<span class="orca-bubble" style="left:20vw;top:60vh;width:14px;height:14px;opacity:.4"></span>
+<span class="orca-bubble" style="right:16vw;top:30vh;width:20px;height:20px;opacity:.45"></span>
+<span class="orca-bubble" style="right:26vw;bottom:24vh;width:12px;height:12px;opacity:.4"></span>
+
+<div class="max-w-[1280px] mx-auto px-2 sm:px-4 pt-2 sm:pt-4">
+<div class="rounded-[24px] sm:rounded-[28px] overflow-hidden hero-bg relative" style="background:rgba(255,255,255,.78);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.65);box-shadow:0 30px 80px -30px rgba(11,22,38,.45)">
+<img src="freeze-logo.png" alt="FREEZE29 watermark" style="position:absolute;right:-30px;top:60px;width:420px;opacity:.10;pointer-events:none;filter:saturate(1.1)"><svg class="orca-wave" viewBox="0 0 1200 220" preserveAspectRatio="none" aria-hidden="true"><path d="M0,140 C200,90 340,170 520,130 C700,90 820,170 1000,130 C1100,110 1160,120 1200,100 L1200,220 L0,220 Z" fill="rgba(47,154,232,.16)"/><path d="M0,165 C220,120 380,190 560,155 C740,120 880,190 1060,155 C1130,142 1170,148 1200,138 L1200,220 L0,220 Z" fill="rgba(11,14,19,.07)"/></svg>
+<!-- NAVBAR -->
+<header class="relative z-20 max-w-[1120px] mx-auto px-5 lg:px-8 h-[76px] flex items-center justify-between gap-4">
+<a href="#home" class="flex items-center gap-2.5">
+<img src="freeze-logo.png" alt="FREEZE29 Official Logo" class="h-11 w-auto rounded-lg logo-ice" style="background:#fff;padding:2px;">
+<span class="leading-none"><span class="font-extrabold text-[21px] tracking-tight block">FREEZE<span class="text-brand-600">29</span></span><span class="text-[11px] font-bold tracking-[.24em] text-brand-600 uppercase">Official Official • Orca • Community</span></span>
+</a>
+<nav class="hidden lg:flex items-center gap-8">
+<a href="#home" class="nav-link font-semibold text-slate-900">Home</a>
+<a href="#featured" class="nav-link">Featured</a>
+<a href="#prestasi" class="nav-link">Prestasi</a>
+<a href="#pricing" class="nav-link">Pricing</a>
+<a href="#contact" class="nav-link">Contact</a>
+</nav>
+<div class="flex items-center gap-3">
+<a href="freeze-dashboard.html" class="hidden sm:inline-flex text-sm font-semibold border border-slate-200 px-5 py-2.5 rounded-full hover:border-slate-400 transition">Masuk Pod</a>
+<button onclick="openTrial()" class="text-sm font-semibold bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-full transition shadow-lg shadow-brand-600/25">Join Pod Orca</button>
+<button id="mobileBtn" class="lg:hidden w-10 h-10 rounded-xl border border-slate-200 flex items-center justify-center bg-white"><i data-lucide="menu" class="w-5 h-5"></i></button>
+</div>
+</header>
+<div id="mobileMenu" class="hidden lg:hidden relative z-20 mx-4 mb-2 bg-white border border-slate-200 rounded-2xl p-3 shadow-xl">
+<a href="#home" class="block px-4 py-2.5 font-semibold rounded-xl hover:bg-slate-50">Home</a>
+<a href="#featured" class="block px-4 py-2.5 font-semibold rounded-xl hover:bg-slate-50">Featured</a>
+<a href="#prestasi" class="block px-4 py-2.5 font-semibold rounded-xl hover:bg-slate-50">Prestasi</a>
+<a href="#pricing" class="block px-4 py-2.5 font-semibold rounded-xl hover:bg-slate-50">Pricing</a>
+<a href="#contact" class="block px-4 py-2.5 font-semibold rounded-xl hover:bg-slate-50">Contact</a>
+</div>
+<!-- C2 -->
+<section id="home" class="relative z-10 max-w-[900px] mx-auto px-5 text-center pt-10 sm:pt-16 pb-8">
+<h1 class="font-extrabold tracking-tight text-[34px] sm:text-[52px] lg:text-[58px] leading-[1.08] text-slate-900">Simplify Your Community<br>Across Every Channel</h1>
+<p class="mt-5 text-slate-500 text-[14.5px] sm:text-[16px] leading-relaxed max-w-[620px] mx-auto">Freeze brings Discord, Instagram, TikTok, and offline meetups into one unified platform, helping your team connect faster and grow smarter.</p>
+<button onclick="openTrial()" class="mt-7 inline-flex items-center gap-2 bg-orca-900 hover:bg-black text-white text-sm font-semibold px-8 py-3.5 rounded-full transition shadow-xl">Join Pod Orca</button>
+</section>
+<!-- C3 -->
+<section class="relative z-[5] h-[150px] sm:h-[190px] max-w-[1120px] mx-auto">
+<div class="orbit left-1/2 -translate-x-1/2 bottom-[-330px] sm:bottom-[-380px] w-[560px] h-[560px] sm:w-[680px] sm:h-[680px]"></div>
+<div class="orbit left-1/2 -translate-x-1/2 bottom-[-250px] sm:bottom-[-290px] w-[400px] h-[400px] sm:w-[500px] sm:h-[500px]"></div>
+<span class="orca-chip floaty left-[8%] bottom-[10px]" style="animation-delay:0s"><i data-lucide="waves" class="w-6 h-6"></i></span>
+<span class="orca-chip alt floaty left-[19%] top-[-30px] sm:top-[-50px]" style="animation-delay:.8s"><i data-lucide="snowflake" class="w-6 h-6"></i></span>
+<span class="orca-chip floaty left-[15%] top-[-110px] sm:top-[-150px]" style="animation-delay:1.6s"><i data-lucide="fish" class="w-6 h-6"></i></span>
+<span class="orca-chip alt floaty right-[8%] bottom-[10px]" style="animation-delay:.4s"><i data-lucide="anchor" class="w-6 h-6"></i></span>
+<span class="orca-chip floaty right-[19%] top-[-30px] sm:top-[-50px]" style="animation-delay:1.2s"><i data-lucide="shell" class="w-6 h-6"></i></span>
+<span class="orca-chip alt floaty right-[15%] top-[-110px] sm:top-[-150px]" style="animation-delay:2s"><i data-lucide="sparkles" class="w-6 h-6"></i></span>
+</section>
+<!-- C4 -->
+<section class="relative z-10 max-w-[1020px] mx-auto px-3 sm:px-6 pb-6 sm:pb-10">
+<div class="mockup-shadow rounded-[20px]" style="background:rgba(255,255,255,.88);backdrop-filter:blur(10px) border border-slate-100 overflow-hidden">
+<div class="flex flex-col md:flex-row">
+<div class="w-full md:w-[218px] shrink-0 border-b md:border-b-0 md:border-r border-slate-100 p-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2"><img src="freeze-logo.png" alt="FREEZE29" class="h-8 w-auto rounded-md logo-ice" style="background:#fff;padding:2px;"><div class="leading-tight"><div class="font-bold text-[14px]">Team Freeze</div><div class="text-[10px] text-brand-600 font-bold tracking-widest uppercase">Official • Orca Hub</div></div></div>
+<i data-lucide="panel-left" class="w-4 h-4 text-slate-300 hidden md:block"></i>
+</div>
+<div class="mt-4 relative hidden md:block"><i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i><input placeholder="Search" class="w-full text-[12px] border border-slate-200 rounded-lg pl-8 pr-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500"></div>
+<nav class="mt-2 md:mt-4 flex md:flex-col gap-1 overflow-x-auto md:overflow-visible text-[13px] font-medium text-slate-600">
+<a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg bg-slate-100 text-slate-900 font-semibold whitespace-nowrap"><i data-lucide="layout-dashboard" class="w-4 h-4 text-brand-600"></i>Dashboard</a>
+<a href="#featured" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-50 whitespace-nowrap"><i data-lucide="link" class="w-4 h-4"></i>Omnichannel</a>
+<a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-50 whitespace-nowrap"><i data-lucide="messages-square" class="w-4 h-4"></i>Chat Management</a>
+<a href="#" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-50 whitespace-nowrap"><i data-lucide="users" class="w-4 h-4"></i>Team</a>
+<a href="#" class="hidden md:flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-50 whitespace-nowrap"><i data-lucide="ticket" class="w-4 h-4"></i>Ticketing</a>
+<a href="#" class="hidden md:flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-slate-50 whitespace-nowrap"><i data-lucide="settings" class="w-4 h-4"></i>Widget Settings</a>
+</nav>
+</div>
+<!-- C5 -->
+<div class="flex-1 min-w-0 p-4 sm:p-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div><h3 class="font-bold text-[17px]">Welcome back, Orca Squad</h3><p class="text-[12px] text-slate-400">9 February 2024</p></div>
+<div class="flex items-center gap-2.5">
+<div class="relative flex-1 sm:w-[240px]"><i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i><input id="dashSearch" oninput="dashFilter(this.value)" placeholder="Search anything..." class="w-full text-[12px] border border-slate-200 rounded-full pl-8 pr-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-500"></div>
+<button onclick="toast('3 notifikasi baru: 2 tiket + 1 event')" class="relative w-9 h-9 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-50"><i data-lucide="bell" class="w-4 h-4"></i><span class="absolute top-1.5 right-2 w-2 h-2 bg-red-500 rounded-full"></span></button>
+<div class="hidden sm:flex items-center gap-2"><span class="w-9 h-9 rounded-full bg-orca-900 text-sky-300 flex items-center justify-center"><i data-lucide="fish" class="w-4 h-4"></i></span><div class="leading-tight"><div class="text-[12px] font-bold">David Tandean</div><div class="text-[10px] text-slate-400">david@freeze.id</div></div></div>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-2 xl:grid-cols-4 gap-3">
+<button onclick="toast('Inbox: 24 pesan belum dibaca')" class="text-center bg-slate-50 hover:bg-brand-50 border border-transparent hover:border-brand-100 rounded-2xl p-4 transition"><span class="mx-auto w-9 h-9 rounded-full bg-brand-600 text-white flex items-center justify-center"><i data-lucide="inbox" class="w-4 h-4"></i></span><div class="mt-2 text-[12.5px] font-bold">Inbox</div><div class="text-[10.5px] text-slate-400">Manage all customer</div></button>
+<button onclick="toast('40 tiket terbuka, 12 butuh respon')" class="text-center bg-slate-50 hover:bg-brand-50 border border-transparent hover:border-brand-100 rounded-2xl p-4 transition"><span class="mx-auto w-9 h-9 rounded-full bg-sky-500 text-white flex items-center justify-center"><i data-lucide="ticket" class="w-4 h-4"></i></span><div class="mt-2 text-[12.5px] font-bold">Assigned Tickets</div><div class="text-[10.5px] text-slate-400">Quickly access tickets</div></button>
+<button onclick="toast('128 volunteer online sekarang')" class="text-center bg-slate-50 hover:bg-brand-50 border border-transparent hover:border-brand-100 rounded-2xl p-4 transition"><span class="mx-auto w-9 h-9 rounded-full bg-amber-400 text-white flex items-center justify-center"><i data-lucide="users" class="w-4 h-4"></i></span><div class="mt-2 text-[12.5px] font-bold">Team Collaboration</div><div class="text-[10.5px] text-slate-400">Collaborate with members</div></button>
+<button onclick="toast('Membuka laporan performa tim')" class="text-center bg-slate-50 hover:bg-brand-50 border border-transparent hover:border-brand-100 rounded-2xl p-4 transition"><span class="mx-auto w-9 h-9 rounded-full bg-emerald-600 text-white flex items-center justify-center"><i data-lucide="bar-chart-3" class="w-4 h-4"></i></span><div class="mt-2 text-[12.5px] font-bold">Reports & Analytics</div><div class="text-[10.5px] text-slate-400">Gain insights into performance</div></button>
+</div>
+<div id="statGrid" class="mt-3 grid grid-cols-2 xl:grid-cols-4 gap-3">
+<div class="statCard border border-slate-100 rounded-2xl p-4" data-name="total tickets"><div class="flex items-center justify-between text-[11.5px] text-slate-500 font-medium">Total Tickets <i data-lucide="more-vertical" class="w-3.5 h-3.5 text-slate-300"></i></div><div class="mt-1.5 font-extrabold text-[22px]"><span class="counter" data-target="150">0</span></div><div class="mt-1 text-[11px]"><span class="text-emerald-600 bg-emerald-50 font-bold px-1.5 py-0.5 rounded">▲ 24%</span> <span class="text-slate-400">Last Month</span></div></div>
+<div class="statCard border border-slate-100 rounded-2xl p-4" data-name="open tickets"><div class="flex items-center justify-between text-[11.5px] text-slate-500 font-medium">Open Tickets <i data-lucide="more-vertical" class="w-3.5 h-3.5 text-slate-300"></i></div><div class="mt-1.5 font-extrabold text-[22px]"><span class="counter" data-target="40">0</span></div><div class="mt-1 text-[11px]"><span class="text-emerald-600 bg-emerald-50 font-bold px-1.5 py-0.5 rounded">▲ 24%</span> <span class="text-slate-400">Last Month</span></div></div>
+<div class="statCard border border-slate-100 rounded-2xl p-4" data-name="response time"><div class="flex items-center justify-between text-[11.5px] text-slate-500 font-medium">Avg. Response Time <i data-lucide="more-vertical" class="w-3.5 h-3.5 text-slate-300"></i></div><div class="mt-1.5 font-extrabold text-[22px]">2h 15m</div><div class="mt-1 text-[11px]"><span class="text-emerald-600 bg-emerald-50 font-bold px-1.5 py-0.5 rounded">▲ 24%</span> <span class="text-slate-400">Last Month</span></div></div>
+<div class="statCard border border-slate-100 rounded-2xl p-4" data-name="satisfaction"><div class="flex items-center justify-between text-[11.5px] text-slate-500 font-medium">Customer Satisfaction <i data-lucide="more-vertical" class="w-3.5 h-3.5 text-slate-300"></i></div><div class="mt-1.5 font-extrabold text-[22px]"><span class="counter" data-target="85">0</span>%</div><div class="mt-1 text-[11px]"><span class="text-emerald-600 bg-emerald-50 font-bold px-1.5 py-0.5 rounded">▲ 24%</span> <span class="text-slate-400">Last Month</span></div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- C6 -->
+<section id="featured" class="max-w-[1120px] mx-auto px-5 lg:px-8 py-14 sm:py-20">
+<div class="text-center max-w-2xl mx-auto reveal">
+<span class="text-[11px] font-bold tracking-[.2em] uppercase text-brand-600 bg-brand-50 border border-brand-100 px-4 py-1.5 rounded-full">Featured</span>
+<h2 class="font-extrabold tracking-tight text-3xl sm:text-[42px] leading-tight mt-4">Everything your Orca pod needs</h2>
+<p class="mt-3 text-slate-500 text-[15px]">Satu samudra dashboard untuk chat, tiket event, tim relawan, dan laporan — tanpa pindah-pindah aplikasi.</p>
+</div>
+<div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="reveal bg-white rounded-3xl border border-slate-100 p-6 hover:shadow-xl hover:-translate-y-1 transition-all"><span class="w-11 h-11 rounded-2xl bg-brand-600 text-white flex items-center justify-center"><i data-lucide="messages-square" class="w-5 h-5"></i></span><h3 class="font-bold mt-4">Omnichannel Chat</h3><p class="text-[13.5px] text-slate-500 mt-1.5">Discord, IG, TikTok & WA dalam satu inbox. Auto-reply + assign ke tim.</p></div>
+<div class="reveal bg-white rounded-3xl border border-slate-100 p-6 hover:shadow-xl hover:-translate-y-1 transition-all"><span class="w-11 h-11 rounded-2xl bg-sky-500 text-white flex items-center justify-center"><i data-lucide="ticket" class="w-5 h-5"></i></span><h3 class="font-bold mt-4">Event Ticketing</h3><p class="text-[13.5px] text-slate-500 mt-1.5">Jual tiket, absensi QR & reminder otomatis untuk FreezeFest & kopdar.</p></div>
+<div class="reveal bg-white rounded-3xl border border-slate-100 p-6 hover:shadow-xl hover:-translate-y-1 transition-all"><span class="w-11 h-11 rounded-2xl bg-amber-400 text-white flex items-center justify-center"><i data-lucide="users" class="w-5 h-5"></i></span><h3 class="font-bold mt-4">Team Collaboration</h3><p class="text-[13.5px] text-slate-500 mt-1.5">128 chapter & 6 divisi dengan role, tugas & leaderboard relawan.</p></div>
+<div class="reveal bg-white rounded-3xl border border-slate-100 p-6 hover:shadow-xl hover:-translate-y-1 transition-all"><span class="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center"><i data-lucide="bar-chart-3" class="w-5 h-5"></i></span><h3 class="font-bold mt-4">Reports & Analytics</h3><p class="text-[13.5px] text-slate-500 mt-1.5">Pantau pertumbuhan member, penjualan tiket & kepuasan real-time.</p></div>
+</div>
+</section>
+<!-- C7 -->
+<section id="prestasi" class="max-w-[1120px] mx-auto px-5 lg:px-8 pb-14 sm:pb-20">
+<div class="text-center max-w-2xl mx-auto reveal">
+<span class="text-[11px] font-bold tracking-[.2em] uppercase text-brand-600 bg-brand-50 border border-brand-100 px-4 py-1.5 rounded-full">Prestasi Komunitas</span>
+<h2 class="font-extrabold tracking-tight text-3xl sm:text-[42px] leading-tight mt-4">Bangga dari Pod Orca: Gamers & Coders</h2>
+<p class="mt-3 text-slate-500 text-[15px]">Trofi dan karya nyata pod Orca FreezePlay & FreezeDev.</p>
+</div>
+<div class="mt-8 flex justify-center gap-2 flex-wrap reveal">
+<button onclick="filterPrestasi('all',this)" class="pfBtn text-[13px] font-bold px-5 py-2.5 rounded-full bg-orca-900 text-white transition">Semua</button>
+<button onclick="filterPrestasi('gaming',this)" class="pfBtn text-[13px] font-bold px-5 py-2.5 rounded-full bg-white border border-slate-200 transition">Gaming</button>
+<button onclick="filterPrestasi('coding',this)" class="pfBtn text-[13px] font-bold px-5 py-2.5 rounded-full bg-white border border-slate-200 transition">Coding</button>
+</div>
+<div id="prestasiGrid" class="mt-8 grid md:grid-cols-3 gap-4">
+<!-- PCARDS -->
+<div class="prestasiCard reveal bg-white rounded-3xl border border-slate-100 p-7 hover:shadow-xl hover:-translate-y-1 transition-all" data-cat="gaming">
+<div class="flex items-center justify-between"><span class="w-11 h-11 rounded-2xl bg-orca-900 text-amber-300 flex items-center justify-center"><i data-lucide="trophy" class="w-5 h-5"></i></span><span class="text-[10px] font-bold tracking-widest uppercase bg-amber-100 text-amber-700 px-3 py-1 rounded-full">Juara 1</span></div>
+<p class="mt-4 text-[14.5px] leading-relaxed font-medium">"Tim Valorant FreezePlay menjuarai National Community Cup 2025, kalahkan 128 tim!"</p>
+<div class="mt-5 flex items-center gap-3"><span class="w-11 h-11 rounded-full bg-orca-900 text-sky-300 flex items-center justify-center font-bold text-sm">FP</span><div><b class="text-sm">FreezePlay Valorant</b><div class="text-xs text-slate-400">Esports • 2025</div></div></div>
+</div>
+<div class="prestasiCard reveal bg-orca-900 text-white rounded-3xl p-7 md:-translate-y-3 shadow-2xl hover:-translate-y-4 transition-all" data-cat="coding">
+<div class="flex items-center justify-between"><span class="w-11 h-11 rounded-2xl bg-brand-600 text-white flex items-center justify-center"><i data-lucide="code-2" class="w-5 h-5"></i></span><span class="text-[10px] font-bold tracking-widest uppercase bg-brand-600 text-white px-3 py-1 rounded-full">Hackathon</span></div>
+<p class="mt-4 text-[14.5px] leading-relaxed font-medium">"FreezeDev juara Hackathon Nasional 2026 dengan aplikasi ChillPay — 50k+ download!"</p>
+<div class="mt-5 flex items-center gap-3"><span class="w-11 h-11 rounded-full bg-brand-600 text-white flex items-center justify-center font-bold text-sm">FD</span><div><b class="text-sm">FreezeDev Bandung</b><div class="text-xs text-slate-400">Software • 2026</div></div></div>
+</div>
+<div class="prestasiCard reveal bg-white rounded-3xl border border-slate-100 p-7 hover:shadow-xl hover:-translate-y-1 transition-all" data-cat="gaming">
+<div class="flex items-center justify-between"><span class="w-11 h-11 rounded-2xl bg-brand-100 text-brand-700 flex items-center justify-center"><i data-lucide="gamepad-2" class="w-5 h-5"></i></span><span class="text-[10px] font-bold tracking-widest uppercase bg-sky-100 text-sky-700 px-3 py-1 rounded-full">Game Rilis</span></div>
+<p class="mt-4 text-[14.5px] leading-relaxed font-medium">"Game 'Es Batu Adventure' menang Indie Game Fest & diunduh 100k+ pemain!"</p>
+<div class="mt-5 flex items-center gap-3"><span class="w-11 h-11 rounded-full bg-brand-100 text-brand-700 flex items-center justify-center font-bold text-sm">EA</span><div><b class="text-sm">Tim Es Batu Adventure</b><div class="text-xs text-slate-400">Game Dev • 2025</div></div></div>
+</div>
+<!-- PCARDS2 -->
+<div class="prestasiCard reveal bg-white rounded-3xl border border-slate-100 p-7 hover:shadow-xl hover:-translate-y-1 transition-all" data-cat="coding">
+<div class="flex items-center justify-between"><span class="w-11 h-11 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center"><i data-lucide="terminal" class="w-5 h-5"></i></span><span class="text-[10px] font-bold tracking-widest uppercase bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full">Kompetitif</span></div>
+<p class="mt-4 text-[14.5px] leading-relaxed font-medium">"3 member FreezeDev lolos final Gemastik & TLX — kompetisi coding mahasiswa bergengsi!"</p>
+<div class="mt-5 flex items-center gap-3"><span class="w-11 h-11 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">CP</span><div><b class="text-sm">Tim Competitive Prog.</b><div class="text-xs text-slate-400">FreezeDev • 2025</div></div></div>
+</div>
+<div class="prestasiCard reveal bg-white rounded-3xl border border-slate-100 p-7 hover:shadow-xl hover:-translate-y-1 transition-all" data-cat="gaming">
+<div class="flex items-center justify-between"><span class="w-11 h-11 rounded-2xl bg-violet-100 text-violet-600 flex items-center justify-center"><i data-lucide="medal" class="w-5 h-5"></i></span><span class="text-[10px] font-bold tracking-widest uppercase bg-violet-100 text-violet-700 px-3 py-1 rounded-full">Runner-up</span></div>
+<p class="mt-4 text-[14.5px] leading-relaxed font-medium">"Divisi MLBB Freeze Top 2 Liga Komunitas Jabar — 64 tim peserta!"</p>
+<div class="mt-5 flex items-center gap-3"><span class="w-11 h-11 rounded-full bg-violet-100 text-violet-700 flex items-center justify-center font-bold text-sm">ML</span><div><b class="text-sm">FreezePlay MLBB</b><div class="text-xs text-slate-400">Esports • 2026</div></div></div>
+</div>
+<div class="prestasiCard reveal bg-white rounded-3xl border border-slate-100 p-7 hover:shadow-xl hover:-translate-y-1 transition-all" data-cat="coding">
+<div class="flex items-center justify-between"><span class="w-11 h-11 rounded-2xl bg-sky-100 text-sky-600 flex items-center justify-center"><i data-lucide="github" class="w-5 h-5"></i></span><span class="text-[10px] font-bold tracking-widest uppercase bg-sky-100 text-sky-700 px-3 py-1 rounded-full">Open Source</span></div>
+<p class="mt-4 text-[14.5px] leading-relaxed font-medium">"Library UI 'FreezeKit' tembus 2.500+ stars di GitHub & dipakai 300+ developer!"</p>
+<div class="mt-5 flex items-center gap-3"><span class="w-11 h-11 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-sm">FK</span><div><b class="text-sm">FreezeKit Contributors</b><div class="text-xs text-slate-400">Open Source • 2026</div></div></div>
+</div>
+</div>
+</section>
+
+
+<!-- C8 -->
+<section id="pricing" class="max-w-[1120px] mx-auto px-5 lg:px-8 pb-14 sm:pb-20">
+<div class="text-center max-w-2xl mx-auto reveal">
+<span class="text-[11px] font-bold tracking-[.2em] uppercase text-brand-600 bg-brand-50 border border-brand-100 px-4 py-1.5 rounded-full">Pricing</span>
+<h2 class="font-extrabold tracking-tight text-3xl sm:text-[42px] leading-tight mt-4">Simple pricing, start free</h2>
+<p class="mt-3 text-slate-500 text-[15px]">14 hari trial gratis untuk semua paket berbayar. Tanpa kartu kredit.</p>
+</div>
+<div class="mt-10 grid md:grid-cols-3 gap-5 max-w-5xl mx-auto items-stretch">
+<div class="reveal bg-white border border-slate-200 rounded-3xl p-8">
+<h3 class="font-bold">Chill</h3><div class="mt-2 font-extrabold text-4xl">Rp0<span class="text-sm font-medium text-slate-400">/selamanya</span></div>
+<ul class="mt-6 space-y-3 text-sm text-slate-600"><li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mt-0.5"></i>1 inbox, 100 percakapan/bln</li><li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mt-0.5"></i>1 chapter, 3 admin</li><li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mt-0.5"></i>Laporan dasar</li></ul>
+<button onclick="openTrial('Chill')" class="mt-7 w-full font-bold py-3.5 rounded-full border-2 border-slate-200 hover:border-brand-600 hover:text-brand-700 transition text-sm">Start Free</button>
+</div>
+<div class="reveal bg-orca-900 text-white rounded-3xl p-8 shadow-2xl md:scale-[1.05] relative">
+<span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-600 text-[11px] font-bold px-4 py-1.5 rounded-full whitespace-nowrap">MOST POPULAR</span>
+<h3 class="font-bold">Frost Ice</h3><div class="mt-2 font-extrabold text-4xl">Rp149<span class="text-lg">rb</span><span class="text-sm font-medium text-slate-400">/bulan</span></div>
+<ul class="mt-6 space-y-3 text-sm text-slate-300"><li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-100 mt-0.5"></i>Unlimited percakapan omnichannel</li><li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-100 mt-0.5"></i>Ticketing + QR absensi</li><li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-100 mt-0.5"></i>10 chapter, unlimited admin</li><li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-100 mt-0.5"></i>Analytics lengkap</li></ul>
+<button onclick="openTrial('Frost Ice')" class="mt-7 w-full bg-brand-600 hover:bg-brand-500 font-bold py-3.5 rounded-full transition text-sm">Free 14 Day Trial</button>
+</div>
+<div class="reveal bg-white border border-slate-200 rounded-3xl p-8">
+<h3 class="font-bold">Blizzard Orca</h3><div class="mt-2 font-extrabold text-4xl">Rp499<span class="text-lg">rb</span><span class="text-sm font-medium text-slate-400">/bulan</span></div>
+<ul class="mt-6 space-y-3 text-sm text-slate-600"><li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mt-0.5"></i>Semua fitur Frost Ice</li><li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mt-0.5"></i>Unlimited chapter + API</li><li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 mt-0.5"></i>Dedicated manager</li></ul>
+<button onclick="openTrial('Blizzard Orca')" class="mt-7 w-full font-bold py-3.5 rounded-full border-2 border-slate-200 hover:border-brand-600 hover:text-brand-700 transition text-sm">Contact Sales</button>
+</div>
+</div>
+</section>
+<!-- C9 -->
+<section id="contact" class="max-w-[1120px] mx-auto px-5 lg:px-8 pb-14 sm:pb-20">
+<div class="reveal relative overflow-hidden rounded-[28px] text-white p-10 md:p-16 text-center" style="background:linear-gradient(135deg,#05080d 0%,#0b0e13 35%,#155e96 75%,#2f9ae8 100%)">
+<div class="absolute inset-0 opacity-30" style="background:radial-gradient(400px 200px at 20% 20%,#2f9ae8,transparent 65%),radial-gradient(400px 200px at 80% 80%,#0ea5e9,transparent 65%)"></div>
+<svg class="absolute bottom-0 left-0 w-full h-[90px] opacity-20" viewBox="0 0 1200 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0,55 C200,20 360,75 560,45 C760,15 900,70 1200,40 L1200,90 L0,90 Z" fill="#7cc4f5"/></svg>
+<div class="relative max-w-2xl mx-auto">
+<h2 class="font-extrabold tracking-tight text-3xl sm:text-[42px] leading-tight">Siap berenang bersama Orca?</h2>
+<p class="mt-4 text-slate-300 text-[15px]">Join 12.480+ member Team Freeze. Sedigin es, sekuat orca. Free 14 day trial.</p>
+<form onsubmit="submitTrial(event)" class="mt-7 flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+<input required type="email" placeholder="Enter your work email..." class="flex-1 px-5 py-3.5 rounded-full bg-white/10 border border-white/20 placeholder-white/50 text-white text-sm focus:outline-none focus:ring-2 focus:ring-white">
+<button class="bg-brand-600 hover:bg-brand-500 font-bold px-7 py-3.5 rounded-full transition text-sm">Free 14 Day Trial</button>
+</form>
+<p id="ctaMsg" class="hidden mt-4 text-sm font-bold bg-white/10 rounded-2xl py-3 px-4">Welcome aboard! Cek email kamu untuk aktivasi trial.</p>
+</div>
+</div>
+<footer class="pt-12 pb-4 flex flex-col md:flex-row items-center justify-between gap-5">
+<div class="flex items-center gap-2.5"><img src="freeze-logo.png" alt="FREEZE29" class="h-9 w-auto rounded-lg logo-ice" style="background:#fff;padding:2px;"><b class="text-[17px]">Team Freeze</b><span class="text-xs text-slate-400 ml-1">© 2026 • FREEZE29 Official</span></div>
+<div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-[13px] font-medium text-slate-500">
+<a href="#home" class="hover:text-slate-900">Home</a><a href="#featured" class="hover:text-slate-900">Featured</a><a href="#prestasi" class="hover:text-slate-900">Prestasi</a><a href="#pricing" class="hover:text-slate-900">Pricing</a><a href="freeze-community.html" class="hover:text-slate-900">Versi Komunitas</a><a href="freeze-dashboard.html" class="hover:text-slate-900">Dashboard</a>
+</div>
+</footer>
+</section>
+<!-- C10 -->
+<div id="trialModal" class="hidden fixed inset-0 z-[100] items-center justify-center p-4">
+<div onclick="closeTrial()" class="absolute inset-0 bg-slate-950/60 backdrop-blur-sm"></div>
+<div class="relative bg-white rounded-3xl w-full max-w-md p-8 shadow-2xl">
+<button onclick="closeTrial()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
+<img src="freeze-logo.png" alt="FREEZE29 Official" class="h-14 w-auto rounded-xl logo-ice floaty" style="background:#fff;padding:2px;">
+<h3 class="font-extrabold text-2xl mt-4">Join FREEZE29 — free trial</h3>
+<p class="text-sm text-slate-500 mt-1">14 hari gratis. Sedigin es, tanpa kartu kredit.</p>
+<form onsubmit="submitModal(event)" class="mt-5 space-y-3">
+<input required placeholder="Nama lengkap" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+<input required type="email" placeholder="Email kerja" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+<select id="planSelect" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm"><option>Frost Ice — Rp149rb/bln</option><option>Chill — Gratis Es</option><option>Blizzard Orca — Rp499rb/bln</option></select>
+<button class="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-full transition text-sm">Free 14 Day Trial</button>
+<p id="modalMsg" class="hidden text-center text-sm font-bold text-emerald-600 bg-emerald-50 rounded-xl py-3">Trial aktif! Cek email kamu.</p>
+</form>
+</div>
+</div>
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-24 opacity-0 transition-all duration-300 z-[110]"><div class="flex items-center gap-2.5 bg-slate-900 text-white text-[13px] font-semibold px-5 py-3.5 rounded-2xl shadow-2xl"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i><span id="toastMsg">OK</span></div></div>
+<script>
+lucide.createIcons();
+document.getElementById('mobileBtn').onclick=()=>document.getElementById('mobileMenu').classList.toggle('hidden');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,end=+el.dataset.target;let c=0;const s=Math.max(1,Math.round(end/60));const t=setInterval(()=>{c+=s;if(c>=end){c=end;clearInterval(t);}el.textContent=c;},25);cio.unobserve(el);}),{threshold:.4});
+document.querySelectorAll('.counter').forEach(el=>cio.observe(el));
+function toast(m){document.getElementById('toastMsg').textContent=m;const t=document.getElementById('toast');t.style.transform='translate(-50%,0)';t.style.opacity='1';clearTimeout(t._h);t._h=setTimeout(()=>{t.style.transform='translate(-50%,6rem)';t.style.opacity='0';},2600);}
+function filterPrestasi(cat,btn){document.querySelectorAll('.pfBtn').forEach(b=>{b.className='pfBtn text-[13px] font-bold px-5 py-2.5 rounded-full bg-white border border-slate-200 transition';});btn.className='pfBtn text-[13px] font-bold px-5 py-2.5 rounded-full bg-orca-900 text-white transition';document.querySelectorAll('.prestasiCard').forEach(c=>{c.style.display=(cat==='all'||c.dataset.cat===cat)?'':'none';});}
+function dashFilter(q){q=q.toLowerCase();document.querySelectorAll('.statCard').forEach(c=>{c.style.display=c.dataset.name.includes(q)?'':'none';});}
+function openTrial(p){const m=document.getElementById('trialModal');m.classList.remove('hidden');m.classList.add('flex');document.body.style.overflow='hidden';if(p){const s=document.getElementById('planSelect');for(const o of s.options){if(o.text.indexOf(p)===0)s.value=o.text;}}}
+function closeTrial(){const m=document.getElementById('trialModal');m.classList.add('hidden');m.classList.remove('flex');document.body.style.overflow='';}
+function submitTrial(e){e.preventDefault();document.getElementById('ctaMsg').classList.remove('hidden');e.target.reset();}
+function submitModal(e){e.preventDefault();document.getElementById('modalMsg').classList.remove('hidden');setTimeout(closeTrial,1700);}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeTrial();});
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

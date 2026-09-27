@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreezePay — Event Wallet | FREEZE29 Official</title>
+<meta name="description" content="Dashboard keuangan FREEZE29 Official: kelola wallet divisi, kartu virtual, approvals dan ledger transparan.">
+<link rel="icon" type="image/png" href="freeze-logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{fontFamily:{sans:['"Plus Jakarta Sans"','sans-serif'],display:['"Space Grotesk"','sans-serif']},colors:{ink:{950:'#0a0a0c',900:'#101014',850:'#141419',800:'#1a1a21',700:'#23232c'}}}}}</script>
+<style>
+body{background:radial-gradient(800px 400px at 15% 0%,rgba(124,196,245,.35),transparent 60%),radial-gradient(900px 450px at 85% 10%,rgba(47,154,232,.30),transparent 60%),linear-gradient(180deg,#0e2238 0%,#0a1626 35%,#05080d 100%);background-attachment:fixed}
+.card{background:rgba(16,20,28,.78);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08);border-radius:16px}
+.card-hover:hover{border-color:rgba(255,255,255,.16)}
+.side-link{display:flex;align-items:center;gap:12px;padding:9px 12px;border-radius:10px;font-size:13.5px;font-weight:500;color:#a1a1aa;transition:all .15s}
+.side-link:hover{background:rgba(255,255,255,.06);color:#fff}
+.side-link.active{background:rgba(255,255,255,.09);color:#fff;font-weight:600}
+.side-label{font-size:10.5px;font-weight:700;letter-spacing:.14em;color:#52525b;padding:18px 12px 8px}
+.switch{position:relative;width:38px;height:22px;border-radius:999px;background:#3f3f46;transition:background .2s;flex-shrink:0;cursor:pointer;border:none}
+.switch::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:999px;background:#fff;transition:transform .2s}
+.switch.on{background:#3b82f6}.switch.on::after{transform:translateX(16px)}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:3px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:#d4d4d8;white-space:nowrap}
+.freeze-card{background:linear-gradient(135deg,#0b0e13 0%,#155e96 55%,#2f9ae8 100%);.orca-mark{position:absolute;right:-18px;bottom:-18px;width:170px;opacity:.22;pointer-events:none;filter:drop-shadow(0 8px 20px rgba(0,0,0,.4))}/*x*/.freeze-cardx{background:linear-gradient(135deg,#1d4ed8 0%,#1e40af 55%,#172554 100%);position:relative;overflow:hidden}
+.freeze-card::before{content:'';position:absolute;width:340px;height:340px;border-radius:999px;background:radial-gradient(circle,rgba(147,197,253,.35),transparent 65%);top:-140px;right:-100px}
+.freeze-card::after{content:'';position:absolute;width:260px;height:260px;border-radius:999px;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 65%);bottom:-120px;left:-60px}
+.frozen-overlay{position:absolute;inset:0;background:rgba(5,8,20,.72);backdrop-filter:blur(2px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;z-index:5}
+.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{scrollbar-width:none}
+.ledger-row{transition:background .15s}.ledger-row:hover{background:rgba(255,255,255,.03)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,80px);opacity:0;transition:all .35s cubic-bezier(.16,1,.3,1);z-index:200}
+.toast.show{transform:translate(-50%,0);opacity:1}
+/* TEAM FREEZE ORCA + CRYSTAL ICE BACKGROUND */
+.orca-ocean{position:fixed;inset:0;z-index:-3;pointer-events:none;background:radial-gradient(900px 500px at 12% -5%,rgba(124,196,245,.55),transparent 60%),radial-gradient(1000px 560px at 88% 8%,rgba(47,154,232,.45),transparent 62%),radial-gradient(700px 500px at 50% 110%,rgba(11,14,19,.55),transparent 65%),linear-gradient(180deg,#f2f8ff 0%,#dbeafb 30%,#b9d9f5 55%,#0b1626 100%);}
+.orca-ocean::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.9) 1.1px,transparent 1.1px),radial-gradient(rgba(124,196,245,.5) 1.4px,transparent 1.4px);background-size:26px 26px,52px 52px;background-position:0 0,13px 13px;opacity:.5;mask-image:linear-gradient(180deg,black 0%,transparent 55%);}
+.orca-ocean::after{content:'';position:absolute;inset:auto 0 0 0;height:46vh;background:linear-gradient(180deg,transparent 0%,rgba(11,22,38,.25) 45%,rgba(5,8,13,.88) 100%);}
+.orca-rays{position:fixed;inset:0;z-index:-2;pointer-events:none;opacity:.5;background:conic-gradient(from 180deg at 50% -10%,transparent 0deg,rgba(255,255,255,.35) 8deg,transparent 16deg,transparent 30deg,rgba(255,255,255,.28) 38deg,transparent 46deg,transparent 70deg,rgba(255,255,255,.3) 78deg,transparent 86deg);filter:blur(6px);}
+.orca-crystals{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.9;}
+.orca-sil{position:fixed;z-index:-1;pointer-events:none;filter:drop-shadow(0 24px 40px rgba(5,8,13,.35));}
+.orca-bubble{position:fixed;z-index:-1;border-radius:9999px;pointer-events:none;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.95),rgba(124,196,245,.25) 55%,transparent 70%);border:1px solid rgba(255,255,255,.5);}
+
+</style>
+</head>
+<body class="text-zinc-100 font-sans antialiased">
+<div class="orca-ocean" aria-hidden="true"></div>
+<div class="orca-rays" aria-hidden="true"></div>
+<svg class="orca-crystals" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="iceG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".9"/><stop offset=".5" stop-color="#7cc4f5" stop-opacity=".45"/><stop offset="1" stop-color="#0b0e13" stop-opacity=".55"/></linearGradient><linearGradient id="deepG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc4f5" stop-opacity="0"/><stop offset="1" stop-color="#05080d" stop-opacity=".8"/></linearGradient></defs><rect x="0" y="520" width="1440" height="380" fill="url(#deepG)"/><g fill="none" stroke="#ffffff" stroke-opacity=".55" stroke-width="1.6"><polygon points="120,640 180,560 240,640 180,720" fill="url(#iceG)"/><polygon points="200,690 240,630 280,690 240,750" fill="url(#iceG)"/><polygon points="1180,660 1250,560 1320,660 1250,760" fill="url(#iceG)"/><polygon points="1290,710 1330,655 1370,710 1330,765" fill="url(#iceG)"/><polygon points="640,700 690,630 740,700 690,770" fill="url(#iceG)"/></g><g fill="#ffffff"><circle cx="180" cy="180" r="2.2"/><circle cx="420" cy="120" r="1.6"/><circle cx="760" cy="90" r="2"/><circle cx="1050" cy="150" r="1.8"/><circle cx="1280" cy="220" r="2.2"/></g></svg>
+<svg class="orca-sil" style="left:-70px;bottom:6vh;width:min(420px,52vw);opacity:.5" viewBox="0 0 400 220" aria-hidden="true"><path d="M20 150 Q90 60 200 70 Q300 78 360 130 Q310 140 290 165 Q220 200 130 185 Q60 175 20 150Z" fill="#0b0e13" opacity=".92"/><path d="M150 72 Q170 30 210 22 Q205 45 215 68Z" fill="#0b0e13"/><path d="M40 145 Q120 120 200 125 Q280 130 340 132 Q260 155 200 165 Q120 175 40 145Z" fill="#2f9ae8" opacity=".5"/><ellipse cx="305" cy="118" rx="20" ry="9" fill="#ffffff" opacity=".95"/><circle cx="322" cy="112" r="3.4" fill="#7cc4f5"/></svg>
+<svg class="orca-sil" style="right:-60px;top:10vh;width:min(300px,40vw);opacity:.35" viewBox="0 0 400 220" aria-hidden="true"><path d="M20 150 Q90 60 200 70 Q300 78 360 130 Q310 140 290 165 Q220 200 130 185 Q60 175 20 150Z" fill="#0b0e13" opacity=".9"/><path d="M150 72 Q170 30 210 22 Q205 45 215 68Z" fill="#0b0e13"/><ellipse cx="305" cy="118" rx="20" ry="9" fill="#ffffff" opacity=".9"/></svg>
+<span class="orca-bubble" style="left:12vw;top:22vh;width:26px;height:26px;opacity:.5"></span>
+<span class="orca-bubble" style="left:20vw;top:60vh;width:14px;height:14px;opacity:.4"></span>
+<span class="orca-bubble" style="right:16vw;top:30vh;width:20px;height:20px;opacity:.45"></span>
+<span class="orca-bubble" style="right:26vw;bottom:24vh;width:12px;height:12px;opacity:.4"></span>
+
+<div class="flex min-h-screen">
+<!-- SIDEBAR -->
+<aside id="sidebar" class="hidden lg:flex w-[240px] shrink-0 flex-col border-r border-white/[.07]" style="background:rgba(8,12,20,.82);backdrop-filter:blur(14px); px-4 py-5 fixed lg:sticky top-0 h-screen z-40 overflow-y-auto">
+<a href="freeze-community.html" class="flex items-center gap-3 px-2 mb-2">
+<img src="freeze-logo.png" alt="FREEZE29 Official" class="h-9 w-auto rounded-md border border-white/20 bg-white px-1">
+<div class="leading-none"><div class="font-display font-bold text-[16px]">FREEZE<span class="text-sky-400">29</span></div><div class="text-[9px] font-bold tracking-[.22em] text-zinc-500 uppercase">Community</div></div>
+</a>
+<a href="freeze-community.html" class="side-link"><i data-lucide="layout-dashboard" class="w-[18px] h-[18px]"></i>Overview</a>
+<div class="side-label">COMMUNITY</div>
+<a href="#" class="side-link"><i data-lucide="users" class="w-[18px] h-[18px]"></i>Members</a>
+<a href="#" class="side-link"><i data-lucide="network" class="w-[18px] h-[18px]"></i>Chapter Network</a>
+<div class="side-label">MONEY</div>
+<a href="#" class="side-link"><i data-lucide="receipt-text" class="w-[18px] h-[18px]"></i>Transactions</a>
+<a href="#" class="side-link"><i data-lucide="list-checks" class="w-[18px] h-[18px]"></i>Approvals<span class="ml-auto bg-blue-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">7</span></a>
+<a href="#" class="side-link active"><i data-lucide="wallet" class="w-[18px] h-[18px]"></i>Cards and Wallets</a>
+<a href="#" class="side-link"><i data-lucide="piggy-bank" class="w-[18px] h-[18px]"></i>Kas & Anggaran</a>
+<div class="side-label">RULES</div>
+<a href="#" class="side-link"><i data-lucide="shield-check" class="w-[18px] h-[18px]"></i>Policies</a>
+<a href="#" class="side-link"><i data-lucide="flag" class="w-[18px] h-[18px]"></i>Risk</a>
+<div class="side-label">RECORD</div>
+<a href="#" class="side-link"><i data-lucide="bar-chart-3" class="w-[18px] h-[18px]"></i>Analytics</a>
+<a href="#" class="side-link"><i data-lucide="scroll-text" class="w-[18px] h-[18px]"></i>Audit Log</a>
+<div class="mt-auto pt-6">
+<button onclick="toast('Mode darurat aktif: semua kartu dibekukan 1 jam')" class="w-full flex items-center justify-center gap-2 border border-red-500/40 text-red-400 text-[13px] font-semibold py-2.5 rounded-xl hover:bg-red-500/10 transition"><i data-lucide="siren" class="w-4 h-4"></i>Emergency controls</button>
+<a href="freeze-community.html" class="side-link mt-2 justify-center text-xs"><i data-lucide="arrow-left" class="w-4 h-4"></i>Kembali ke Website</a>
+</div>
+</aside>
+<!-- SIDEBAR-MOBILE-NEXT -->
+<div id="mobileSide" class="hidden fixed inset-0 z-50 lg:hidden">
+<div onclick="toggleSide(false)" class="absolute inset-0 bg-black/70"></div>
+<div class="relative w-[260px] h-full bg-[#0e0e12] border-r border-white/10 p-5 overflow-y-auto">
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2.5"><div class="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-400 to-violet-600 flex items-center justify-center text-white"><i data-lucide="snowflake" class="w-5 h-5"></i></div><b class="font-display">FREEZE.</b></div>
+<button onclick="toggleSide(false)" class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
+</div>
+<a href="#" class="side-link"><i data-lucide="layout-dashboard" class="w-[18px] h-[18px]"></i>Overview</a>
+<a href="#" class="side-link"><i data-lucide="users" class="w-[18px] h-[18px]"></i>Members</a>
+<a href="#" class="side-link"><i data-lucide="receipt-text" class="w-[18px] h-[18px]"></i>Transactions</a>
+<a href="#" class="side-link"><i data-lucide="list-checks" class="w-[18px] h-[18px]"></i>Approvals<span class="ml-auto bg-blue-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center">7</span></a>
+<a href="#" class="side-link active"><i data-lucide="wallet" class="w-[18px] h-[18px]"></i>Cards and Wallets</a>
+<a href="#" class="side-link"><i data-lucide="piggy-bank" class="w-[18px] h-[18px]"></i>Kas dan Anggaran</a>
+<a href="#" class="side-link"><i data-lucide="shield-check" class="w-[18px] h-[18px]"></i>Policies</a>
+<a href="freeze-community.html" class="side-link mt-4"><i data-lucide="arrow-left" class="w-4 h-4"></i>Kembali ke Website</a>
+</div>
+</div>
+<!-- MAIN -->
+<main class="flex-1 min-w-0 px-4 sm:px-6 lg:px-8 py-6 max-w-[1280px] mx-auto w-full">
+<div class="flex items-center gap-3 lg:hidden mb-4">
+<button onclick="toggleSide(true)" class="w-10 h-10 rounded-xl border border-white/10 bg-white/5 flex items-center justify-center"><i data-lucide="menu" class="w-5 h-5"></i></button>
+<div class="flex items-center gap-2"><div class="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-400 to-violet-600 flex items-center justify-center text-white"><i data-lucide="snowflake" class="w-4 h-4"></i></div><b class="font-display text-sm">FREEZE.</b></div>
+</div>
+<div class="text-[12px] text-zinc-500 font-medium">Cards and Wallets <span class="mx-1">›</span> Divisi Event <span class="mx-1">›</span> <span class="text-zinc-300">Wallet</span></div>
+<div class="mt-2 flex flex-col xl:flex-row xl:items-start justify-between gap-4">
+<div>
+<h1 class="font-display font-bold text-[26px] sm:text-[30px] tracking-tight flex items-center gap-3">FREEZE29 FreezeFest wallet <span class="text-[11px] font-sans font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/25 px-2.5 py-1 rounded-full">● Active</span></h1>
+<p class="text-[13px] text-zinc-500 mt-1">Virtual card ending 4417 • funded from the FREEZE29 Official operating account</p>
+</div>
+<div class="flex flex-wrap gap-2.5">
+<button onclick="toggleFreeze()" id="freezeBtn" class="flex items-center gap-2 text-[13px] font-semibold border border-white/15 bg-white/5 px-4 py-2.5 rounded-xl hover:bg-white/10 transition"><i data-lucide="snowflake" class="w-4 h-4"></i><span id="freezeLabel">Freeze</span></button>
+<button onclick="toast('Statement September 2026 sedang disiapkan (PDF)')" class="flex items-center gap-2 text-[13px] font-semibold border border-white/15 bg-white/5 px-4 py-2.5 rounded-xl hover:bg-white/10 transition"><i data-lucide="download" class="w-4 h-4"></i>Statement</button>
+<button onclick="openTopup()" class="flex items-center gap-2 text-[13px] font-bold bg-blue-600 px-4 py-2.5 rounded-xl hover:bg-blue-500 transition shadow-lg shadow-blue-600/25"><i data-lucide="plus" class="w-4 h-4"></i>Top up</button>
+</div>
+</div>
+<!-- STATS-NEXT -->
+<div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-4">
+<div id="vCard" class="freeze-card card p-5 sm:p-6 min-h-[210px] flex flex-col justify-between overflow-hidden">
+<img src="freeze-logo.png" alt="Orca watermark" class="orca-mark">
+<div id="frozenOverlay" class="frozen-overlay hidden"><i data-lucide="snowflake" class="w-8 h-8 text-sky-300"></i><b class="text-sm tracking-wide">CARD FROZEN — ORCA MODE</b><span class="text-xs text-zinc-400">Klik Freeze lagi untuk mencairkan</span></div>
+<div class="relative flex items-center justify-between">
+<div class="flex items-center gap-2 font-bold text-[15px]"><img src="freeze-logo.png" alt="FREEZE29" class="h-7 w-auto rounded bg-white px-1 border border-white/30" style="object-fit:contain"><span class="font-display font-bold text-lg">❄</span> FreezePay FREEZE29 <span class="text-[10px] font-semibold border border-white/30 px-2 py-0.5 rounded-full text-sky-100">Virtual</span></div>
+<button class="text-white/60 hover:text-white"><i data-lucide="eye" class="w-4 h-4"></i></button>
+</div>
+<div class="relative"><div class="text-[11px] text-sky-200/80 font-medium">Available</div><div class="font-display font-bold text-[32px] leading-tight" id="availBal">Rp53.700.000</div></div>
+<div class="relative flex items-end justify-between text-[11px] font-semibold tracking-wider text-sky-100/90"><span>EVENT DIVISION<br><span class="text-[13px] tracking-normal">4417</span></span><span class="text-right">EXP<br><span class="text-[13px]">09/29</span></span></div>
+</div>
+<div class="card card-hover p-5 sm:p-6">
+<div class="text-[12px] text-zinc-500 font-medium">Reserved for holds</div>
+<div class="font-display font-bold text-[26px] mt-1">Rp6.300.000</div>
+<div class="text-[12px] text-zinc-500 mt-1">1 payment awaiting settlement</div>
+<div class="mt-4 h-2 rounded-full bg-white/10 overflow-hidden"><div class="h-full w-[18%] bg-gradient-to-r from-sky-400 to-blue-600 rounded-full"></div></div>
+<div class="mt-2 text-[11px] text-zinc-500">18% dari limit hold bulanan</div>
+</div>
+<div class="card card-hover p-5 sm:p-6">
+<div class="text-[12px] text-zinc-500 font-medium">Spent this month</div>
+<div class="font-display font-bold text-[26px] mt-1">Rp96.300.000</div>
+<div class="text-[12px] mt-1 text-red-400 font-semibold">▲ 8,2% <span class="text-zinc-500 font-normal">vs last month</span></div>
+<div class="mt-4 flex gap-1.5 h-12 items-end">
+<div class="flex-1 rounded bg-white/10" style="height:35%"></div><div class="flex-1 rounded bg-white/10" style="height:55%"></div><div class="flex-1 rounded bg-white/10" style="height:45%"></div><div class="flex-1 rounded bg-white/10" style="height:70%"></div><div class="flex-1 rounded bg-white/10" style="height:60%"></div><div class="flex-1 rounded bg-white/10" style="height:85%"></div><div class="flex-1 rounded bg-gradient-to-t from-blue-600 to-sky-400" style="height:100%"></div>
+</div>
+</div>
+</div>
+<div class="mt-4 card p-5">
+<div class="flex items-center justify-between gap-3 flex-wrap">
+<div class="flex items-center gap-3"><div class="w-9 h-9 rounded-xl bg-blue-600/15 text-blue-400 flex items-center justify-center"><i data-lucide="zap" class="w-4 h-4"></i></div><div><b class="text-[14px]">Auto top-up</b><div class="text-[12px] text-zinc-500">Keeps the team working without waiting for a human</div></div></div>
+<button class="switch on" onclick="this.classList.toggle('on');toast(this.classList.contains('on')?'Auto top-up dinyalakan':'Auto top-up dimatikan')" aria-label="auto topup"></button>
+</div>
+<div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-[12px]">
+<div><div class="text-zinc-500">Trigger below</div><b class="text-[14px]">Rp7.500.000</b></div>
+<div><div class="text-zinc-500">Top-up amount</div><b class="text-[14px]">Rp30.000.000</b></div>
+<div><div class="text-zinc-500">Cap per month</div><b class="text-[14px]">Rp60.000.000</b></div>
+<div class="md:text-right"><div class="text-zinc-500">Last top-up</div><b class="text-[14px]">21 Sep • Rp30jt</b></div>
+</div>
+</div>
+<!-- LEDGER-NEXT -->
+<div class="mt-4 grid grid-cols-1 xl:grid-cols-3 gap-4 items-start">
+<div class="xl:col-span-2 card p-5 sm:p-6">
+<div class="flex items-center justify-between gap-3 flex-wrap">
+<div><b class="text-[15px]">Wallet ledger</b><div class="text-[12px] text-zinc-500">Every movement in and out of this wallet</div></div>
+<div class="flex gap-2">
+<div class="relative">
+<button onclick="document.getElementById('typeMenu').classList.toggle('hidden')" class="flex items-center gap-2 text-[12px] font-semibold border border-white/10 bg-white/5 px-3.5 py-2 rounded-xl"><i data-lucide="filter" class="w-3.5 h-3.5"></i>Type: <span id="typeLabel">All</span><i data-lucide="chevron-down" class="w-3.5 h-3.5"></i></button>
+<div id="typeMenu" class="hidden absolute right-0 mt-2 w-40 card p-1.5 z-20 text-[13px]">
+<button onclick="filterType('All')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-white/10">All</button>
+<button onclick="filterType('Payment')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-white/10">Payment</button>
+<button onclick="filterType('Hold')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-white/10">Hold</button>
+<button onclick="filterType('Top-up')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-white/10">Top-up</button>
+<button onclick="filterType('Refund')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-white/10">Refund</button>
+</div>
+</div>
+<button onclick="toast('Ledger diekspor ke CSV')" class="text-[12px] font-semibold text-blue-400 hover:text-blue-300">Export ›</button>
+</div>
+</div>
+<div class="mt-4 overflow-x-auto no-scrollbar">
+<table class="w-full text-[13px] min-w-[640px]">
+<thead><tr class="text-left text-[11px] text-zinc-500 uppercase tracking-wider border-b border-white/[.07]"><th class="py-2.5 pr-3 font-semibold">When</th><th class="py-2.5 pr-3 font-semibold">Description</th><th class="py-2.5 pr-3 font-semibold">Type</th><th class="py-2.5 pr-3 font-semibold text-right">Amount</th><th class="py-2.5 font-semibold text-right">Balance</th></tr></thead>
+<tbody id="ledgerBody">
+<tr class="ledger-row border-b border-white/[.05]" data-type="Payment"><td class="py-3.5 pr-3 text-zinc-500 whitespace-nowrap">Today 14:32</td><td class="py-3.5 pr-3"><div class="flex items-center gap-2.5"><span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center font-bold text-sm text-sky-400">M</span><span><b>Meta Ads</b><br><span class="text-[11px] text-zinc-500">TXN-904412 • auto approved</span></span></div></td><td class="py-3.5 pr-3"><span class="badge">● Payment</span></td><td class="py-3.5 pr-3 text-right font-semibold">-Rp6.300.000</td><td class="py-3.5 text-right text-zinc-500">Rp53,7jt</td></tr>
+<tr class="ledger-row border-b border-white/[.05]" data-type="Hold"><td class="py-3.5 pr-3 text-zinc-500 whitespace-nowrap">Today 13:52</td><td class="py-3.5 pr-3"><div class="flex items-center gap-2.5"><span class="w-8 h-8 rounded-full bg-teal-500/20 flex items-center justify-center font-bold text-sm text-teal-300">C</span><span><b>Canva Enterprise</b><br><span class="text-[11px] text-zinc-500">TXN-903711 • held for approval</span></span></div></td><td class="py-3.5 pr-3"><span class="badge" style="color:#fbbf24;border-color:rgba(251,191,36,.3);background:rgba(251,191,36,.08)">● Hold</span></td><td class="py-3.5 pr-3 text-right font-semibold">-Rp27.000.000</td><td class="py-3.5 text-right text-zinc-500">Rp60,0jt</td></tr>
+<tr class="ledger-row border-b border-white/[.05]" data-type="Payment"><td class="py-3.5 pr-3 text-zinc-500 whitespace-nowrap">Today 11:08</td><td class="py-3.5 pr-3"><div class="flex items-center gap-2.5"><span class="w-8 h-8 rounded-full bg-white flex items-center justify-center font-bold text-sm text-red-500">G</span><span><b>Google Ads</b><br><span class="text-[11px] text-zinc-500">TXN-903388 • auto approved</span></span></div></td><td class="py-3.5 pr-3"><span class="badge">● Payment</span></td><td class="py-3.5 pr-3 text-right font-semibold">-Rp12.600.000</td><td class="py-3.5 text-right text-zinc-500">Rp87,0jt</td></tr>
+<tr class="ledger-row border-b border-white/[.05]" data-type="Top-up"><td class="py-3.5 pr-3 text-zinc-500 whitespace-nowrap">21 Sep 16:40</td><td class="py-3.5 pr-3"><div class="flex items-center gap-2.5"><span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center"><i data-lucide="repeat" class="w-4 h-4 text-zinc-300"></i></span><span><b>Auto top-up</b><br><span class="text-[11px] text-zinc-500">From the operating account</span></span></div></td><td class="py-3.5 pr-3"><span class="badge" style="color:#34d399;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.08)">● Top-up</span></td><td class="py-3.5 pr-3 text-right font-semibold text-emerald-400">+Rp30.000.000</td><td class="py-3.5 text-right text-zinc-500">Rp99,6jt</td></tr>
+<tr class="ledger-row" data-type="Refund"><td class="py-3.5 pr-3 text-zinc-500 whitespace-nowrap">21 Sep 10:22</td><td class="py-3.5 pr-3"><div class="flex items-center gap-2.5"><span class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center font-bold text-sm text-red-400">A</span><span><b>Adobe Creative Cloud</b><br><span class="text-[11px] text-zinc-500">TXN-901190 • refunded</span></span></div></td><td class="py-3.5 pr-3"><span class="badge" style="color:#34d399;border-color:rgba(52,211,153,.3);background:rgba(52,211,153,.08)">● Refund</span></td><td class="py-3.5 pr-3 text-right font-semibold text-emerald-400">+Rp1.770.000</td><td class="py-3.5 text-right text-zinc-500">Rp69,6jt</td></tr>
+</tbody>
+</table>
+</div>
+<div class="mt-4 flex items-center justify-between text-[12px] text-zinc-500"><span id="ledgerCount">Showing 184 movements</span><a href="#" class="text-blue-400 font-semibold hover:text-blue-300">Open transactions ›</a></div>
+</div>
+<!-- RIGHTCOL-NEXT -->
+<div class="space-y-4">
+<div class="card p-5">
+<b class="text-[14px]">Card details</b>
+<div class="mt-3 space-y-2.5 text-[13px]">
+<div class="flex justify-between"><span class="text-zinc-500">Number</span><span class="font-mono font-semibold flex items-center gap-2">•••• •••• •••• 4417 <button onclick="toast('Nomor kartu disalin')" class="text-zinc-500 hover:text-white"><i data-lucide="copy" class="w-3.5 h-3.5"></i></button></span></div>
+<div class="flex justify-between"><span class="text-zinc-500">Expiry</span><b>09 / 29</b></div>
+<div class="flex justify-between"><span class="text-zinc-500">Security code</span><b class="flex items-center gap-2">••• <button onclick="toggleCvv(this)" class="text-zinc-500 hover:text-white"><i data-lucide="eye" class="w-3.5 h-3.5"></i></button></b></div>
+<div class="flex justify-between"><span class="text-zinc-500">Network</span><span>Visa commercial</span></div>
+<div class="flex justify-between"><span class="text-zinc-500">Currency</span><b>IDR</b></div>
+</div>
+</div>
+<div class="card p-5">
+<b class="text-[14px]">Controls</b>
+<div class="mt-4 space-y-5">
+<div class="flex items-start justify-between gap-3"><div><b class="text-[13px]">Category lock</b><div class="text-[12px] text-zinc-500">Event, ads, software, APIs</div></div><button class="switch on" onclick="this.classList.toggle('on')" aria-label="category lock"></button></div>
+<div class="flex items-start justify-between gap-3"><div><b class="text-[13px]">Block cash and transfers</b><div class="text-[12px] text-zinc-500">No ATM, wires or crypto</div></div><button class="switch on" onclick="this.classList.toggle('on')" aria-label="block cash"></button></div>
+<div class="flex items-start justify-between gap-3"><div><b class="text-[13px]">Freeze outside working hours</b><div class="text-[12px] text-zinc-500">Off. The policy window already limits hours</div></div><button class="switch" onclick="this.classList.toggle('on');toast(this.classList.contains('on')?'Kartu hanya aktif di jam kerja':'Batasan jam kerja dimatikan')" aria-label="working hours"></button></div>
+</div>
+</div>
+<div class="card p-5">
+<b class="text-[14px]">Funding source</b>
+<div class="mt-3 flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-violet-600/20 text-violet-300 flex items-center justify-center font-display font-bold">F</div>
+<div class="flex-1"><b class="text-[13px]">Operating account</b><div class="text-[11px] text-zinc-500">Freeze Treasury ••3092</div></div>
+<span class="text-[11px] font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/25 px-2 py-0.5 rounded-full">● Verified</span>
+</div>
+<div class="mt-4 space-y-2 text-[13px]">
+<div class="flex justify-between"><span class="text-zinc-500">Community balance</span><b>Rp6.273.300.000</b></div>
+<div class="flex justify-between"><span class="text-zinc-500">Reserved across wallets</span><b>Rp920.325.000</b></div>
+</div>
+<div class="mt-4 h-2 rounded-full bg-white/10 overflow-hidden"><div class="h-full w-[15%] bg-gradient-to-r from-violet-500 to-blue-500 rounded-full"></div></div>
+<button onclick="toast('Halaman kelola pendanaan dibuka')" class="mt-4 w-full flex items-center justify-center gap-2 text-[13px] font-semibold border border-white/15 bg-white/5 py-2.5 rounded-xl hover:bg-white/10 transition"><i data-lucide="settings-2" class="w-4 h-4"></i>Manage funding</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- MODALS-NEXT -->
+<div id="topupModal" class="hidden fixed inset-0 z-[100] items-center justify-center p-4">
+<div onclick="closeTopup()" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+<div class="relative card w-full max-w-md p-7" style="background:#141419">
+<button onclick="closeTopup()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 flex items-center justify-center"><i data-lucide="x" class="w-4 h-4"></i></button>
+<h3 class="font-display font-bold text-xl">Top up wallet</h3>
+<p class="text-[13px] text-zinc-500 mt-1">Dana diambil dari Operating account ••3092</p>
+<div class="mt-5 grid grid-cols-3 gap-2.5">
+<button onclick="setAmt(10000000)" class="amtBtn text-[13px] font-bold border border-white/15 rounded-xl py-3 hover:border-blue-500">Rp10jt</button>
+<button onclick="setAmt(30000000)" class="amtBtn text-[13px] font-bold border border-blue-500 bg-blue-600/15 rounded-xl py-3">Rp30jt</button>
+<button onclick="setAmt(50000000)" class="amtBtn text-[13px] font-bold border border-white/15 rounded-xl py-3 hover:border-blue-500">Rp50jt</button>
+</div>
+<input id="topupAmt" type="number" value="30000000" min="1000000" class="mt-3 w-full px-4 py-3.5 rounded-xl border border-white/10 bg-white/5 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-blue-500">
+<button onclick="doTopup()" class="mt-4 w-full bg-blue-600 hover:bg-blue-500 font-bold py-3.5 rounded-xl transition">Kirim Top-up</button>
+</div>
+</div>
+<div id="toast" class="toast"><div class="flex items-center gap-2.5 bg-zinc-100 text-zinc-900 text-[13px] font-semibold px-5 py-3.5 rounded-2xl shadow-2xl"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i><span id="toastMsg">Berhasil</span></div></div>
+<script>
+lucide.createIcons();
+let frozen=false, balance=53700000;
+function toggleSide(open){document.getElementById('mobileSide').classList.toggle('hidden',!open);}
+function fmt(n){return 'Rp'+n.toLocaleString('id-ID');}
+function toast(msg){const t=document.getElementById('toast');document.getElementById('toastMsg').textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),2600);}
+</script>
+<!-- SCRIPT2 -->
+<script>
+function toggleFreeze(){frozen=!frozen;document.getElementById('frozenOverlay').classList.toggle('hidden',!frozen);document.getElementById('freezeLabel').textContent=frozen?'Unfreeze':'Freeze';document.getElementById('freezeBtn').style.borderColor=frozen?'#38bdf8':'';toast(frozen?'Kartu 4417 dibekukan — transaksi ditolak':'Kartu 4417 dicairkan kembali');}
+function openTopup(){const m=document.getElementById('topupModal');m.classList.remove('hidden');m.classList.add('flex');}
+function closeTopup(){const m=document.getElementById('topupModal');m.classList.add('hidden');m.classList.remove('flex');}
+function setAmt(n){document.getElementById('topupAmt').value=n;}
+function doTopup(){const n=Number(document.getElementById('topupAmt').value||0);if(n<1000000){toast('Minimal top-up Rp1.000.000');return;}balance+=n;document.getElementById('availBal').textContent=fmt(balance);closeTopup();toast('Top-up '+fmt(n)+' berhasil — saldo '+fmt(balance));}
+function filterType(t){document.getElementById('typeLabel').textContent=t;document.getElementById('typeMenu').classList.add('hidden');let vis=0;document.querySelectorAll('#ledgerBody tr').forEach(r=>{const show=(t==='All'||r.dataset.type===t);r.style.display=show?'':'none';if(show)vis++;});document.getElementById('ledgerCount').textContent=(t==='All'?'Showing 184 movements':'Showing '+vis+' of 184 movements');}
+function toggleCvv(btn){const b=btn.closest('b');const showing=b.dataset.show==='1';b.dataset.show=showing?'0':'1';b.childNodes[0].textContent=showing?'••• ':'847 ';toast(showing?'CVV disembunyikan':'CVV ditampilkan 30 detik');if(!showing)setTimeout(()=>{b.dataset.show='0';b.childNodes[0].textContent='••• ';},30000);}
+document.addEventListener('click',e=>{const m=document.getElementById('typeMenu');if(m&&!m.classList.contains('hidden')&&!e.target.closest('#typeMenu')&&!e.target.closest('[onclick*=\"typeMenu\"]'))m.classList.add('hidden');});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeTopup();toggleSide(false);}});
+</script>
+</body>
+</html>
+
+
+
+
+
+
