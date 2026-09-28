@@ -9,6 +9,7 @@ Website komunitas anak muda Indonesia **FREEZE29** dengan tema **paus Orca + es 
 | `freeze-v2.html` | **Landing page utama** — hero, featured, prestasi (gaming & coding), pricing, FAQ, CTA, auto-suggest pencarian, scroll progress |
 | `freeze-community.html` | Halaman komunitas lengkap — 6 divisi, event + filter, showcase, testimoni, membership, FAQ, countdown FreezeFest, modal join |
 | `freeze-dashboard.html` | **FreezePay** — saldo wallet, kartu virtual (freeze/unfreeze + CVV), top-up, ledger dengan filter + saran otomatis |
+| `freeze-portal.html` | **Cyber-Frost Portal** — editorial subculture hub: The Vault masonry feed dengan Chill vote + partikel es, Cryo drops, live telemetry, interactive filters & command desk |
 | `404.html` | Halaman error bertema samudra |
 | `index.html` | Halaman lama (HIMPACT) yang masih dipertahankan |
 | `beasiswa.html` | Halaman contoh eksternal |

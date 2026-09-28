@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FREEZE — Command | Ultra-Premium Subculture Portal</title>
+<meta name="description" content="FREEZE Community Portal: Command deck, The Vault (feed komunitas), Cryo Drops, Lab telemetry, dan Outposts. Dark cyber-frost subculture HQ.">
+<link rel="icon" type="image/png" href="freeze-logo.png">
+<meta name="theme-color" content="#080A0F">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="freeze-logo.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="FREEZE">
+<meta property="og:title" content="FREEZE — Command | Ultra-Premium Subculture Portal">
+<meta property="og:description" content="The Vault: loadout & outfit feed komunitas FREEZE. Tier SUB-ZERO, 2,450 SHARDS, Cryo Drops, dan telemetry Lab.">
+<meta property="og:image" content="freeze-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FREEZE — Command">
+<meta name="twitter:description" content="Dark cyber-frost community portal: Vault feed, Cryo Drops, Lab, Outposts.">
+<link rel="canonical" href="https://hyuzowshintax-ux.github.io/priji/freeze-portal.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+tailwind.config={theme:{extend:{
+  fontFamily:{display:['"Archivo Narrow"','system-ui','sans-serif'],mono:['"JetBrains Mono"','ui-monospace','monospace'],sans:['"Archivo Narrow"','system-ui','sans-serif']},
+  colors:{void:'#080A0F',obsidian:'#111622',obsidian2:'#0C111B',iceline:'#1F2C3F',ice:'#8FA9C4',frz:'#00F2FE',frz2:'#7CDFFF'},
+  letterSpacing:{serial:'.22em'}
+}}};
+</script>
+<style>
+:root{--frz:#00F2FE;--void:#080A0F;--obsidian:#111622;--line:#1F2C3F}
+*{scrollbar-width:thin;scrollbar-color:#1F2C3F #080A0F}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:#080A0F}
+::-webkit-scrollbar-thumb{background:#1F2C3F;border:2px solid #080A0F;border-radius:99px}
+::-webkit-scrollbar-thumb:hover{background:#2C4258}
+body{background:#080A0F;color:#fff;font-family:'Archivo Narrow',system-ui,sans-serif;overflow-x:hidden}
+.bg-field{position:fixed;inset:0;z-index:-2;pointer-events:none;background:
+radial-gradient(900px 520px at 12% -6%,rgba(0,242,254,.14),transparent 62%),
+radial-gradient(760px 460px at 88% 4%,rgba(124,223,255,.10),transparent 60%),
+radial-gradient(700px 500px at 50% 108%,rgba(0,242,254,.07),transparent 65%),
+linear-gradient(180deg,#080A0F 0%,#0A0F18 45%,#080A0F 100%)}
+.bg-field::before{content:'';position:absolute;inset:0;opacity:.5;background-image:linear-gradient(rgba(31,44,63,.55) 1px,transparent 1px),linear-gradient(90deg,rgba(31,44,63,.55) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black 20%,transparent 78%)}
+.scan{position:fixed;left:0;right:0;height:120px;z-index:-1;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(0,242,254,.05),transparent);animation:scanmove 9s linear infinite}
+@keyframes scanmove{0%{top:-140px}100%{top:110%}}
+.glass{background:rgba(17,22,34,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid #1F2C3F}
+.glass-2{background:rgba(12,17,27,.86);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid #1F2C3F}
+.chamfer{clip-path:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px)}
+.chamfer-sm{clip-path:polygon(8px 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%,0 8px)}
+.r8{border-radius:8px}
+.glow{box-shadow:0 0 0 1px rgba(0,242,254,.35),0 0 28px -8px rgba(0,242,254,.55)}
+.glow-t{text-shadow:0 0 18px rgba(0,242,254,.55)}
+.serial{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#8FA9C4}
+.no-scrollbar::-webkit-scrollbar{display:none}.no-scrollbar{scrollbar-width:none}
+.vault-card{break-inside:avoid;margin-bottom:16px;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .3s}
+.vault-card:hover{transform:translateY(-4px);border-color:rgba(0,242,254,.45)}
+.chip{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;border:1px solid #1F2C3F;background:rgba(0,242,254,.05);color:#C6D4E4;padding:3px 8px;display:inline-block}
+.chill-btn{position:relative;overflow:hidden;transition:all .25s}
+.chill-btn:hover{border-color:rgba(0,242,254,.6);color:#fff}
+.chill-btn.voted{border-color:#00F2FE;color:#00F2FE;background:rgba(0,242,254,.1)}
+.ice-particle{position:absolute;pointer-events:none;border-radius:2px;background:linear-gradient(#fff,#00F2FE);box-shadow:0 0 8px rgba(0,242,254,.9);transform:rotate(45deg);animation:iceFly var(--d) cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes iceFly{0%{opacity:1;transform:translate(-50%,-50%) rotate(45deg) scale(1)}100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) rotate(170deg) scale(.35)}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+.seg{border:1px solid #1F2C3F;padding:9px 14px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8FA9C4;white-space:nowrap;transition:all .2s;background:rgba(12,17,27,.7);cursor:pointer}
+.seg:hover{color:#fff;border-color:rgba(0,242,254,.5)}
+.seg.active{color:#080A0F;background:linear-gradient(140deg,#00F2FE,#7CDFFF);border-color:#00F2FE;font-weight:700}
+.nav-item{position:relative}
+.nav-item.active{color:#fff}
+.nav-item.active::after{content:'';display:block;height:1px;margin-top:5px;background:#00F2FE;box-shadow:0 0 10px #00F2FE}
+.dense .vault-card{margin-bottom:10px}
+.vault-img{width:100%;display:block;object-fit:cover}
+.skeleton{background:linear-gradient(100deg,#0C111B 30%,#151C29 50%,#0C111B 70%);background-size:200% 100%;animation:sk 1.2s linear infinite}
+@keyframes sk{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.001s!important;transition-duration:.001s!important}html{scroll-behavior:auto!important}}
+</style>
+</head>
+<body class="min-h-screen antialiased">
+<div class="bg-field" aria-hidden="true"></div>
+<div class="scan" aria-hidden="true"></div>
+<div class="fixed top-0 left-0 h-[2px] w-0 bg-gradient-to-r from-frz via-frz2 to-transparent z-[70]" id="navProg" aria-hidden="true"></div>
+
+<header class="sticky top-0 z-50 glass-2 border-b border-iceline">
+<div class="max-w-[1360px] mx-auto px-4 sm:px-6">
+<div class="h-[64px] flex items-center justify-between gap-3">
+
+  <!-- LEFT: geometric mark -->
+  <a href="#command" class="flex items-center gap-2.5 shrink-0 group">
+    <span class="relative grid place-items-center w-9 h-9 chamfer-sm" style="background:linear-gradient(140deg,#0C111B,#111622);border:1px solid #1F2C3F">
+      <svg viewBox="0 0 32 32" class="w-5 h-5" aria-hidden="true">
+        <g fill="none" stroke="#00F2FE" stroke-width="1.6" stroke-linejoin="miter">
+          <path d="M16 2.5 29 9.6v12.8L16 29.5 3 22.4V9.6z"/>
+          <path d="M16 8.5 23.6 12.2v7.6L16 23.5 8.4 19.8v-7.6z" opacity=".55"/>
+          <path d="M16 2.5V16m0 0v13.5M3 9.6 16 16l13-6.4" opacity=".3"/>
+        </g>
+      </svg>
+    </span>
+    <span class="leading-none">
+      <span class="block font-display font-bold text-[19px] tracking-tight uppercase">Freeze</span>
+      <span class="block serial mt-0.5">Subculture HQ · OPS/29</span>
+    </span>
+  </a>
+
+  <!-- CENTER: nav -->
+  <nav class="hidden lg:flex items-center gap-1" id="navLinks">
+    <a href="#command" class="nav-item px-3.5 py-2 text-[13.5px] font-semibold uppercase tracking-wider text-ice hover:text-white transition-colors" data-nav="command">Command</a>
+    <a href="#vault" class="nav-item px-3.5 py-2 text-[13.5px] font-semibold uppercase tracking-wider text-ice hover:text-white transition-colors" data-nav="vault">The Vault</a>
+    <a href="#drops" class="nav-item px-3.5 py-2 text-[13.5px] font-semibold uppercase tracking-wider text-ice hover:text-white transition-colors" data-nav="drops">Cryo Drops</a>
+    <a href="#lab" class="nav-item px-3.5 py-2 text-[13.5px] font-semibold uppercase tracking-wider text-ice hover:text-white transition-colors" data-nav="lab">Lab</a>
+    <a href="#outposts" class="nav-item px-3.5 py-2 text-[13.5px] font-semibold uppercase tracking-wider text-ice hover:text-white transition-colors" data-nav="outposts">Outposts</a>
+  </nav>
+
+  <!-- RIGHT -->
+  <div class="flex items-center gap-2 sm:gap-2.5">
+    <!-- ice-crystal notification indicator -->
+    <div class="relative">
+      <button id="notifBtn" aria-label="Notifikasi" aria-expanded="false" class="relative w-10 h-10 grid place-items-center chamfer-sm border border-iceline hover:border-frz/60 transition-colors" style="background:rgba(17,22,34,.7)">
+        <svg viewBox="0 0 24 24" class="w-[18px] h-[18px]" fill="none" stroke="#00F2FE" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <path d="M12 2v20M4.5 6.5l15 11M19.5 6.5l-15 11M12 6l3-2.4M12 6 9 3.6M12 18l3 2.4M12 18l-3 2.4"/>
+        </svg>
+        <span class="absolute -top-1 -right-1 min-w-[18px] h-[18px] px-1 grid place-items-center text-[10px] font-mono font-bold text-void bg-frz rounded-full glow" id="notifBadge">3</span>
+      </button>
+      <div id="notifPanel" class="hidden absolute right-0 mt-2 w-[300px] glass-2 chamfer-sm p-1.5 z-[60]">
+        <div class="flex items-center justify-between px-3 py-2.5 border-b border-iceline">
+          <span class="serial">Notifications · 3 new</span>
+          <button onclick="clearNotif()" class="text-[11px] font-mono text-frz hover:underline">MARK ALL</button>
+        </div>
+        <ul id="notifList" class="divide-y divide-[#1F2C3F]"></ul>
+      </div>
+    </div>
+
+    <!-- user ID badge -->
+    <div class="flex items-center gap-2 chamfer-sm border border-iceline pl-1.5 pr-2.5 py-1.5" style="background:rgba(17,22,34,.72)">
+      <span class="w-7 h-7 grid place-items-center chamfer-sm font-mono font-bold text-[11px] text-void" style="background:linear-gradient(140deg,#00F2FE,#7CDFFF)">SB</span>
+      <span class="hidden sm:block leading-none">
+        <span class="block text-[10px] font-mono tracking-[.18em] text-frz">SUB-ZERO</span>
+        <span class="block font-mono text-[12.5px] font-bold mt-0.5"><span id="shardBal">2,450</span> <span class="text-ice font-medium">SHARDS</span></span>
+      </span>
+      <span class="sm:hidden font-mono text-[12px] font-bold">2,450<span class="text-frz">◆</span></span>
+    </div>
+
+    <button id="mobileBtn" aria-label="Buka menu" aria-expanded="false" class="lg:hidden w-10 h-10 grid place-items-center chamfer-sm border border-iceline" style="background:rgba(17,22,34,.7)">
+      <i data-lucide="menu" class="w-[18px] h-[18px]"></i>
+    </button>
+  </div>
+</div>
+</div>
+
+<div id="mobileDrawer" class="hidden lg:hidden border-t border-iceline glass-2">
+  <nav class="max-w-[1360px] mx-auto px-4 py-3 grid grid-cols-2 gap-2">
+    <a href="#command" class="drawer-link chamfer-sm border border-iceline px-3.5 py-3 font-semibold uppercase tracking-wider text-[13px] text-ice hover:text-white">Command</a>
+    <a href="#vault" class="drawer-link chamfer-sm border border-iceline px-3.5 py-3 font-semibold uppercase tracking-wider text-[13px] text-ice hover:text-white">The Vault</a>
+    <a href="#drops" class="drawer-link chamfer-sm border border-iceline px-3.5 py-3 font-semibold uppercase tracking-wider text-[13px] text-ice hover:text-white">Cryo Drops</a>
+    <a href="#lab" class="drawer-link chamfer-sm border border-iceline px-3.5 py-3 font-semibold uppercase tracking-wider text-[13px] text-ice hover:text-white">Lab</a>
+    <a href="#outposts" class="drawer-link chamfer-sm border border-iceline px-3.5 py-3 font-semibold uppercase tracking-wider text-[13px] text-ice hover:text-white col-span-2">Outposts</a>
+    <div class="col-span-2 flex items-center justify-between chamfer-sm border border-iceline px-3.5 py-3">
+      <span class="serial">Balance</span><span class="font-mono text-[13px] font-bold text-frz"><span id="shardBal2">2,450</span> SHARDS</span>
+    </div>
+  </nav>
+</div>
+</header>
+<!-- live ticker strip -->
+<div class="border-b border-iceline" style="background:rgba(8,10,15,.6)">
+  <div class="max-w-[1360px] mx-auto px-4 sm:px-6 py-2 flex items-center gap-3 overflow-hidden">
+    <span class="serial shrink-0 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-frz animate-pulse"></span>LIVE FEED</span>
+    <div class="relative flex-1 overflow-hidden">
+      <div id="ticker" class="flex gap-10 whitespace-nowrap font-mono text-[11px] text-ice will-change-transform"></div>
+    </div>
+  </div>
+</div>
+
+<main class="max-w-[1360px] mx-auto px-4 sm:px-6">
+
+  <!-- ============ 1. HERO COMMAND ============ -->
+  <section id="command" class="pt-8 sm:pt-12 pb-14 scroll-mt-24">
+    <div class="flex items-end justify-between gap-4 flex-wrap mb-6">
+      <div>
+        <span class="serial">Sector 01 — Command Deck</span>
+        <h1 class="font-display font-bold uppercase tracking-tight text-[34px] sm:text-[46px] leading-[0.95] mt-2">
+          Sub-Zero <span class="text-frz glow-t">Command</span>
+        </h1>
+      </div>
+      <p class="font-mono text-[11.5px] text-ice max-w-[380px] leading-relaxed">
+        Portal komunitas FREEZE — telemetry langsung, tantangan aktif, dan arsip loadout member. Tier kamu: <b class="text-white">SUB-ZERO</b> · akses penuh ke Vault &amp; Cryo Drops.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] gap-4 sm:gap-5">
+
+      <!-- LEFT: challenge -->
+      <article class="relative glass chamfer p-5 sm:p-7 overflow-hidden reveal">
+        <div class="absolute inset-y-0 right-0 w-1/3 pointer-events-none opacity-[.16]" style="background:linear-gradient(90deg,transparent,rgba(0,242,254,.6))"></div>
+        <div class="relative">
+          <div class="flex items-center justify-between gap-3 flex-wrap">
+            <span class="inline-flex items-center gap-2 serial border border-iceline px-2.5 py-1.5 chamfer-sm" style="background:rgba(0,242,254,.07)">
+              <span class="w-1.5 h-1.5 bg-frz rounded-full animate-pulse"></span> Active Challenge · Quest 04
+            </span>
+            <span class="font-mono text-[10.5px] text-ice">BRIEF-ID 04-SZV/29 · REV 3</span>
+          </div>
+
+          <h2 class="font-display font-bold uppercase tracking-tight text-[28px] sm:text-[40px] leading-[1] mt-5">
+            Sub-Zero Visual Quest 04
+          </h2>
+          <p class="mt-3.5 text-[14.5px] text-[#C6D4E4] leading-relaxed max-w-[640px]">
+            Rakit satu visual loadout dengan palet <b class="text-white">void black — arctic cyan</b>. Entri dinilai dari komposisi, konsistensi tema frost, dan detail material. Pemenang masuk Vault sebagai <b class="text-white">Staff Pick</b> dan dapat feature di Cryo Drop berikutnya.
+          </p>
+          <!-- countdown ticker -->
+          <div class="mt-6">
+            <div class="flex items-center justify-between mb-2.5">
+              <span class="serial">Submission closes in</span>
+              <span class="font-mono text-[10.5px] text-ice">TZ +07:00 · JKT</span>
+            </div>
+            <div id="countdown" class="grid grid-cols-4 gap-2 sm:gap-3">
+              <div class="chamfer-sm border border-iceline text-center py-3 px-1" style="background:rgba(12,17,27,.9)">
+                <div class="font-mono font-bold text-[24px] sm:text-[34px] leading-none text-white" data-cd="d">--</div>
+                <div class="serial mt-1.5">Days</div>
+              </div>
+              <div class="chamfer-sm border border-iceline text-center py-3 px-1" style="background:rgba(12,17,27,.9)">
+                <div class="font-mono font-bold text-[24px] sm:text-[34px] leading-none text-white" data-cd="h">--</div>
+                <div class="serial mt-1.5">Hours</div>
+              </div>
+              <div class="chamfer-sm border border-iceline text-center py-3 px-1" style="background:rgba(12,17,27,.9)">
+                <div class="font-mono font-bold text-[24px] sm:text-[34px] leading-none text-white" data-cd="m">--</div>
+                <div class="serial mt-1.5">Mins</div>
+              </div>
+              <div class="chamfer-sm border border-iceline text-center py-3 px-1" style="background:rgba(12,17,27,.9)">
+                <div class="font-mono font-bold text-[24px] sm:text-[34px] leading-none text-frz glow-t" data-cd="s">--</div>
+                <div class="serial mt-1.5">Secs</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- entries progress -->
+          <div class="mt-6">
+            <div class="flex items-center justify-between font-mono text-[11px]">
+              <span class="text-ice">ENTRIES <span class="text-white font-bold">3,142</span> / 5,000</span>
+              <span class="text-frz" id="entryPct">62%</span>
+            </div>
+            <div class="mt-2 h-1.5 w-full bg-[#0C111B] border border-iceline overflow-hidden">
+              <div id="entryBar" class="h-full w-[62%] transition-all duration-700" style="background:linear-gradient(90deg,#00F2FE,#7CDFFF);box-shadow:0 0 18px rgba(0,242,254,.6)"></div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-wrap items-center gap-2.5">
+            <button onclick="submitEntry()" class="inline-flex items-center gap-2 chamfer-sm px-5 py-3 font-bold uppercase tracking-wider text-[13px] text-void glow transition-transform hover:-translate-y-0.5" style="background:linear-gradient(140deg,#00F2FE,#7CDFFF)">
+              <i data-lucide="upload" class="w-4 h-4"></i> Submit Entry
+            </button>
+            <button onclick="openBrief()" class="inline-flex items-center gap-2 chamfer-sm px-5 py-3 font-bold uppercase tracking-wider text-[13px] text-white border border-iceline hover:border-frz/60 transition-colors" style="background:rgba(17,22,34,.7)">
+              <i data-lucide="file-text" class="w-4 h-4"></i> Read Brief
+            </button>
+            <span class="font-mono text-[11px] text-ice ml-auto">PRIZE · <b class="text-white">5,000 SHARDS</b> + VAULT FEATURE</span>
+          </div>
+        </div>
+      </article>
+      <!-- RIGHT: quick stats widget -->
+      <aside class="glass-2 chamfer p-5 sm:p-6 reveal flex flex-col gap-4">
+        <div class="flex items-center justify-between">
+          <span class="serial">Quick Stats · Live</span>
+          <span class="font-mono text-[10px] text-frz flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-frz rounded-full animate-pulse"></span>SYNC 04s</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
+          <!-- members -->
+          <div class="chamfer-sm border border-iceline p-4" style="background:rgba(12,17,27,.7)">
+            <div class="flex items-center justify-between">
+              <span class="serial">Active Members Worldwide</span>
+              <i data-lucide="globe-2" class="w-3.5 h-3.5 text-frz"></i>
+            </div>
+            <div class="font-mono font-bold text-[30px] leading-none mt-2.5"><span class="counter" data-target="48912" data-suffix="">0</span></div>
+            <div class="mt-2 flex items-center gap-2 font-mono text-[10.5px]">
+              <span class="text-frz">▲ 2.4%</span><span class="text-ice">vs 24h · 84 countries</span>
+            </div>
+          </div>
+          <!-- gear -->
+          <div class="chamfer-sm border border-iceline p-4" style="background:rgba(12,17,27,.7)">
+            <div class="flex items-center justify-between">
+              <span class="serial">Total Locked Gear</span>
+              <i data-lucide="package" class="w-3.5 h-3.5 text-frz"></i>
+            </div>
+            <div class="font-mono font-bold text-[30px] leading-none mt-2.5"><span class="counter" data-target="12340">0</span> <span class="text-[13px] text-ice font-medium">PCS</span></div>
+            <div class="mt-2 flex items-center gap-2 font-mono text-[10.5px]">
+              <span class="text-frz">▲ 318</span><span class="text-ice">added this week</span>
+            </div>
+          </div>
+          <!-- chill factor -->
+          <div class="chamfer-sm border border-iceline p-4" style="background:rgba(12,17,27,.7)">
+            <div class="flex items-center justify-between">
+              <span class="serial">Today's Chill Factor Index</span>
+              <i data-lucide="thermometer-snowflake" class="w-3.5 h-3.5 text-frz"></i>
+            </div>
+            <div class="font-mono font-bold text-[30px] leading-none mt-2.5 text-frz glow-t">7.8<span class="text-[13px] text-ice font-medium"> / 10</span></div>
+            <div class="mt-2.5 h-1.5 w-full bg-[#0C111B] border border-iceline overflow-hidden">
+              <div class="h-full w-[78%]" style="background:linear-gradient(90deg,#00F2FE,#7CDFFF)"></div>
+            </div>
+            <div class="mt-2 font-mono text-[10.5px] text-ice">OPTIMAL CYCLING · VIBE 92% · RETENTION 88%</div>
+          </div>
+        </div>
+
+        <!-- telemetry -->
+        <div class="chamfer-sm border border-iceline p-4 font-mono text-[11px] text-ice space-y-2" style="background:rgba(12,17,27,.7)">
+          <div class="flex justify-between"><span>VAULT SYNC</span><span class="text-white">STABLE · 99.98%</span></div>
+          <div class="flex justify-between"><span>CRYO DROP 07</span><span class="text-frz">LOCKED · T-06D</span></div>
+          <div class="flex justify-between"><span>OUTPOST PING</span><span class="text-white">JKT 14ms · SGP 22ms</span></div>
+          <div class="flex justify-between"><span>SESSION</span><span class="text-white" id="sessionClock">--:--:--</span></div>
+        </div>
+
+        <button onclick="claimShard()" id="claimBtn" class="w-full chamfer-sm border border-frz/40 hover:border-frz px-4 py-3 font-bold uppercase tracking-wider text-[12.5px] text-frz transition-colors" style="background:rgba(0,242,254,.06)">
+          <span class="inline-flex items-center gap-2"><i data-lucide="gem" class="w-4 h-4"></i> Claim Daily Shard +25</span>
+        </button>
+      </aside>
+    </div>
+  </section>
+  <!-- ============ 2. THE VAULT ============ -->
+  <section id="vault" class="pb-14 scroll-mt-24">
+    <div class="flex items-end justify-between gap-4 flex-wrap mb-5">
+      <div>
+        <span class="serial">Sector 02 — Community Archive</span>
+        <h2 class="font-display font-bold uppercase tracking-tight text-[30px] sm:text-[44px] leading-[0.95] mt-2">The <span class="text-frz glow-t">Vault</span></h2>
+      </div>
+      <div class="flex items-center gap-4 font-mono text-[11px] text-ice">
+        <span><b class="text-white" id="vaultCount">0</b> ENTRIES</span>
+        <span class="hidden sm:inline"><b class="text-white" id="voteTotal">0</b> CHILL VOTES</span>
+        <span class="hidden md:inline">UPDATED <b class="text-white" id="vaultUpdated">NOW</b></span>
+      </div>
+    </div>
+
+    <!-- sticky filter bar -->
+    <div class="sticky top-[63px] z-30 -mx-4 sm:mx-0 px-4 sm:px-0 py-3 glass-2 border-y border-iceline sm:chamfer-sm sm:border">
+      <div class="flex items-center gap-2.5 overflow-x-auto no-scrollbar">
+        <span class="serial shrink-0 hidden sm:flex items-center gap-1.5 pr-2 border-r border-iceline">
+          <i data-lucide="filter" class="w-3.5 h-3.5"></i>Filter
+        </span>
+        <div id="filterBar" class="flex items-center gap-2 min-w-max"></div>
+        <div class="hidden md:flex items-center gap-2 ml-auto pl-3 border-l border-iceline shrink-0">
+          <div class="relative">
+            <i data-lucide="search" class="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-ice"></i>
+            <input id="vaultSearch" autocomplete="off" aria-label="Cari entri vault" placeholder="Search handles / tags" class="w-[210px] font-mono text-[11.5px] chamfer-sm border border-iceline pl-9 pr-3 py-2.5 outline-none focus:border-frz/60 placeholder:text-[#5C7186]" style="background:rgba(12,17,27,.85)">
+          </div>
+          <button onclick="toggleDensity()" id="densityBtn" aria-label="Ubah kepadatan grid" class="w-[38px] h-[38px] grid place-items-center chamfer-sm border border-iceline hover:border-frz/60" style="background:rgba(12,17,27,.85)">
+            <i data-lucide="layout-grid" class="w-4 h-4 text-ice"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- masonry feed -->
+    <div id="vaultGrid" class="mt-5 columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 [column-fill:_balance]"></div>
+    <div id="vaultEmpty" class="hidden glass chamfer p-10 text-center mt-5">
+      <i data-lucide="snowflake" class="w-7 h-7 mx-auto text-frz"></i>
+      <p class="font-display font-bold uppercase tracking-wide text-[18px] mt-3">No entries in this sector</p>
+      <p class="font-mono text-[11.5px] text-ice mt-1.5">Coba filter lain atau reset pencarian.</p>
+    </div>
+    <div class="mt-5 flex justify-center">
+      <button onclick="loadMore()" id="loadMoreBtn" class="inline-flex items-center gap-2 chamfer-sm border border-iceline hover:border-frz/60 px-6 py-3.5 font-bold uppercase tracking-wider text-[12.5px] text-white transition-colors" style="background:rgba(17,22,34,.7)">
+        <i data-lucide="layers" class="w-4 h-4"></i> Load More Entries
+      </button>
+    </div>
+  </section>
+  <!-- ============ 3. CRYO DROPS ============ -->
+  <section id="drops" class="pb-14 scroll-mt-24">
+    <div class="flex items-end justify-between gap-4 flex-wrap mb-5">
+      <div>
+        <span class="serial">Sector 03 — Release Schedule</span>
+        <h2 class="font-display font-bold uppercase tracking-tight text-[30px] sm:text-[44px] leading-[0.95] mt-2">Cryo <span class="text-frz glow-t">Drops</span></h2>
+      </div>
+      <p class="font-mono text-[11px] text-ice max-w-[360px]">Setiap drop dibekukan 72 jam sebelum rilis. Member SUB-ZERO dapat akses 12 jam lebih awal.</p>
+    </div>
+    <div id="dropsGrid" class="grid sm:grid-cols-2 xl:grid-cols-4 gap-4"></div>
+  </section>
+
+  <!-- ============ 4. LAB ============ -->
+  <section id="lab" class="pb-14 scroll-mt-24">
+    <div class="flex items-end justify-between gap-4 flex-wrap mb-5">
+      <div>
+        <span class="serial">Sector 04 — Telemetry &amp; R&amp;D</span>
+        <h2 class="font-display font-bold uppercase tracking-tight text-[30px] sm:text-[44px] leading-[0.95] mt-2">The <span class="text-frz glow-t">Lab</span></h2>
+      </div>
+      <p class="font-mono text-[11px] text-ice max-w-[360px]">Sistem internal komunitas diuji terbuka. Semua metrik di bawah adalah status live portal.</p>
+    </div>
+    <div class="grid lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] gap-4">
+      <div class="glass chamfer p-5 sm:p-6">
+        <div class="flex items-center justify-between mb-4">
+          <span class="serial">Vault Throughput · 14 Days</span>
+          <span class="font-mono text-[10.5px] text-frz">PEAK 412 / D</span>
+        </div>
+        <div id="labChart" class="flex items-end gap-1.5 h-[150px]"></div>
+        <div class="mt-4 grid grid-cols-3 gap-3 font-mono text-[10.5px]">
+          <div class="chamfer-sm border border-iceline p-3" style="background:rgba(12,17,27,.7)"><div class="serial">Avg / day</div><div class="text-white font-bold text-[15px] mt-1.5">287</div></div>
+          <div class="chamfer-sm border border-iceline p-3" style="background:rgba(12,17,27,.7)"><div class="serial">Chill votes</div><div class="text-white font-bold text-[15px] mt-1.5">18.4K</div></div>
+          <div class="chamfer-sm border border-iceline p-3" style="background:rgba(12,17,27,.7)"><div class="serial">Uptime</div><div class="text-frz font-bold text-[15px] mt-1.5">99.98%</div></div>
+        </div>
+      </div>
+      <div class="glass-2 chamfer p-5 sm:p-6 flex flex-col">
+        <div class="flex items-center justify-between mb-3.5">
+          <span class="serial">System Log · stream</span>
+          <span class="font-mono text-[10.5px] text-frz flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-frz rounded-full animate-pulse"></span>LIVE</span>
+        </div>
+        <ul id="labLog" class="font-mono text-[11px] space-y-2.5 overflow-hidden"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5. OUTPOSTS ============ -->
+  <section id="outposts" class="pb-16 scroll-mt-24">
+    <div class="flex items-end justify-between gap-4 flex-wrap mb-5">
+      <div>
+        <span class="serial">Sector 05 — Ground Network</span>
+        <h2 class="font-display font-bold uppercase tracking-tight text-[30px] sm:text-[44px] leading-[0.95] mt-2">Out<span class="text-frz glow-t">posts</span></h2>
+      </div>
+      <button onclick="requestOutpost()" class="inline-flex items-center gap-2 chamfer-sm border border-iceline hover:border-frz/60 px-5 py-3 font-bold uppercase tracking-wider text-[12.5px] text-white transition-colors" style="background:rgba(17,22,34,.7)">
+        <i data-lucide="map-pin-plus" class="w-4 h-4"></i> Request New Outpost
+      </button>
+    </div>
+    <div id="outpostGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3"></div>
+  </section>
+</main>
+<footer class="border-t border-iceline" style="background:rgba(8,10,15,.8)">
+  <div class="max-w-[1360px] mx-auto px-4 sm:px-6 py-10">
+    <div class="grid md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)] gap-8">
+      <div>
+        <div class="flex items-center gap-3">
+          <img src="freeze-logo.png" alt="FREEZE logo" class="h-10 w-auto bg-white px-2 py-1 chamfer-sm border border-iceline">
+          <div class="leading-none">
+            <div class="font-display font-bold uppercase text-[19px] tracking-tight">Freeze</div>
+            <div class="serial mt-1">Ultra-Premium Subculture Portal</div>
+          </div>
+        </div>
+        <p class="font-mono text-[11px] text-ice mt-4 leading-relaxed max-w-[420px]">
+          FREEZE HQ · Void black / arctic cyan. Portal komunitas untuk arsip loadout, drop terjadwal, dan telemetry komunitas. Dibangun tanpa build step.
+        </p>
+        <div class="flex gap-2 mt-4">
+          <a href="freeze-v2.html" class="serial chamfer-sm border border-iceline hover:border-frz/60 px-3 py-2">Landing</a>
+          <a href="freeze-community.html" class="serial chamfer-sm border border-iceline hover:border-frz/60 px-3 py-2">Community</a>
+          <a href="freeze-dashboard.html" class="serial chamfer-sm border border-iceline hover:border-frz/60 px-3 py-2">FreezePay</a>
+        </div>
+      </div>
+      <div>
+        <div class="serial mb-3">Modules</div>
+        <ul class="space-y-2 font-mono text-[11.5px] text-ice">
+          <li><a href="#command" class="hover:text-frz">01 / Command</a></li>
+          <li><a href="#vault" class="hover:text-frz">02 / The Vault</a></li>
+          <li><a href="#drops" class="hover:text-frz">03 / Cryo Drops</a></li>
+          <li><a href="#lab" class="hover:text-frz">04 / Lab</a></li>
+          <li><a href="#outposts" class="hover:text-frz">05 / Outposts</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="serial mb-3">Access</div>
+        <ul class="space-y-2 font-mono text-[11.5px] text-ice">
+          <li>ID · FRZ-SB-2984</li>
+          <li>TIER · <span class="text-frz">SUB-ZERO</span></li>
+          <li>BALANCE · <span id="shardBal3">2,450</span> SHARDS</li>
+          <li>REGION · JKT / +07:00</li>
+          <li>BUILD · 1.1.0-PORTAL</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-9 pt-5 border-t border-iceline flex flex-col sm:flex-row items-center justify-between gap-3 font-mono text-[10.5px] text-ice">
+      <span>© 2026 FREEZE · ALL RIGHTS RESERVED · SERIAL FRZ-29/PRTL</span>
+      <span class="flex items-center gap-4"><a href="#" class="hover:text-frz">TERMS</a><a href="#" class="hover:text-frz">PRIVACY</a><a href="#" class="hover:text-frz">CREW CODE</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- brief modal -->
+<div id="briefModal" class="hidden fixed inset-0 z-[90] items-center justify-center p-4">
+  <div class="absolute inset-0" style="background:rgba(4,6,10,.82);backdrop-filter:blur(4px)" onclick="closeBrief()"></div>
+  <div class="relative w-full max-w-[560px] glass-2 chamfer p-6 sm:p-7">
+    <button onclick="closeBrief()" aria-label="Tutup" class="absolute top-4 right-4 w-9 h-9 grid place-items-center chamfer-sm border border-iceline hover:border-frz/60"><i data-lucide="x" class="w-4 h-4"></i></button>
+    <span class="serial">Brief · 04-SZV/29</span>
+    <h3 class="font-display font-bold uppercase tracking-tight text-[26px] mt-2">Sub-Zero Visual Quest 04</h3>
+    <ul class="mt-4 space-y-2.5 font-mono text-[11.5px] text-ice">
+      <li>01 — Satu visual (rasio bebas) memakai palet void black + arctic cyan.</li>
+      <li>02 — Wajib mencantumkan minimal 3 tag gear yang dipakai.</li>
+      <li>03 — Caption maksimal 220 karakter + credit photographer.</li>
+      <li>04 — Deadline: 6 hari dari sekarang, 21:00 WIB.</li>
+      <li>05 — Penilaian: komposisi 40, konsistensi frost 35, detail 25.</li>
+    </ul>
+    <div class="mt-5 flex gap-2.5">
+      <button onclick="closeBrief();submitEntry()" class="flex-1 chamfer-sm px-5 py-3 font-bold uppercase tracking-wider text-[12.5px] text-void glow" style="background:linear-gradient(140deg,#00F2FE,#7CDFFF)">Submit Entry</button>
+      <button onclick="closeBrief()" class="chamfer-sm px-5 py-3 font-bold uppercase tracking-wider text-[12.5px] text-white border border-iceline" style="background:rgba(17,22,34,.7)">Tutup</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 translate-y-24 opacity-0 transition-all duration-300 z-[100]">
+  <div class="flex items-center gap-2.5 glass-2 chamfer-sm px-5 py-3.5">
+    <i data-lucide="snowflake" class="w-4 h-4 text-frz"></i>
+    <span id="toastMsg" class="font-mono text-[12px] text-white">OK</span>
+  </div>
+</div>
+<script>
+/* ============================================================
+   FREEZE PORTAL — data layer
+   ============================================================ */
+const VAULT = [
+  {id:'v01',handle:'@kiranova',name:'Kira Novansyah',tier:'SUB-ZERO',verified:true,cat:'streetwear',staff:true,time:'12m ago',w:860,
+   title:'VOID LAYER 04 — night recon fit',img:'photo-1523381210434-271e8be1f52b',ratio:'aspect-[4/5]',votes:842,
+   tags:['TECHWEAR PARKA','VOID CARGO','CARBON RUNNER','ICE LENS']},
+  {id:'v02',handle:'@zerohex',name:'Rafi Zerohex',tier:'ABYSS',verified:true,cat:'desk',staff:false,time:'38m ago',w:820,
+   title:'Cryo workstation — dual display frost loop',img:'photo-1517336714731-489689fd1ca8',ratio:'aspect-[4/3]',votes:611,
+   tags:['ARCTIC KEYCAPS','CRYO MOUSEPAD','FROST DESKMAT']},
+  {id:'v03',handle:'@obsidian.kid',name:'Dimas P.',tier:'FROSTLINE',verified:false,cat:'custom',staff:false,time:'1h ago',w:760,
+   title:'MK-III deck — hand-frosted alu case',img:'photo-1541140532154-b024d705b90a',ratio:'aspect-square',votes:388,
+   tags:['MK-III DECK','ALU FROST','SUB-ZERO SWITCH']},
+  {id:'v04',handle:'@polarfox',name:'Sarah Dewi',tier:'SUB-ZERO',verified:true,cat:'streetwear',staff:true,time:'2h ago',w:880,
+   title:'Ice cyan tailoring — editorial test',img:'photo-1490578474895-699cd4e2cf59',ratio:'aspect-[3/4]',votes:1204,
+   tags:['MODULAR SHELL','GLACIER TROUSER','ANODIZED CLIP']},
+  {id:'v05',handle:'@_subzero',name:'Bayu S.',tier:'SUB-ZERO',verified:true,cat:'desk',staff:false,time:'3h ago',w:840,
+   title:'Telemetry corner — 14 sensor readouts',img:'photo-1498050108023-c5249f4df085',ratio:'aspect-[16/10]',votes:534,
+   tags:['LAB BRACKET','SENSOR HUB','VOID CABLE SET']},
+  {id:'v06',handle:'@northsignal',name:'Nadia R.',tier:'ABYSS',verified:true,cat:'custom',staff:false,time:'5h ago',w:800,
+   title:'Orca shell — custom hydro-dip + frost coat',img:'photo-1587831990711-23ca6441447b',ratio:'aspect-[4/5]',votes:719,
+   tags:['ORCA SHELL','HYDRO DIP','FROST COAT']},
+  {id:'v07',handle:'@cryo.unit',name:'Yoga Prasetyo',tier:'FROSTLINE',verified:false,cat:'desk',staff:false,time:'7h ago',w:820,
+   title:'Silent rig — 0dB cryo loop build',img:'photo-1531297484001-80022131f5a1',ratio:'aspect-[4/3]',votes:297,
+   tags:['CRYO LOOP','0dB FAN','VOID GLASS PANEL']},
+  {id:'v08',handle:'@arctic.loop',name:'Melati A.',tier:'SUB-ZERO',verified:true,cat:'streetwear',staff:true,time:'9h ago',w:860,
+   title:'Frostline layering — 3 material study',img:'photo-1441986300917-64674bd600d8',ratio:'aspect-[4/5]',votes:967,
+   tags:['FROSTLINE VEST','ICE SHELL','REFLECTIVE TRIM']},
+  {id:'v09',handle:'@hexwave',name:'Ivan K.',tier:'ABYSS',verified:true,cat:'custom',staff:false,time:'11h ago',w:780,
+   title:'Hexwave mod — keyed to Sub-Zero palette',img:'photo-1518770660439-4636190af475',ratio:'aspect-square',votes:455,
+   tags:['HEX MODULE','CYAN TRACE','COPPER SINK']},
+  {id:'v10',handle:'@mono.ta',name:'Tania M.',tier:'FROSTLINE',verified:false,cat:'desk',staff:false,time:'14h ago',w:840,
+   title:'Mono desk — one material, one accent',img:'photo-1511556820780-d912e42b4980',ratio:'aspect-[3/2]',votes:341,
+   tags:['MONO SHELF','ICE ACCENT','FROST LAMP']},
+  {id:'v11',handle:'@voidwalker',name:'Ardi W.',tier:'SUB-ZERO',verified:true,cat:'streetwear',staff:false,time:'1d ago',w:880,
+   title:'Voidwalker — all-black frost kit',img:'photo-1512436991641-6745cdb1723f',ratio:'aspect-[4/5]',votes:1103,
+   tags:['VOID RUNNER','BLACKOUT CARGO','ICE SOLE']},
+  {id:'v12',handle:'@staff.orchid',name:'Orchid (Staff)',tier:'STAFF',verified:true,cat:'custom',staff:true,time:'1d ago',w:800,
+   title:'Staff build — reference frost rig 2026',img:'photo-1556656793-08538906a9f8',ratio:'aspect-[3/4]',votes:1388,
+   tags:['REF RIG','FROST GRADE A','SERIAL 04']}
+];
+const DROPS = [
+  {code:'DROP-07',name:'Cryo Shell MK-2',when:'in 6d',stock:1200,locked:false,fc:true},
+  {code:'DROP-08',name:'Void Runner Ice',when:'in 13d',stock:800,locked:true,fc:false},
+  {code:'DROP-09',name:'Arctic Keycap Set',when:'in 21d',stock:450,locked:true,fc:false},
+  {code:'DROP-10',name:'Sub-Zero Deck Case',when:'in 34d',stock:300,locked:true,fc:false}
+];
+const OUTPOSTS = [
+  {code:'JKT-01',city:'Jakarta',members:8420,ping:14,status:'PRIMARY'},
+  {code:'BDG-04',city:'Bandung',members:2140,ping:19,status:'ACTIVE'},
+  {code:'SBY-07',city:'Surabaya',members:1680,ping:24,status:'ACTIVE'},
+  {code:'MDN-11',city:'Medan',members:940,ping:31,status:'ACTIVE'},
+  {code:'DPS-14',city:'Denpasar',members:760,ping:28,status:'ACTIVE'},
+  {code:'SGP-02',city:'Singapore',members:1290,ping:22,status:'REMOTE'}
+];
+const NOTIFS = [
+  {t:'Chill vote milestone — your README rig hit 1.2K',ts:'2m ago',tag:'VAULT'},
+  {t:'Cryo Drop 07 unlocks for SUB-ZERO in 6 days',ts:'44m ago',tag:'DROP'},
+  {t:'Quest 04 brief revision 3 published',ts:'3h ago',tag:'QUEST'}
+];
+const TICKER_ITEMS = [
+  'VAULT SYNC · +318 GEAR LOCKED THIS WEEK',
+  'QUEST 04 · 3,142 / 5,000 ENTRIES',
+  'DROP-07 · SUB-ZERO EARLY ACCESS T-06D',
+  'OUTPOST JKT-01 · PING 14ms · 8,420 MEMBERS',
+  'CHILL INDEX · 7.8 / 10 · OPTIMAL',
+  'LAB · UPTIME 99.98% · 0 INCIDENT'
+];
+const LOGS = [
+  'vault.sync — 12 entries indexed',
+  'cryo.freeze — drop07 locked 72h',
+  'vote.stream — 184 chill votes / min',
+  'outpost.ping — JKT 14ms · SGP 22ms',
+  'quest.04 — brief rev3 published',
+  'lab.core — uptime 99.98%'
+];
+</script>
+<script>
+/* ============================================================
+   FREEZE PORTAL — vault feed engine
+   ============================================================ */
+const $ = s => document.querySelector(s);
+const fmt = n => n.toLocaleString('id-ID');
+const VERIFIED = '<svg viewBox="0 0 24 24" class="w-3.5 h-3.5 inline-block ml-1 -mt-0.5" aria-label="verified owner"><path fill="#00F2FE" d="M12 1.6l2.6 2 3.3-.3.9 3.2 2.7 1.9-1.3 3.1 1.3 3.1-2.7 1.9-.9 3.2-3.3-.3-2.6 2-2.6-2-3.3.3-.9-3.2L1.4 15l1.3-3.1L1.4 8.8l2.7-1.9.9-3.2 3.3.3z"/><path fill="#080A0F" d="M10.9 15.4l-2.8-2.8 1.2-1.2 1.6 1.6 3.9-3.9 1.2 1.2z"/></svg>';
+const initials = h => h.replace(/[@._-]/g, '').slice(0, 2).toUpperCase();
+const STORE_KEY = 'freeze.portal.votes';
+const BAL_KEY = 'freeze.portal.balance';
+const CLAIM_KEY = 'freeze.portal.claim';
+let votes = new Set(JSON.parse(localStorage.getItem(STORE_KEY) || '[]'));
+const FILTERS = [
+  {id: 'all', label: 'All Entries'},
+  {id: 'streetwear', label: 'Streetwear'},
+  {id: 'desk', label: 'Desk Setups'},
+  {id: 'custom', label: 'Custom Mods'},
+  {id: 'staff', label: 'Staff Picks'}
+];
+let activeFilter = 'all', query = '', visible = 8;
+
+function imgSrc(e) {
+  return 'https://images.unsplash.com/' + e.img + '?auto=format&fit=crop&w=' + e.w + '&q=80';
+}
+function vaultImgFail(el) {
+  el.onerror = null;
+  el.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 1000'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23111622'/%3E%3Cstop offset='.55' stop-color='%230C111B'/%3E%3Cstop offset='1' stop-color='%2300F2FE' stop-opacity='.35'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='1000' fill='url(%23g)'/%3E%3Cg stroke='%2300F2FE' stroke-opacity='.5' fill='none'%3E%3Cpath d='M400 300l150 90v180l-150 90-150-90V390z'/%3E%3Cpath d='M400 380l85 50v100l-85 50-85-50V430z' opacity='.6'/%3E%3C/g%3E%3C/svg%3E";
+}
+function matches(e) {
+  const okCat = activeFilter === 'all' ? true : activeFilter === 'staff' ? e.staff : e.cat === activeFilter;
+  if (!okCat) return false;
+  if (!query) return true;
+  const hay = (e.handle + ' ' + e.name + ' ' + e.title + ' ' + e.tier + ' ' + e.tags.join(' ') + ' ' + e.cat).toLowerCase();
+  return hay.includes(query);
+}
+function cardHTML(e) {
+  const voted = votes.has(e.id);
+  const count = e.votes + (voted ? 1 : 0);
+  return '<article class="vault-card glass chamfer relative" data-cat="' + e.cat + '" data-staff="' + (e.staff ? 1 : 0) + '" data-vote-id="' + e.id + '">'
+    + '<div class="relative overflow-hidden ' + e.ratio + '">'
+    + '<img src="' + imgSrc(e) + '" alt="' + e.title + '" loading="lazy" decoding="async" class="vault-img w-full h-full transition-transform duration-[900ms] hover:scale-[1.05]" onerror="vaultImgFail(this)">'
+    + '<div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(180deg,rgba(8,10,15,.02),rgba(8,10,15,.55) 55%,rgba(8,10,15,.85))"></div>'
+    + '<div class="absolute top-3 left-3 flex gap-1.5">'
+    + '<span class="serial border border-iceline px-2 py-1" style="background:rgba(8,10,15,.72)">' + e.id.toUpperCase() + '</span>'
+    + (e.staff ? '<span class="serial border px-2 py-1" style="border-color:rgba(0,242,254,.45);background:rgba(0,242,254,.12);color:#00F2FE">Staff Pick</span>' : '')
+    + '</div>'
+    + '<div class="absolute bottom-3 left-3 right-3 flex items-center gap-2">'
+    + '<span class="w-7 h-7 grid place-items-center chamfer-sm font-mono text-[10px] font-bold text-void" style="background:linear-gradient(140deg,#00F2FE,#7CDFFF)">' + initials(e.handle) + '</span>'
+    + '<span class="font-mono text-[11.5px] font-bold text-white">' + e.handle + (e.verified ? VERIFIED : '') + '</span>'
+    + '<span class="serial ml-auto">' + e.time + '</span>'
+    + '</div></div>'
+    + '<div class="p-4">'
+    + '<div class="flex items-center justify-between gap-2"><span class="serial">' + e.tier + ' TIER</span><span class="font-mono text-[10.5px] text-ice">' + e.cat.toUpperCase() + '</span></div>'
+    + '<h3 class="font-display font-bold uppercase tracking-tight text-[17px] leading-tight mt-2">' + e.title + '</h3>'
+    + '<div class="flex flex-wrap gap-1.5 mt-3">' + e.tags.map(t => '<span class="chip">' + t + '</span>').join('') + '</div>'
+    + '<div class="mt-4 flex items-center justify-between gap-2.5">'
+    + '<button class="chill-btn chamfer-sm border border-iceline px-3.5 py-2.5 flex items-center gap-2 font-mono text-[11px] font-bold text-ice' + (voted ? ' voted' : '') + '" onclick="chillVote(this,\'' + e.id + '\')" aria-pressed="' + voted + '">'
+    + '<i data-lucide="snowflake" class="w-4 h-4"></i><span data-count>' + fmt(count) + '</span><span class="hidden sm:inline">CHILL</span></button>'
+    + '<span class="font-mono text-[10.5px] text-ice">' + (e.tier === 'STAFF' ? 'HQ' : 'MEMBER') + ' · FRZ-' + e.id.slice(1) + '</span>'
+    + '</div></div></article>';
+}
+function filtered() { return VAULT.filter(matches); }
+function renderVault() {
+  const list = filtered();
+  $('#vaultGrid').innerHTML = list.slice(0, visible).map(cardHTML).join('');
+  $('#vaultEmpty').classList.toggle('hidden', list.length !== 0);
+  $('#loadMoreBtn').classList.toggle('hidden', visible >= list.length);
+  $('#vaultCount').textContent = fmt(list.length);
+  $('#voteTotal').textContent = fmt(VAULT.reduce((a, e) => a + e.votes + (votes.has(e.id) ? 1 : 0), 0));
+  const t = new Date();
+  $('#vaultUpdated').textContent = String(t.getHours()).padStart(2, '0') + ':' + String(t.getMinutes()).padStart(2, '0');
+  lucide.createIcons();
+}
+</script>
+<script>
+/* ============================================================
+   FREEZE PORTAL — filters, search, chill meter
+   ============================================================ */
+function segCount(id) {
+  if (id === 'all') return VAULT.length;
+  if (id === 'staff') return VAULT.filter(e => e.staff).length;
+  return VAULT.filter(e => e.cat === id).length;
+}
+function buildFilters() {
+  $('#filterBar').innerHTML = FILTERS.map(f =>
+    '<button class="seg chamfer-sm' + (f.id === activeFilter ? ' active' : '') + '" data-filter="' + f.id + '" onclick="setFilter(\'' + f.id + '\')">'
+    + f.label + ' <span class="opacity-70">' + String(segCount(f.id)).padStart(2, '0') + '</span></button>').join('');
+}
+function setFilter(id) {
+  activeFilter = id;
+  document.querySelectorAll('#filterBar .seg').forEach(b => b.classList.toggle('active', b.dataset.filter === id));
+  renderVault();
+}
+function onSearch(v) { query = v.trim().toLowerCase(); visible = 8; renderVault(); }
+function toggleDensity() {
+  const g = $('#vaultGrid');
+  g.classList.toggle('dense');
+  const on = g.classList.contains('dense');
+  g.className = g.className.replace(/columns-\S+/g, '').trim();
+  g.classList.add('columns-1', 'sm:columns-2', on ? 'lg:columns-4' : 'lg:columns-3', on ? 'xl:columns-6' : 'xl:columns-4', 'gap-4');
+  if (on) g.classList.add('dense');
+  toast(on ? 'Density: compact · up to 6 columns' : 'Density: editorial · up to 4 columns');
+  lucide.createIcons();
+}
+function loadMore() {
+  visible = Math.min(visible + 8, filtered().length);
+  renderVault();
+  toast('Loaded ' + visible + ' of ' + filtered().length + ' entries');
+}
+/* ---- Chill Meter + ice particle effect ---- */
+function spawnIce(host, x, y, n) {
+  for (let i = 0; i < n; i++) {
+    const p = document.createElement('span');
+    const size = 3 + Math.random() * 5;
+    p.className = 'ice-particle';
+    p.style.left = x + 'px';
+    p.style.top = y + 'px';
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
+    p.style.setProperty('--dx', ((Math.random() * 2 - 1) * 58).toFixed(0) + 'px');
+    p.style.setProperty('--dy', (-26 - Math.random() * 58).toFixed(0) + 'px');
+    p.style.setProperty('--d', (560 + Math.random() * 520).toFixed(0) + 'ms');
+    host.appendChild(p);
+    setTimeout(() => p.remove(), 1250);
+  }
+}
+function chillVote(btn, id) {
+  const entry = VAULT.find(e => e.id === id);
+  if (!entry) return;
+  const on = !votes.has(id);
+  if (on) votes.add(id); else votes.delete(id);
+  localStorage.setItem(STORE_KEY, JSON.stringify([...votes]));
+  const el = btn.querySelector('[data-count]');
+  const target = entry.votes + (on ? 1 : 0);
+  const start = parseInt(String(el.textContent).replace(/\./g, ''), 10) || target;
+  btn.classList.toggle('voted', on);
+  btn.setAttribute('aria-pressed', String(on));
+  if (on) {
+    const card = btn.closest('article');
+    const br = btn.getBoundingClientRect(), cr = card.getBoundingClientRect();
+    spawnIce(card, br.left - cr.left + br.width / 2, br.top - cr.top + br.height / 2, 12);
+  }
+  let cur = start, step = Math.max(1, Math.round((target - start) / 12));
+  const t = setInterval(() => {
+    cur += step;
+    if ((step > 0 && cur >= target) || (step < 0 && cur <= target)) { cur = target; clearInterval(t); }
+    el.textContent = fmt(cur);
+  }, 26);
+  $('#voteTotal').textContent = fmt(VAULT.reduce((a, e) => a + e.votes + (votes.has(e.id) ? 1 : 0), 0));
+  toast(on ? 'Chill vote terkirim · ' + entry.handle + ' +1' : 'Chill vote dibatalkan · ' + entry.handle);
+}
+/* ---- brief modal / entry submit ---- */
+function openBrief() { const m = $('#briefModal'); m.classList.remove('hidden'); m.classList.add('flex'); document.body.style.overflow = 'hidden'; lucide.createIcons(); }
+function closeBrief() { const m = $('#briefModal'); m.classList.add('hidden'); m.classList.remove('flex'); document.body.style.overflow = ''; }
+function submitEntry() { toast('Entry slot dibuka · upload dari Cryo Client (demo)'); }
+function requestOutpost() { toast('Request outpost masuk ke queue · verifikasi 72 jam'); }
+function toggleDensityBtn() { toggleDensity(); }
+</script>
+<script>
+/* ============================================================
+   FREEZE PORTAL — modules render + live systems
+   ============================================================ */
+function renderDrops() {
+  $('#dropsGrid').innerHTML = DROPS.map(d =>
+    '<article class="vault-card glass chamfer p-5">'
+    + '<div class="flex items-center justify-between"><span class="serial">' + d.code + '</span>'
+    + (d.locked
+      ? '<span class="serial border border-iceline px-2 py-1 text-ice"><i data-lucide="lock" class="w-3 h-3 inline-block -mt-0.5"></i> Locked</span>'
+      : '<span class="serial border px-2 py-1" style="border-color:rgba(0,242,254,.45);background:rgba(0,242,254,.12);color:#00F2FE">Open · FC</span>')
+    + '</div>'
+    + '<h3 class="font-display font-bold uppercase tracking-tight text-[21px] leading-tight mt-4">' + d.name + '</h3>'
+    + '<div class="flex items-end gap-2 mt-3"><span class="font-mono font-bold text-[26px] leading-none text-white">' + d.when + '</span><span class="serial">release</span></div>'
+    + '<div class="mt-4 font-mono text-[10.5px] text-ice flex justify-between"><span>STOCK ' + fmt(d.stock) + ' PCS</span><span>' + (d.fc ? 'FIRST-COME' : 'ALLOCATED') + '</span></div>'
+    + '<div class="mt-2 h-1.5 bg-[#0C111B] border border-iceline overflow-hidden"><div class="h-full ' + (d.locked ? 'w-[28%] bg-[#2C4258]' : 'w-[86%]') + '" style="' + (d.locked ? '' : 'background:linear-gradient(90deg,#00F2FE,#7CDFFF)') + '"></div></div>'
+    + '<button onclick="notifyDrop(\'' + d.code + '\')" class="mt-4 w-full chamfer-sm border border-iceline hover:border-frz/60 px-4 py-2.5 font-mono text-[11px] font-bold uppercase tracking-wider text-ice hover:text-white transition-colors">'
+    + (d.locked ? 'Notify me' : 'Set reminder') + '</button>'
+    + '</article>').join('');
+  lucide.createIcons();
+}
+function notifyDrop(code) { toast('Reminder aktif untuk ' + code + ' · notifikasi H-12 jam'); }
+
+function renderOutposts() {
+  $('#outpostGrid').innerHTML = OUTPOSTS.map(o =>
+    '<article class="glass-2 chamfer p-4 sm:p-5 flex items-center gap-4">'
+    + '<span class="w-12 h-12 grid place-items-center chamfer-sm font-mono text-[11px] font-bold text-void shrink-0" style="background:linear-gradient(140deg,#00F2FE,#7CDFFF)">' + o.code.split('-')[0] + '</span>'
+    + '<div class="min-w-0"><div class="flex items-center gap-2"><h3 class="font-display font-bold uppercase tracking-tight text-[18px] leading-none">' + o.city + '</h3>'
+    + '<span class="serial border border-iceline px-1.5 py-0.5">' + o.status + '</span></div>'
+    + '<div class="font-mono text-[10.5px] text-ice mt-1.5">' + o.code + ' · ' + fmt(o.members) + ' MEMBERS · ' + o.ping + 'ms</div></div>'
+    + '<span class="ml-auto shrink-0 font-mono text-[11px] font-bold ' + (o.ping < 20 ? 'text-frz' : 'text-ice') + '">' + (o.ping < 20 ? '▲' : '■') + '</span>'
+    + '</article>').join('');
+}
+
+function renderLab() {
+  const data = [186, 214, 168, 302, 276, 198, 356, 412, 288, 246, 332, 298, 268, 364];
+  const max = Math.max(...data);
+  $('#labChart').innerHTML = data.map((v, i) =>
+    '<div class="flex-1 flex flex-col justify-end items-center gap-1.5" title="Day ' + (i + 1) + ' · ' + v + ' entries">'
+    + '<span class="font-mono text-[9px] text-ice hidden sm:block">' + v + '</span>'
+    + '<div class="w-full ' + (i === data.length - 1 ? '' : 'opacity-70') + '" style="height:' + Math.round(v / max * 78) + '%;background:linear-gradient(180deg,#00F2FE,rgba(0,242,254,.15))"></div>'
+    + '</div>').join('');
+  const list = $('#labLog');
+  list.innerHTML = LOGS.map(l => '<li class="flex gap-2.5"><span class="text-frz">›</span><span class="text-ice">' + l + '</span></li>').join('');
+  let i = 0;
+  setInterval(() => {
+    const stamp = new Date().toTimeString().slice(0, 8);
+    const li = document.createElement('li');
+    li.className = 'flex gap-2.5';
+    li.innerHTML = '<span class="text-frz">›</span><span class="text-white">' + LOGS[i % LOGS.length] + ' <span class="text-ice">· ' + stamp + '</span></span>';
+    list.prepend(li);
+    while (list.children.length > 6) list.lastElementChild.remove();
+    i++;
+  }, 4200);
+}
+
+function renderNotif() {
+  $('#notifList').innerHTML = NOTIFS.map(n =>
+    '<li class="px-3 py-3 hover:bg-[#0C111B]"><div class="flex items-center gap-2"><span class="serial text-frz">' + n.tag + '</span><span class="font-mono text-[10px] text-ice ml-auto">' + n.ts + '</span></div>'
+    + '<p class="font-mono text-[11.5px] text-white mt-1.5 leading-relaxed">' + n.t + '</p></li>').join('');
+}
+function clearNotif() {
+  $('#notifBadge').classList.add('hidden');
+  $('#notifPanel').classList.add('hidden');
+  toast('Semua notifikasi ditandai terbaca');
+}
+
+function renderTicker() {
+  const row = TICKER_ITEMS.map(t => '<span>' + t + '</span>').join('');
+  $('#ticker').innerHTML = row + row;
+  const el = $('#ticker');
+  let x = 0;
+  (function loop() {
+    x -= 0.45;
+    if (Math.abs(x) > el.scrollWidth / 2) x = 0;
+    el.style.transform = 'translateX(' + x + 'px)';
+    requestAnimationFrame(loop);
+  })();
+}
+</script>
+<script>
+/* ============================================================
+   FREEZE PORTAL — live systems + init
+   ============================================================ */
+const TARGET = (() => { const d = new Date(); d.setDate(d.getDate() + 6); d.setHours(21, 0, 0, 0); return d; })();
+function tickCountdown() {
+  let ms = TARGET - Date.now();
+  if (ms < 0) ms = 0;
+  const d = Math.floor(ms / 864e5), h = Math.floor(ms % 864e5 / 36e5), m = Math.floor(ms % 36e5 / 6e4), s = Math.floor(ms % 6e4 / 1000);
+  document.querySelectorAll('[data-cd]').forEach(el => {
+    const k = el.dataset.cd;
+    const v = k === 'd' ? d : k === 'h' ? h : k === 'm' ? m : s;
+    const str = String(v).padStart(2, '0');
+    if (el.textContent !== str) el.textContent = str;
+  });
+  const pct = Math.max(0, Math.min(100, 100 - (ms / (6 * 864e5)) * 100));
+  const entryPct = Math.min(100, Math.round(62 + pct * 0.3));
+  $('#entryBar').style.width = entryPct + '%';
+  $('#entryPct').textContent = entryPct + '%';
+}
+function runCounters() {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, end = +el.dataset.target;
+    let cur = 0, step = Math.max(1, Math.round(end / 70));
+    const t = setInterval(() => { cur += step; if (cur >= end) { cur = end; clearInterval(t); } el.textContent = fmt(cur); }, 22);
+    io.unobserve(el);
+  }), {threshold: .4});
+  document.querySelectorAll('.counter').forEach(el => io.observe(el));
+}
+function clock() {
+  const now = new Date();
+  $('#sessionClock').textContent = now.toTimeString().slice(0, 8);
+}
+function setBalance(n) {
+  ['#shardBal', '#shardBal2', '#shardBal3'].forEach(s => { const el = $(s); if (el) el.textContent = fmt(n); });
+}
+function claimShard() {
+  const today = new Date().toDateString();
+  if (localStorage.getItem(CLAIM_KEY) === today) { toast('Daily shard sudah diklaim hari ini · reset 00:00'); return; }
+  let bal = parseInt(localStorage.getItem(BAL_KEY) || '2450', 10) + 25;
+  localStorage.setItem(BAL_KEY, String(bal));
+  localStorage.setItem(CLAIM_KEY, today);
+  setBalance(bal);
+  toast('+25 SHARDS diklaim · saldo ' + fmt(bal));
+}
+function toast(msg) {
+  const t = $('#toast');
+  $('#toastMsg').textContent = msg;
+  t.style.transform = 'translate(-50%,0)';
+  t.style.opacity = '1';
+  clearTimeout(t._h);
+  t._h = setTimeout(() => { t.style.transform = 'translate(-50%,6rem)'; t.style.opacity = '0'; }, 2600);
+}
+function initNav() {
+  const links = document.querySelectorAll('.nav-item');
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (!e.isIntersecting) return;
+    links.forEach(l => l.classList.toggle('active', l.dataset.nav === e.target.id));
+  }), {rootMargin: '-45% 0px -50% 0px'});
+  ['command', 'vault', 'drops', 'lab', 'outposts'].forEach(id => { const s = document.getElementById(id); if (s) io.observe(s); });
+}
+function initReveal() {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }), {threshold: .12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+}
+(function init() {
+  buildFilters();
+  renderVault();
+  renderDrops();
+  renderOutposts();
+  renderLab();
+  renderNotif();
+  renderTicker();
+  runCounters();
+  initReveal();
+  initNav();
+  setBalance(parseInt(localStorage.getItem(BAL_KEY) || '2450', 10));
+  clock(); tickCountdown();
+  setInterval(clock, 1000);
+  setInterval(tickCountdown, 1000);
+  const prog = document.getElementById('navProg');
+  addEventListener('scroll', () => {
+    const h = document.documentElement;
+    prog.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight || 1) * 100) + '%';
+  }, {passive: true});
+  $('#vaultSearch').addEventListener('input', e => onSearch(e.target.value));
+  $('#notifBtn').addEventListener('click', e => {
+    e.stopPropagation();
+    const p = $('#notifPanel');
+    const open = p.classList.contains('hidden');
+    p.classList.toggle('hidden', !open);
+    $('#notifBtn').setAttribute('aria-expanded', String(open));
+  });
+  document.addEventListener('click', e => {
+    if (!e.target.closest('#notifPanel') && !e.target.closest('#notifBtn')) $('#notifPanel').classList.add('hidden');
+  });
+  $('#mobileBtn').addEventListener('click', () => {
+    const d = $('#mobileDrawer');
+    const hidden = d.classList.contains('hidden');
+    d.classList.toggle('hidden', !hidden);
+    $('#mobileBtn').setAttribute('aria-expanded', String(hidden));
+  });
+  document.querySelectorAll('.drawer-link').forEach(a => a.addEventListener('click', () => $('#mobileDrawer').classList.add('hidden')));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeBrief(); $('#notifPanel').classList.add('hidden'); } });
+  lucide.createIcons();
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

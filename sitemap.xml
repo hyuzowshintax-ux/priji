@@ -16,6 +16,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://hyuzowshintax-ux.github.io/priji/freeze-portal.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://hyuzowshintax-ux.github.io/priji/index.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
